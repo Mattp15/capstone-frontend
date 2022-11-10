@@ -9,6 +9,7 @@ const Login = (props) => {
   const [matchPassword, setMatchPassword] = useState()
   const [submission, setSubmission] = useState()
   const [color, setColor] = useState()
+  const [errorMessage, setErrorMessage] = useState()
 
   const handleChange = ({ target }) => {
     const { value, name } = target
@@ -22,7 +23,6 @@ const Login = (props) => {
         prev += value
       })
     }
-    const passwordRegex = 'temp'
     if (name === 'password') {
       setPassword((prev) => {
         prev += value
@@ -54,12 +54,17 @@ const Login = (props) => {
       console.log('not matching')
       return false
     }
-    if (target[2].value === target[3].value) {
-      console.log(target[2].value, target[3].value, 'matching')
+    if (target[2].value === target[3].value && target[2].value.length) {
+      console.log('in-matched')
+      if (passwordIsValid(target[2].value)) {
+      } else {
+        console.log('else')
+        setErrorMessage('Please meet the password requirements')
+      }
     } else {
+      setErrorMessage('Passwords not matching')
       console.log('whoo')
       setColor('red')
-      console.log(style.password.borderColor)
     }
   }
 
@@ -70,6 +75,7 @@ const Login = (props) => {
       <label>split</label>
       <Input type='text' value={password} name='password' onChange={handleChange} />
       <Input type='text' value={matchPassword} name='matchPassword' onChange={handleChange} style={color} />
+      {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
       <Input type='submit' value='Submit' />
     </form>
   )
@@ -85,6 +91,13 @@ export const isValidEmail = (email) => {
     }
   }
 }
+export const passwordIsValid = (password) => {
+  const pwdChk = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
+  if (password.match(pwdChk)) {
+    return true
+  }
+}
+
 const style = {
   formStyle: {
     display: 'flex',
@@ -92,10 +105,10 @@ const style = {
     width: '20vw',
     margin: '0 auto',
   },
-  // green: {
-  //   border: '3px solid green',
-  // },
-  // red: {
-  //   border: '3px solid red',
-  // },
+  notMatching: {
+    alignItems: 'flex-start',
+    color: 'red',
+    display: 'flex',
+    fontSize: '.7em',
+  },
 }
