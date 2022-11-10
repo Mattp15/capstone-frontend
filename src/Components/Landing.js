@@ -3,12 +3,7 @@ import Words from './Words'
 import Login from './Forms/Login'
 
 const Landing = ({ item }) => {
-  return (
-    <div>
-      <p style={style.item}>test1</p>
-      <p>test2</p>
-    </div>
-  )
+  return <div></div>
 }
 export default Landing
 const style = {

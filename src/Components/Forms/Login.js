@@ -57,6 +57,7 @@ const Login = (props) => {
     if (target[2].value === target[3].value && target[2].value.length) {
       console.log('in-matched')
       if (passwordIsValid(target[2].value)) {
+        setErrorMessage()
       } else {
         console.log('else')
         setErrorMessage('Please meet the password requirements')
@@ -69,15 +70,17 @@ const Login = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={style.formStyle}>
-      <Input type='text' value={email} name='email' onChange={handleChange} />
-      <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} />
-      <label>split</label>
-      <Input type='text' value={password} name='password' onChange={handleChange} />
-      <Input type='text' value={matchPassword} name='matchPassword' onChange={handleChange} style={color} />
-      {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
-      <Input type='submit' value='Submit' />
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} style={style.formStyle}>
+        <Input type='text' value={email} name='email' onChange={handleChange} />
+        <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} />
+        <label>split</label>
+        <Input type='text' value={password} name='password' onChange={handleChange} />
+        <Input type='text' value={matchPassword} name='matchPassword' onChange={handleChange} style={color} />
+        {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
+        <Input type='submit' value='Submit' />
+      </form>
+    </div>
   )
 }
 export default Login
@@ -94,16 +97,22 @@ export const isValidEmail = (email) => {
 export const passwordIsValid = (password) => {
   const pwdChk = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
   if (password.match(pwdChk)) {
+    console.log('et')
     return true
   }
 }
 
 const style = {
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   formStyle: {
     display: 'flex',
     flexDirection: 'column',
-    width: '20vw',
     margin: '0 auto',
+    width: '20vw',
   },
   notMatching: {
     alignItems: 'flex-start',
