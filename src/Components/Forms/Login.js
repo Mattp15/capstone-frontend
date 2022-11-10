@@ -10,10 +10,10 @@ const Login = (props) => {
   const [submission, setSubmission] = useState()
   const [color, setColor] = useState()
   const [errorMessage, setErrorMessage] = useState()
+  const [emailError, setEmailError] = useState()
 
   const handleChange = ({ target }) => {
     const { value, name } = target
-    console.log(value, name)
     if (name === 'email') {
       setEmail((prev) => {
         prev += value
@@ -46,26 +46,28 @@ const Login = (props) => {
     const { target } = e
     if (target[0].value.toLowerCase() === target[1].value.toLowerCase()) {
       const { value, name } = target[0]
+      setEmailError('')
       if (isValidEmail(value)) {
-        console.log('valid')
         addToSubmissions(value.toLowerCase(), name)
+      } else {
+        setEmailError('Please enter a valid Email address')
       }
     } else {
-      console.log('not matching')
+      setEmailError('Emails not matching')
       return false
     }
     if (target[2].value === target[3].value && target[2].value.length) {
-      console.log('in-matched')
       if (passwordIsValid(target[2].value)) {
         setErrorMessage()
       } else {
-        console.log('else')
         setErrorMessage('Please meet the password requirements')
       }
     } else {
       setErrorMessage('Passwords not matching')
-      console.log('whoo')
       setColor('red')
+    }
+    if (email && password) {
+      console.log('email and password')
     }
   }
 
@@ -74,7 +76,7 @@ const Login = (props) => {
       <form onSubmit={handleSubmit} style={style.formStyle}>
         <Input type='text' value={email} name='email' onChange={handleChange} />
         <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} />
-        <label>split</label>
+        {emailError ? <p style={style.notMatching}>{emailError}</p> : ''}
         <Input type='text' value={password} name='password' onChange={handleChange} />
         <Input type='text' value={matchPassword} name='matchPassword' onChange={handleChange} style={color} />
         {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
