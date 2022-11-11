@@ -21,24 +21,19 @@ const Login = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const { email, password } = user
-    if (isValidEmail(email)) {
-      console.log('validEmail')
-    } else {
-      setEmailError()
-    }
-    if (isValidPassword(password)) {
-      console.log('validPassword')
-    }
-    return
+    fetchCall()
+  }
+  const fetchCall = () => {
+    //set a fetchCall componant
   }
   return (
     <div style={style.container}>
       <h1>Login</h1>
       {/* <div style={style.container}> */}
       <form onSubmit={handleSubmit} style={style.formStyle}>
-        <Input type='text' value={user.email} onChange={handleChange} name='email' />
-        <Input type='text' value={user.password} onChange={handleChange} name='password' />
-        <Input type='submit' value='Log in' />
+        <Input type='text' value={user.email} onChange={handleChange} name='email' inputStyle='default' />
+        <Input type='text' value={user.password} onChange={handleChange} name='password' inputStyle='default' />
+        <Input type='submit' value='Log in' name='submit' />
         <p style={emailError}>Email or Password does not match</p>
       </form>
     </div>
@@ -82,7 +77,10 @@ const style = {
   },
   hidden: {
     fontSize: '12px',
-    margin: '-2px',
-    // color: 'rgba(0, 0, 0, 0)',
+    color: 'rgba(0, 0, 0, 0)',
+  },
+  show: {
+    fontSize: '12px',
+    color: 'red',
   },
 }
