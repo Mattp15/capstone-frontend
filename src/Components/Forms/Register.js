@@ -9,7 +9,6 @@ const Register = (props) => {
   const [password, setPassword] = useState('')
   const [matchPassword, setMatchPassword] = useState('')
   const [submission, setSubmission] = useState()
-  const [color, setColor] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [emailError, setEmailError] = useState('')
 
@@ -24,7 +23,6 @@ const Register = (props) => {
       setPassword(value)
     } else if (name === 'matchPassword') {
       setMatchPassword(value)
-      setColor('')
     }
   }
 
@@ -52,7 +50,7 @@ const Register = (props) => {
     }
     if (target[2].value === target[3].value && target[2].value.length) {
       const { value, name } = target[2]
-      if (passwordIsValid(value)) {
+      if (isValidPassword(value)) {
         setErrorMessage()
         addToSubmissions(value, name)
       } else {
@@ -61,7 +59,6 @@ const Register = (props) => {
       }
     } else {
       setErrorMessage('Passwords not matching')
-      setColor('red')
       return
     }
     fetchCall()
@@ -81,12 +78,13 @@ const Register = (props) => {
 
   return (
     <div>
+      <h1>Register</h1>
       <form onSubmit={handleSubmit} style={style.formStyle}>
-        <Input type='text' value={email} name='email' onChange={handleChange} />
-        <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} />
+        <Input type='text' value={email} name='email' onChange={handleChange} inputStyle='default' />
+        <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} inputStyle='default' />
         {emailError ? <p style={style.notMatching}>{emailError}</p> : ''}
-        <Input type='text' value={password} name='password' onChange={handleChange} />
-        <Input type='text' value={matchPassword} name='matchPassword' onChange={handleChange} style={color} />
+        <Input type='text' value={password} name='password' onChange={handleChange} inputStyle='default' />
+        <Input type='text' inputStyle='default' value={matchPassword} name='matchPassword' onChange={handleChange} />
         {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
         <Input type='submit' value='Submit' />
       </form>
@@ -104,7 +102,7 @@ export const isValidEmail = (email) => {
     }
   }
 }
-export const passwordIsValid = (password) => {
+export const isValidPassword = (password) => {
   const pwdChk = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
   if (password.match(pwdChk)) {
     return true
@@ -120,13 +118,12 @@ const style = {
   formStyle: {
     display: 'flex',
     flexDirection: 'column',
-    margin: '0 auto',
-    width: '20vw',
   },
   notMatching: {
     alignItems: 'flex-start',
     color: 'red',
     display: 'flex',
     fontSize: '.7em',
+    margin: '2px',
   },
 }

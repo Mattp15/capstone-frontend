@@ -1,25 +1,22 @@
 import React from 'react'
 
-const Input = ({ type, value, onChange, name, style }) => {
+const Input = ({ type, value, onChange, name, inputStyle }) => {
   return (
     <label>
-      <label htmlFor={name} style={x.hideLabel}>
+      <label htmlFor={name} style={style.hideLabel}>
         {name}
       </label>
-      <input type={type} value={value} onChange={onChange} name={name} style={x.password[style]} />
+      <input type={type} value={value} onChange={onChange} name={name} style={style[inputStyle]} />
     </label>
   )
 }
 export default Input
 
-const x = {
+const style = {
   hideLabel: {
     display: 'none',
   },
-  password: {
-    green: {
-      border: '3px solid green',
-    },
-    red: { border: '3px solid red' },
+  default: {
+    marginBottom: '6px',
   },
 }

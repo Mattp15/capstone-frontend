@@ -3,7 +3,48 @@ import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
 import { url } from '../../url'
 
-const Login = (props) => {}
+const Login = (props) => {
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  })
+  const [emailError, setEmailError] = useState(style.hidden)
+
+  const handleChange = ({ target }) => {
+    const { value, name } = target
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const { email, password } = user
+    if (isValidEmail(email)) {
+      console.log('validEmail')
+    } else {
+      setEmailError()
+    }
+    if (isValidPassword(password)) {
+      console.log('validPassword')
+    }
+    return
+  }
+  return (
+    <div style={style.container}>
+      <h1>Login</h1>
+      {/* <div style={style.container}> */}
+      <form onSubmit={handleSubmit} style={style.formStyle}>
+        <Input type='text' value={user.email} onChange={handleChange} name='email' />
+        <Input type='text' value={user.password} onChange={handleChange} name='password' />
+        <Input type='submit' value='Log in' />
+        <p style={emailError}>Email or Password does not match</p>
+      </form>
+    </div>
+    // </div>
+  )
+}
 export default Login
 
 export const isValidEmail = (email) => {
@@ -15,10 +56,9 @@ export const isValidEmail = (email) => {
     }
   }
 }
-export const passwordIsValid = (password) => {
+export const isValidPassword = (password) => {
   const pwdChk = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
   if (password.match(pwdChk)) {
-    console.log('et')
     return true
   }
 }
@@ -26,19 +66,23 @@ export const passwordIsValid = (password) => {
 const style = {
   container: {
     display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  div: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '20%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   formStyle: {
     display: 'flex',
     flexDirection: 'column',
-    margin: '0 auto',
-    width: '20vw',
   },
-  notMatching: {
-    alignItems: 'flex-start',
-    color: 'red',
-    display: 'flex',
-    fontSize: '.7em',
+  hidden: {
+    fontSize: '12px',
+    margin: '-2px',
+    // color: 'rgba(0, 0, 0, 0)',
   },
 }
