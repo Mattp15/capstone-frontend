@@ -1,45 +1,38 @@
 import { findByLabelText } from '@testing-library/react'
 import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
+import { url } from '../../url'
 
 const Login = (props) => {
-  const [email, setEmail] = useState()
-  const [matchEmail, setMatchEmail] = useState()
-  const [password, setPassword] = useState()
-  const [matchPassword, setMatchPassword] = useState()
+  const [email, setEmail] = useState('')
+  const [matchEmail, setMatchEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [matchPassword, setMatchPassword] = useState('')
   const [submission, setSubmission] = useState()
-  const [color, setColor] = useState()
-  const [errorMessage, setErrorMessage] = useState()
-  const [emailError, setEmailError] = useState()
+  const [color, setColor] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [emailError, setEmailError] = useState('')
 
   const handleChange = ({ target }) => {
     const { value, name } = target
     if (name === 'email') {
-      setEmail((prev) => {
-        prev += value
-      })
+      setEmail(value)
     } else if (name === 'matchEmail') {
-      setMatchEmail((prev) => {
-        prev += value
-      })
+      setMatchEmail(value)
     }
     if (name === 'password') {
-      setPassword((prev) => {
-        prev += value
-      })
+      setPassword(value)
     } else if (name === 'matchPassword') {
-      setMatchPassword((prev) => {
-        prev += value
-      })
+      setMatchPassword(value)
       setColor('')
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const addToSubmissions = (value, name) => {
       setSubmission((prev) => ({
-        prev,
+        ...prev,
         [name]: value,
       }))
     }
@@ -51,25 +44,33 @@ const Login = (props) => {
         addToSubmissions(value.toLowerCase(), name)
       } else {
         setEmailError('Please enter a valid Email address')
+        return
       }
     } else {
       setEmailError('Emails not matching')
-      return false
+      return
     }
     if (target[2].value === target[3].value && target[2].value.length) {
-      if (passwordIsValid(target[2].value)) {
+      const { value, name } = target[2]
+      if (passwordIsValid(value)) {
         setErrorMessage()
+        addToSubmissions(value, name)
       } else {
         setErrorMessage('Please meet the password requirements')
+        return
       }
     } else {
       setErrorMessage('Passwords not matching')
       setColor('red')
-    }
-    if (email && password) {
-      console.log('email and password')
+      return
     }
   }
+
+  useEffect(() => {
+    if (submission.email && submission.password) {
+      console.log(submission)
+    }
+  }, [submission])
 
   return (
     <div>
