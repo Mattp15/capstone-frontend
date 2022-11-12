@@ -21,12 +21,16 @@ const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const { email, password } = user
-    const response = await Fetch('user/login', 'POST', { email, password })
-    if (response.status === 200) {
-      console.log(response, '200')
-      //add redirect
-    } else if (response.status === 401) {
-      console.log(response.message)
+    if (isValidEmail(email) && isValidPassword(password)) {
+      const response = await Fetch('user/login', 'POST', { email, password })
+      if (response.status === 200) {
+        console.log(response.message)
+        //add redirect
+      } else if (response.status === 404) {
+        console.log(response.message)
+      }
+    } else {
+      setEmailError(style.show)
     }
   }
 
@@ -38,7 +42,7 @@ const Login = (props) => {
         <Input type='text' value={user.email} onChange={handleChange} name='email' inputStyle='default' />
         <Input type='text' value={user.password} onChange={handleChange} name='password' inputStyle='default' />
         <Input type='submit' value='Log in' name='submit' />
-        <p style={emailError}>Email or Password does not match</p>
+        <p style={emailError}>Email or Password does not match or is invalid</p>
       </form>
     </div>
     // </div>
@@ -67,13 +71,6 @@ const style = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
-  },
-  div: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '20%',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   formStyle: {
     display: 'flex',

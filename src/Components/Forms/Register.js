@@ -65,11 +65,13 @@ const Register = (props) => {
     console.log(response)
     if (response.status === 200) {
       //add redirect
+    } else if (response.status === 401) {
+      console.log(response.message)
     }
   }
 
   return (
-    <div>
+    <div style={style.container}>
       <h1>Register</h1>
       <form onSubmit={handleSubmit} style={style.formStyle}>
         <Input type='text' value={email} name='email' onChange={handleChange} inputStyle='default' />
@@ -104,6 +106,7 @@ export const isValidPassword = (password) => {
 const style = {
   container: {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -116,6 +119,7 @@ const style = {
     color: 'red',
     display: 'flex',
     fontSize: '.7em',
-    margin: '2px',
+    marginBottom: '-1px',
+    marginTop: '-11px',
   },
 }

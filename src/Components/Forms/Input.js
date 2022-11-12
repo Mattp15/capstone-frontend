@@ -17,6 +17,6 @@ const style = {
     display: 'none',
   },
   default: {
-    marginBottom: '6px',
+    marginBottom: '12px',
   },
 }
