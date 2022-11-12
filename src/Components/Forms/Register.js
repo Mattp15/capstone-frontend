@@ -1,7 +1,7 @@
 import { findByLabelText } from '@testing-library/react'
 import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
-import { url } from '../../url'
+import Fetch from '../../Resources/Fetch'
 
 const Register = (props) => {
   const [email, setEmail] = useState('')
@@ -61,19 +61,11 @@ const Register = (props) => {
       setErrorMessage('Passwords not matching')
       return
     }
-    fetchCall()
-  }
-  const fetchCall = async () => {
-    const response = await fetch(url + 'user/register', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: 'matt@gmail.com',
-        password: 'fuckme1234',
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    })
-    console.log(response.status)
-    //add redirect here
+    const response = await Fetch('user/register', 'POST', { email, password })
+    console.log(response)
+    if (response.status === 200) {
+      //add redirect
+    }
   }
 
   return (

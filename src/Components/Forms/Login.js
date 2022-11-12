@@ -1,7 +1,7 @@
 import { findByLabelText } from '@testing-library/react'
 import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
-import { url } from '../../url'
+import Fetch from '../../Resources/Fetch'
 
 const Login = (props) => {
   const [user, setUser] = useState({
@@ -18,14 +18,18 @@ const Login = (props) => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const { email, password } = user
-    fetchCall()
+    const response = await Fetch('user/login', 'POST', { email, password })
+    if (response.status === 200) {
+      console.log(response, '200')
+      //add redirect
+    } else if (response.status === 401) {
+      console.log(response.message)
+    }
   }
-  const fetchCall = () => {
-    //set a fetchCall componant
-  }
+
   return (
     <div style={style.container}>
       <h1>Login</h1>
