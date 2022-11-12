@@ -77,8 +77,8 @@ const Register = (props) => {
         <Input type='text' value={email} name='email' onChange={handleChange} inputStyle='default' />
         <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} inputStyle='default' />
         {emailError ? <p style={style.notMatching}>{emailError}</p> : ''}
-        <Input type='text' value={password} name='password' onChange={handleChange} inputStyle='default' />
-        <Input type='text' inputStyle='default' value={matchPassword} name='matchPassword' onChange={handleChange} />
+        <Input type='password' value={password} name='password' onChange={handleChange} inputStyle='default' />
+        <Input type='password' inputStyle='default' value={matchPassword} name='matchPassword' onChange={handleChange} />
         {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
         <Input type='submit' value='Submit' />
       </form>

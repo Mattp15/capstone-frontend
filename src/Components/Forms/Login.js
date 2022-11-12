@@ -40,7 +40,7 @@ const Login = (props) => {
       {/* <div style={style.container}> */}
       <form onSubmit={handleSubmit} style={style.formStyle}>
         <Input type='text' value={user.email} onChange={handleChange} name='email' inputStyle='default' />
-        <Input type='text' value={user.password} onChange={handleChange} name='password' inputStyle='default' />
+        <Input type='password' value={user.password} onChange={handleChange} name='password' inputStyle='default' />
         <Input type='submit' value='Log in' name='submit' />
         <p style={emailError}>Email or Password does not match or is invalid</p>
       </form>
