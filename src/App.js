@@ -4,7 +4,7 @@ import { Landing } from './Components'
 import { Login, Register } from './Components/Forms/index'
 import { UserInfo, ShoppingList, RecipeChoose, RecipeIndex } from './Components/UserThings/index'
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <Landing />
