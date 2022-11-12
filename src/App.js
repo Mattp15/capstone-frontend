@@ -1,8 +1,8 @@
 import logo from './logo.svg'
 import './App.css'
 import { Landing } from './Components'
-import { Login } from './Components/Forms'
-import { Register } from './Components/Forms'
+import { Login, Register } from './Components/Forms/index'
+import { UserInfo, ShoppingList, RecipeChoose, RecipeIndex } from './Components/UserThings/index'
 
 function App() {
   return (
@@ -10,6 +10,10 @@ function App() {
       <Landing />
       <Register />
       <Login />
+      <UserInfo />
+      <ShoppingList />
+      <RecipeChoose />
+      <RecipeIndex />
     </div>
   )
 }
