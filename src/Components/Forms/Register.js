@@ -35,38 +35,38 @@ const Register = (props) => {
       }))
     }
     const { target } = e
-    if (target[0].value.toLowerCase() === target[1].value.toLowerCase()) {
+    if (!isValidEmail(target[0].value.toLowerCase())) {
+      setEmailError('Please enter a valid Email address')
+      return
+    } else if (target[0].value.toLowerCase() === target[1].value.toLowerCase()) {
       const { value, name } = target[0]
       setEmailError('')
       if (isValidEmail(value)) {
         addToSubmissions(value.toLowerCase(), name)
-      } else {
-        setEmailError('Please enter a valid Email address')
-        return
       }
     } else {
       setEmailError('Emails not matching')
       return
     }
-    if (target[2].value === target[3].value && target[2].value.length) {
-      const { value, name } = target[2]
-      if (isValidPassword(value)) {
-        setErrorMessage()
-        addToSubmissions(value, name)
-      } else {
-        setErrorMessage('Please meet the password requirements')
-        return
-      }
-    } else {
-      setErrorMessage('Passwords not matching')
+    if (!isValidPassword(target[2].value)) {
+      setErrorMessage('Please meet the password requirements')
       return
+    } else {
+      if (target[2].value !== target[3].value) {
+        setErrorMessage('Passwords do not match')
+        return
+      } else if (target[2].value === target[3].value) {
+        setErrorMessage('')
+      }
     }
-    const response = await Fetch('user/register', 'POST', { email, password })
-    console.log(response)
-    if (response.status === 200) {
-      //add redirect
-    } else if (response.status === 401) {
-      console.log(response.message)
+    if (isValidEmail(email) && isValidPassword(password)) {
+      const response = await Fetch('user/register', 'POST', { email, password })
+      console.log(response)
+      if (response.status === 200) {
+        //add redirect
+      } else if (response.status === 401) {
+        console.log(response.message)
+      }
     }
   }
 
