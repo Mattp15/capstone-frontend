@@ -2,6 +2,7 @@ import { findByLabelText } from '@testing-library/react'
 import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
 import Fetch from '../../Resources/Fetch'
+import { UserContext } from '../../App'
 
 const Login = (props) => {
   const [user, setUser] = useState({
@@ -9,7 +10,7 @@ const Login = (props) => {
     password: '',
   })
   const [emailError, setEmailError] = useState(style.hidden)
-
+  const { setLoggedUser } = useContext(UserContext)
   const handleChange = ({ target }) => {
     const { value, name } = target
     setUser((prev) => ({
@@ -25,6 +26,7 @@ const Login = (props) => {
       const response = await Fetch('user/login', 'POST', { email, password })
       if (response.status === 200) {
         console.log(response.message)
+        setLoggedUser(user.email)
         //add redirect
       } else if (response.status === 404) {
         console.log(response.message)
