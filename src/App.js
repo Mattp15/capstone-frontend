@@ -5,18 +5,18 @@ import { Landing } from './Components'
 import { Login, Register } from './Components/Forms/index'
 import { UserInfo, ShoppingList, RecipeChoose, RecipeIndex } from './Components/UserThings/index'
 import { NavContainer } from './Components/Navigation/index'
+import Fetch from './Resources/Fetch'
 
 export const UserContext = createContext()
 
 const App = () => {
   const [loggedUser, setLoggedUser] = useState()
   const [userData, setUserData] = useState()
-  useEffect(() => {
-    console.log(loggedUser, 'inapp')
-  }, [loggedUser])
+  const [usersRecipes, setUsersRecipes] = useState()
+
   return (
     <div className='App'>
-      <UserContext.Provider value={{ userData, setUserData, loggedUser, setLoggedUser }}>
+      <UserContext.Provider value={{ userData, setUserData, loggedUser, setLoggedUser, usersRecipes, setUsersRecipes }}>
         <NavContainer />
         <Landing />
         <Register />
