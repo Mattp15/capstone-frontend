@@ -16,9 +16,9 @@ const App = () => {
   }, [loggedUser])
   return (
     <div className='App'>
-      <NavContainer />
-      <Landing />
       <UserContext.Provider value={{ userData, setUserData, loggedUser, setLoggedUser }}>
+        <NavContainer />
+        <Landing />
         <Register />
         <Login />
         <UserInfo />
