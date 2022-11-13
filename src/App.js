@@ -7,6 +7,7 @@ import { UserInfo, ShoppingList, RecipeChoose, RecipeIndex } from './Components/
 import { NavContainer } from './Components/Navigation/index'
 
 export const UserContext = createContext()
+
 const App = () => {
   const [loggedUser, setLoggedUser] = useState()
   const [userData, setUserData] = useState()
@@ -17,7 +18,7 @@ const App = () => {
     <div className='App'>
       <NavContainer />
       <Landing />
-      <UserContext.Provider value={{ userData, setUserData, setLoggedUser }}>
+      <UserContext.Provider value={{ userData, setUserData, loggedUser, setLoggedUser }}>
         <Register />
         <Login />
         <UserInfo />
