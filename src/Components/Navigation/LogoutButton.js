@@ -1,7 +1,14 @@
 import React from 'react'
+import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
 
 const LogoutButton = () => {
-  return <Button value="I'm a logout Button" />
+  const handleClick = async () => {
+    const response = await Fetch('user/logout', 'GET')
+    if (response.status === 200) {
+      //redirect to landing page
+    }
+  }
+  return <Button value="I'm a logout Button" onClick={handleClick} />
 }
 export default LogoutButton
