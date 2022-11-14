@@ -4,7 +4,7 @@ import { Button } from '../Button/index'
 import Fetch from '../../Resources/Fetch.js'
 
 const UserRecipeList = () => {
-  //
+  //Getting User index next to do figure out to organize it for the view
   const { loggedUser, usersRecipes, setUsersRecipes } = useContext(UserContext)
 
   const handleClick = async () => {

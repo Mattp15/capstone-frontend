@@ -1,5 +1,5 @@
 import logo from './logo.svg'
-import React, { useState, useContext, useEffect, createContext } from 'react'
+import React, { useState, createContext } from 'react'
 import './App.css'
 import { Landing } from './Components'
 import { Login, Register } from './Components/Forms/index'
@@ -11,12 +11,11 @@ export const UserContext = createContext()
 
 const App = () => {
   const [loggedUser, setLoggedUser] = useState()
-  const [userData, setUserData] = useState()
   const [usersRecipes, setUsersRecipes] = useState()
 
   return (
     <div className='App'>
-      <UserContext.Provider value={{ userData, setUserData, loggedUser, setLoggedUser, usersRecipes, setUsersRecipes }}>
+      <UserContext.Provider value={{ loggedUser, setLoggedUser, usersRecipes, setUsersRecipes }}>
         <NavContainer />
         <Landing />
         <Register />

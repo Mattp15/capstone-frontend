@@ -4,55 +4,40 @@ import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
 const RecipeChoose = () => {
   const [recipeList, setRecipeList] = useState()
-  const [displayRecipes, setDisplayRecipes] = useState()
+  const [displayRecipe, setDisplayRecipe] = useState()
 
-  const { loggedUser, userData, setUserData, usersRecipes } = useContext(UserContext)
+  const { loggedUser, usersRecipes, setUsersRecipes } = useContext(UserContext)
 
+  useEffect(() => {
+    getRecipes()
+  }, [])
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET')
-    setRecipeList(response.data)
-    if (recipeList) {
-      const list = recipeList.map((recipe, index) => {
-        //You'll have to add a map for ingredients after postgress deployment
-        const { author_credit, id, ingredients, instructions, protein, title, total_carbohydrate, total_fat } = recipe
-        return (
-          <ul style={style.ul} key={id}>
-            <li key={index + 0} style={style.li}>
-              {title}
-            </li>
-            <li key={index + 1} style={style.li}>
-              Ingredients: {ingredients}
-            </li>
-            <li key={index + 2} style={style.li}>
-              Instructions: {instructions}
-            </li>
-            {/* add calories */}
-            <li key={index + 3} style={style.li}>
-              Total Fat: {total_fat}
-            </li>
-            <li key={index + 4} style={style.li}>
-              Total Carbohydrates: {total_carbohydrate}
-            </li>
-            <li key={index + 5} style={style.li}>
-              Protein: {protein}
-            </li>
-            <li key={index + 6} style={style.li}>
-              Author of recipe: {author_credit}
-            </li>
-          </ul>
-        )
-      })
-      setDisplayRecipes(list)
-    }
 
-    console.log(recipeList, 'recipelist')
-    console.log(usersRecipes, 'usersRecipes')
+    setRecipeList(response.data)
+    console.log(recipeList, 'recipeList')
+  }
+  const nextRecipe = (e) => {
+    console.log(e, 'target')
+
+    //for dislike, it should be a post route, add the recipe to the users user_thing and truthy dislike bool
+    //set up a switch state to react depending on the input (Favorite = POST route add to user_Thing and set favorite bool to true + add to usersRecipes + slice form state, , Skip = Slice from state maybe also add to User_Thing and set dislike to true?, Choose = Add to User_thing)
+
+    const newRecipe = recipeList[Math.floor(Math.random() * recipeList.length)]
+    setDisplayRecipe(newRecipe)
   }
 
   return (
     <div>
       <h1>Choose</h1>
-      {displayRecipes ? <ul>{displayRecipes}</ul> : ''}
+      {displayRecipe ? <ul>{displayRecipe.id}</ul> : ''}
+      <Button
+        value='next recipe'
+        name='test'
+        onClick={() => {
+          nextRecipe('value')
+        }}
+      />
     </div>
   )
 }
