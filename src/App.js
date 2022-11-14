@@ -1,5 +1,5 @@
 import logo from './logo.svg'
-import React, { useState, createContext } from 'react'
+import React, { useState, createContext, useEffect } from 'react'
 import './App.css'
 import { Landing } from './Components'
 import { Login, Register } from './Components/Forms/index'
