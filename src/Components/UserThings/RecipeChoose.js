@@ -12,6 +12,9 @@ const RecipeChoose = () => {
   useEffect(() => {
     getRecipes()
   }, [])
+  //TODO needs a function to remove recipes from recipeList that are either
+  //*user_thing dislike = true, user_thing in recipe * dislike = false, pull recipes with Favorite = true first.
+  //TODO needs a way to delete recipes in user_thing that are not TRUE for either dislike or favorite
 
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET', '')
@@ -23,14 +26,7 @@ const RecipeChoose = () => {
     console.log(displayRecipe)
   }
   const nextRecipe = async (name) => {
-    const userThings = {
-      dislike: false,
-      favorite: false,
-      recipe_id: displayRecipe.id,
-    }
-    console.log(name, 'target')
     switch (name) {
-      //fetch calls MUST have dislike or favorite
       default:
         break
       case 'Dislike':
@@ -58,14 +54,6 @@ const RecipeChoose = () => {
         }
         break
     }
-    //for dislike, it should be a post route, add the recipe to the users user_thing and truthy dislike bool
-    //set up a switch state to react depending on the input (Favorite = POST route add to user_Thing and set favorite bool to true + add to usersRecipes + slice form state, , Skip = Slice from state maybe also add to User_Thing and set dislike to true?, Choose = Add to User_thing)
-    // setRecipeList((prev) => {
-    //   prev.splice(random, 1)
-    // })
-
-    //set up a display to user that the list is empty and disable the actions
-
     setDisplayRecipe(recipeList[Math.floor(Math.random() * recipeList.length)])
   }
 
