@@ -66,7 +66,6 @@ const RecipeChoose = () => {
 
     //set up a display to user that the list is empty and disable the actions
 
-    const newRecipe = await recipeList[Math.floor(Math.random() * recipeList.length)]
     setDisplayRecipe(recipeList[Math.floor(Math.random() * recipeList.length)])
   }
 
@@ -104,31 +103,47 @@ const RecipeChoose = () => {
         ''
       )}
       <div style={style.buttonContainer}>
-        <Button value='Start' onClick={initiate} />
-        <Button
-          value='Favorite'
-          onClick={() => {
-            nextRecipe('Favorite')
-          }}
-        />
-        <Button
-          value='Dislike'
-          onClick={() => {
-            nextRecipe('Dislike')
-          }}
-        />
-        <Button
-          value='Pass'
-          onClick={() => {
-            nextRecipe('Pass')
-          }}
-        />
-        <Button
-          value='Select'
-          onClick={() => {
-            nextRecipe('Select')
-          }}
-        />
+        {!displayRecipe ? <Button value='Start' onClick={initiate} /> : ''}
+        {displayRecipe ? (
+          <Button
+            value='Favorite'
+            onClick={() => {
+              nextRecipe('Favorite')
+            }}
+          />
+        ) : (
+          ''
+        )}
+        {displayRecipe ? (
+          <Button
+            value='Dislike'
+            onClick={() => {
+              nextRecipe('Dislike')
+            }}
+          />
+        ) : (
+          ''
+        )}
+        {displayRecipe ? (
+          <Button
+            value='Pass'
+            onClick={() => {
+              nextRecipe('Pass')
+            }}
+          />
+        ) : (
+          ''
+        )}
+        {displayRecipe ? (
+          <Button
+            value='Select'
+            onClick={() => {
+              nextRecipe('Select')
+            }}
+          />
+        ) : (
+          ''
+        )}
       </div>
     </div>
   )
