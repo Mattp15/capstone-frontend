@@ -18,7 +18,7 @@ const RecipeChoose = () => {
   //TODO needs a way to delete recipes in user_thing that are not TRUE for either dislike or favorite
 
   const getRecipes = async () => {
-    const response = await Fetch('recipes/', 'GET', '')
+    const response = await Fetch('recipes/', 'GET')
     setRecipeList(response.data)
   }
   const initiate = async () => {
@@ -58,27 +58,44 @@ const RecipeChoose = () => {
       case 'Start':
         // const ffs = await initiate()
         if (usersThings) {
-          //! it should be fine to ignore dislike/favorite here, remove anything that's already in usersThings             do a filter inside of a map?
-          // const filteredList = recipeList.map((fil, inx) => {
-          //     for(const i of usersThings){
-          //         if fil.id === i.recipe_id.id
+          //! it should be fine to ignore dislike/favorite here, remove anything that's already in usersThings             inside of a map?
+          console.log(recipeList, 'recipes')
+          //   const filteredList = recipeList.map((x) => {
+          //     for (const i of usersThings) {
+          //       console.log(x.id, 'x', i.recipe_id.id, 'users')
+          //       console.log()
+          //       if (x.id === i.recipe_id.id) {
+          //         console.log(i.recipe_id.id, 'in')
+          //         return null
+          //       } else {
+          //         return x
+          //       }
           //     }
+          //     return null
           //   })
-          //   console.log(filteredList)
-          console.log(recipeList)
+          const filteredList = []
+          for (const i of recipeList) {
+            for (const j of usersThings) {
+              if (i.id !== j.recipe_id.id && !filteredList.includes(i)) {
+                console.log(i.id, j.recipe_id.id)
+                filteredList.push(i)
+                console.log(filteredList, 'list')
+              }
+            }
+          }
+          //   const cleanList = filteredList.filter((x) => x !== null)
+          setRecipeList(filteredList)
+          console.log(recipeList, 'pre shift')
+          console.log(usersThings, 'user')
           for (const i of usersThings) {
-            console.log(i.recipe_id.id, 'recipe_id.id')
-            setRecipeList((prev) => prev, recipeList.unshift(i.recipe_id))
+            if (i.favorite) {
+              setRecipeList((prev) => prev, recipeList.unshift(i.recipe_id))
+            }
           }
         }
     }
-    //If user has favorite recipes, they'll show first
-    // if (favoriteRecipes) {
-    //   // for (i in favoriteRecipes){
-    //   //     if()
-    //   // }
-    //   setDisplayRecipe()
-    // }
+    console.log(recipeList, 'list filtered and favorites added')
+
     if (recipeList) {
       //Shuffling array on python side//TODO shuffle array on python side
       //TODO this below doesn't work, figure out a way to filter matching id with favorite recipe to take them out of recipe list, before unshifting
