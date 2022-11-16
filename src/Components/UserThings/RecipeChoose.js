@@ -20,12 +20,13 @@ const RecipeChoose = () => {
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET')
     setRecipeList(response.data)
+    nextRecipe('Start')
   }
   const initiate = async () => {
-    //Empty function to initiate a refresh
+    // const response = await Fetch('things/', 'GET', '')
+    // setUsersThings(response.data)
   }
   const nextRecipe = async (name) => {
-    console.log(usersThings)
     switch (name) {
       default:
         break
@@ -34,6 +35,8 @@ const RecipeChoose = () => {
         if (dislikeResponse.status === 200) {
           console.log(dislikeResponse.message, dislikeResponse.status, 'dislike')
         }
+        setRecipeList((prev) => [prev.shift(), ...prev])
+
         break
       case 'Favorite':
         const favoriteResponse = await Fetch('things/' + displayRecipe.id, 'POST', { favorite: true, dislike: false })
@@ -42,12 +45,7 @@ const RecipeChoose = () => {
         } else if (favoriteResponse.status === 409) {
           console.log(favoriteResponse.message)
         }
-        break
-      case 'Pass':
-        const passResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: false, favorite: false })
-        if (passResponse.status === 200) {
-          console.log(passResponse.message, 'pass')
-        }
+        setRecipeList((prev) => [prev.shift(), ...prev])
 
         break
       case 'Select':
@@ -55,52 +53,32 @@ const RecipeChoose = () => {
         if (selectResponse.status === 200) {
           console.log(selectResponse.message, 'select')
         }
+        setRecipeList((prev) => [prev.shift(), ...prev])
+
         break
       case 'Start':
-        // const ffs = await initiate()
         if (usersThings) {
-          //TODO get filter to work
-          const filteredList = []
-          //! Also doesn't work
-          //   const filteredList = recipeList.map((x) => {
-          //     console.log(x.id)
-          //     return usersThings.filter((j) => j.recipe_id.id !== x.id)
-          //   })
-          //! SOmethings wrong with this
-          //   for (const i of recipeList) {
-          //     for (const j of usersThings) {
-          //       if (i.id !== j.recipe_id.id) {
-          //         //This doesn't work
-          //         filteredList.push(i)
-          //         console.log(i.id, j.recipe_id.id)
-          //       }
-          //     }
-          //   }
-
-          //   setRecipeList(filteredList)
-          if (usersThings) {
-            for (const i of usersThings) {
-              if (i.favorite) {
-                console.log(i.favorite)
-                setRecipeList((prev) => [recipeList.unshift(i.recipe_id), ...prev])
-              }
+          const favs = []
+          for (const i of usersThings) {
+            if (i.favorite) {
+              console.log(i.recipe_id, 'i.recipe_id')
+              favs.push(i.recipe_id)
             }
           }
+          setDisplayRecipe(true)
+          setRecipeList((prev) => [...favs, ...prev])
         }
         break
+      case 'Pass':
+        setRecipeList((prev) => [prev.shift(), ...prev])
+        break
     }
-
-    console.log(recipeList, 'list filtered and favorites added')
 
     if (recipeList) {
       //Shuffling array on python side//TODO shuffle array on python side
       //TODO this below doesn't work, figure out a way to filter matching id with favorite recipe to take them out of recipe list, before unshifting
-      //   if (!recipeList[0].user_id) {
-      //     console.log('out of user_id')
-      //   }
-      setDisplayRecipe(recipeList[0])
-      setRecipeList((prev) => prev, recipeList.shift())
     }
+    console.log(recipeList)
   }
   return (
     <div style={style.container}>
@@ -114,28 +92,28 @@ const RecipeChoose = () => {
       {displayRecipe ? (
         <ul style={style.ul}>
           <li key='0' style={style.li}>
-            {displayRecipe.title}
+            {recipeList[0].title}
           </li>
           <li key='img' style={style.li}>
-            {displayRecipe.image}
+            {recipeList[0].image}
           </li>
           <li key='1' style={style.li}>
-            {displayRecipe.ingredients}
+            {recipeList[0].ingredients}
           </li>
           <li key='2' style={style.li}>
-            {displayRecipe.calories}
+            {recipeList[0].calories}
           </li>
           <li key='3' style={style.li}>
-            {displayRecipe.fat}
+            {recipeList[0].fat}
           </li>
           <li key='4' style={style.li}>
-            {displayRecipe.carbohydrate}
+            {recipeList[0].carbohydrate}
           </li>
           <li key='5' style={style.li}>
-            {displayRecipe.protein}
+            {recipeList[0].protein}
           </li>
           <li key='6' style={style.li}>
-            {displayRecipe.author_credit}
+            {recipeList[0].author_credit}
           </li>
         </ul>
       ) : (

@@ -30,11 +30,11 @@ const App = () => {
   return (
     <div className='App'>
       <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings }}>
+        <UserInfo />
         <NavContainer />
         <Landing />
         <Register />
         <Login />
-        <UserInfo />
         <ShoppingList />
         <RecipeChoose />
         <RecipeIndex />
