@@ -22,44 +22,44 @@ const RecipeChoose = () => {
     setRecipeList(response.data)
   }
   const initiate = async () => {
-    //TODO Use this as a "would you like to continue your list or start over" for initiation to populate state
-    const response = await Fetch('things/', 'GET', '')
-    setUsersThings(response.data)
+    //Empty function to initiate a refresh
   }
   const nextRecipe = async (name) => {
+    console.log(usersThings)
     switch (name) {
       default:
         break
       case 'Dislike':
-        const dislikeResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: true })
+        const dislikeResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: true, favorite: false })
         if (dislikeResponse.status === 200) {
-          console.log(dislikeResponse.data, dislikeResponse.message, dislikeResponse.status, 'dislike')
+          console.log(dislikeResponse.message, dislikeResponse.status, 'dislike')
         }
         break
       case 'Favorite':
-        const favoriteResponse = await Fetch('things/' + displayRecipe.id, 'POST', { favorite: true })
+        const favoriteResponse = await Fetch('things/' + displayRecipe.id, 'POST', { favorite: true, dislike: false })
         if (favoriteResponse.status === 200) {
-          console.log(favoriteResponse.data, favoriteResponse.message, 'favorite')
+          console.log(favoriteResponse.message, 'favorite')
         } else if (favoriteResponse.status === 409) {
           console.log(favoriteResponse.message)
         }
         break
       case 'Pass':
-        const passResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: false })
+        const passResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: false, favorite: false })
         if (passResponse.status === 200) {
-          console.log(passResponse.data, passResponse.message, 'pass')
+          console.log(passResponse.message, 'pass')
         }
 
         break
       case 'Select':
-        const selectResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: false })
+        const selectResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: false, favorite: false })
         if (selectResponse.status === 200) {
-          console.log(selectResponse.data, selectResponse.message, 'select')
+          console.log(selectResponse.message, 'select')
         }
         break
       case 'Start':
         // const ffs = await initiate()
         if (usersThings) {
+          //TODO get filter to work
           const filteredList = []
           //! Also doesn't work
           //   const filteredList = recipeList.map((x) => {
@@ -77,14 +77,17 @@ const RecipeChoose = () => {
           //     }
           //   }
 
-          setRecipeList(filteredList)
-          for (const i of usersThings) {
-            if (i.favorite) {
-              console.log(i.favorite)
-              setRecipeList((prev) => [recipeList.unshift(i.recipe_id), ...prev])
+          //   setRecipeList(filteredList)
+          if (usersThings) {
+            for (const i of usersThings) {
+              if (i.favorite) {
+                console.log(i.favorite)
+                setRecipeList((prev) => [recipeList.unshift(i.recipe_id), ...prev])
+              }
             }
           }
         }
+        break
     }
 
     console.log(recipeList, 'list filtered and favorites added')
@@ -99,7 +102,6 @@ const RecipeChoose = () => {
       setRecipeList((prev) => prev, recipeList.shift())
     }
   }
-
   return (
     <div style={style.container}>
       <h1>Choose</h1>
@@ -111,9 +113,6 @@ const RecipeChoose = () => {
       />
       {displayRecipe ? (
         <ul style={style.ul}>
-          <li key='fav' style={style.li}>
-            {usersThings[0].title}
-          </li>
           <li key='0' style={style.li}>
             {displayRecipe.title}
           </li>

@@ -15,12 +15,17 @@ const App = () => {
   //TODO fetch route to get USER_THINGS =
 
   useEffect(() => {
-    const getUserThings = async () => {
-      const response = await Fetch('/user/index', 'GET', '')
-      console.log(response.message, 'message')
-      setUsersThings(response.data)
-    }
+    getUsersThings()
   }, [])
+  const getUsersThings = async () => {
+    const response = await Fetch('things/', 'GET', '')
+    setUsersThings(response.data)
+  }
+
+  const handleDeleteUserThing = ({ target }) => {
+    const { id } = target
+    const response = Fetch('')
+  }
 
   return (
     <div className='App'>
