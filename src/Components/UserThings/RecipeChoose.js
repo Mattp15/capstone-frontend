@@ -40,6 +40,8 @@ const RecipeChoose = () => {
         const favoriteResponse = await Fetch('things/' + displayRecipe.id, 'POST', { favorite: true })
         if (favoriteResponse.status === 200) {
           console.log(favoriteResponse.data, favoriteResponse.message, 'favorite')
+        } else if (favoriteResponse.status === 409) {
+          console.log(favoriteResponse.message)
         }
         break
       case 'Pass':
@@ -58,42 +60,33 @@ const RecipeChoose = () => {
       case 'Start':
         // const ffs = await initiate()
         if (usersThings) {
-          //! it should be fine to ignore dislike/favorite here, remove anything that's already in usersThings             inside of a map?
-          console.log(recipeList, 'recipes')
+          const filteredList = []
+          //! Also doesn't work
           //   const filteredList = recipeList.map((x) => {
-          //     for (const i of usersThings) {
-          //       console.log(x.id, 'x', i.recipe_id.id, 'users')
-          //       console.log()
-          //       if (x.id === i.recipe_id.id) {
-          //         console.log(i.recipe_id.id, 'in')
-          //         return null
-          //       } else {
-          //         return x
+          //     console.log(x.id)
+          //     return usersThings.filter((j) => j.recipe_id.id !== x.id)
+          //   })
+          //! SOmethings wrong with this
+          //   for (const i of recipeList) {
+          //     for (const j of usersThings) {
+          //       if (i.id !== j.recipe_id.id) {
+          //         //This doesn't work
+          //         filteredList.push(i)
+          //         console.log(i.id, j.recipe_id.id)
           //       }
           //     }
-          //     return null
-          //   })
-          const filteredList = []
-          for (const i of recipeList) {
-            for (const j of usersThings) {
-              if (i.id !== j.recipe_id.id && !filteredList.includes(i)) {
-                console.log(i.id, j.recipe_id.id)
-                filteredList.push(i)
-                console.log(filteredList, 'list')
-              }
-            }
-          }
-          //   const cleanList = filteredList.filter((x) => x !== null)
+          //   }
+
           setRecipeList(filteredList)
-          console.log(recipeList, 'pre shift')
-          console.log(usersThings, 'user')
           for (const i of usersThings) {
             if (i.favorite) {
-              setRecipeList((prev) => prev, recipeList.unshift(i.recipe_id))
+              console.log(i.favorite)
+              setRecipeList((prev) => [recipeList.unshift(i.recipe_id), ...prev])
             }
           }
         }
     }
+
     console.log(recipeList, 'list filtered and favorites added')
 
     if (recipeList) {
@@ -104,7 +97,6 @@ const RecipeChoose = () => {
       //   }
       setDisplayRecipe(recipeList[0])
       setRecipeList((prev) => prev, recipeList.shift())
-      console.log(displayRecipe, 'displayRecipe')
     }
   }
 
