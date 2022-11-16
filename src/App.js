@@ -11,11 +11,19 @@ export const UserContext = createContext()
 
 const App = () => {
   const [loggedUser, setLoggedUser] = useState()
-  const [usersRecipes, setUsersRecipes] = useState()
+  const [usersThings, setUsersThings] = useState()
+  //TODO fetch route to get USER_THINGS =
+
+  useEffect(() => {
+    const getUserThings = async () => {
+      const response = Fetch('/user/index', 'GET', '')
+      setUsersThings(response.data)
+    }
+  }, [])
 
   return (
     <div className='App'>
-      <UserContext.Provider value={{ loggedUser, setLoggedUser, usersRecipes, setUsersRecipes }}>
+      <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings }}>
         <NavContainer />
         <Landing />
         <Register />

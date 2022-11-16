@@ -6,6 +6,7 @@ import Fetch from '../../Resources/Fetch.js'
 const UserRecipeList = () => {
   //Getting User index next to do figure out to organize it for the view
   const { loggedUser, usersRecipes, setUsersRecipes } = useContext(UserContext)
+  //! do i need loggedUser??
   //TODO needs a way to delete recipes in user_thing that are not TRUE for either dislike or favorite
   //TODO Needs a way for user to delete lists from their favorites//chosen//disliked
   //*Consider allowing users to switch chosen recipes to dislike or favorite in this list
