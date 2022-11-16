@@ -64,9 +64,9 @@ const RecipeChoose = () => {
     } else if (recipeList) {
       //Shuffling array on python side//TODO shuffle array on python side
       setDisplayRecipe(recipeList[0])
-      setRecipeList((prev) => prev, recipeList.pop())
+      setRecipeList((prev) => prev, recipeList.shift())
     }
-    console.log(recipeList.length, 'displayRecipe no change?')
+    console.log(displayRecipe.title, 'displayRecipe no change?')
   }
 
   return (

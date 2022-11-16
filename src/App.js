@@ -16,7 +16,8 @@ const App = () => {
 
   useEffect(() => {
     const getUserThings = async () => {
-      const response = Fetch('/user/index', 'GET', '')
+      const response = await Fetch('/user/index', 'GET', '')
+      console.log(response.message, 'message')
       setUsersThings(response.data)
     }
   }, [])
