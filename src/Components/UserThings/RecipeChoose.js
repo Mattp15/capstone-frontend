@@ -58,15 +58,14 @@ const RecipeChoose = () => {
       case 'Start':
         // const ffs = await initiate()
         if (usersThings) {
-          //! it should be fine to ignore dislike/favorite here, remove anything that's already in usersThings
-          //   const filteredList = recipeList.filter((fil, index) => fil.id !== usersThings[index].recipe_id.id)
+          //! it should be fine to ignore dislike/favorite here, remove anything that's already in usersThings             do a filter inside of a map?
           // const filteredList = recipeList.map((fil, inx) => {
           //     for(const i of usersThings){
           //         if fil.id === i.recipe_id.id
           //     }
           //   })
-          //   console.log(filteredList.length)
-          console.log(recipeList.length)
+          //   console.log(filteredList)
+          console.log(recipeList)
           for (const i of usersThings) {
             console.log(i.recipe_id.id, 'recipe_id.id')
             setRecipeList((prev) => prev, recipeList.unshift(i.recipe_id))
