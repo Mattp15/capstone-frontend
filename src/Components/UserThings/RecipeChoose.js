@@ -57,13 +57,20 @@ const RecipeChoose = () => {
         break
       case 'Start':
         // const ffs = await initiate()
-        console.log('bla')
-        console.log(recipeList[0])
         if (usersThings) {
+          //! it should be fine to ignore dislike/favorite here, remove anything that's already in usersThings
+          //   const filteredList = recipeList.filter((fil, index) => fil.id !== usersThings[index].recipe_id.id)
+          // const filteredList = recipeList.map((fil, inx) => {
+          //     for(const i of usersThings){
+          //         if fil.id === i.recipe_id.id
+          //     }
+          //   })
+          //   console.log(filteredList.length)
+          console.log(recipeList.length)
           for (const i of usersThings) {
+            console.log(i.recipe_id.id, 'recipe_id.id')
             setRecipeList((prev) => prev, recipeList.unshift(i.recipe_id))
           }
-          console.log(recipeList[0], '2nd')
         }
     }
     //If user has favorite recipes, they'll show first
@@ -75,7 +82,10 @@ const RecipeChoose = () => {
     // }
     if (recipeList) {
       //Shuffling array on python side//TODO shuffle array on python side
-
+      //TODO this below doesn't work, figure out a way to filter matching id with favorite recipe to take them out of recipe list, before unshifting
+      //   if (!recipeList[0].user_id) {
+      //     console.log('out of user_id')
+      //   }
       setDisplayRecipe(recipeList[0])
       setRecipeList((prev) => prev, recipeList.shift())
       console.log(displayRecipe, 'displayRecipe')
@@ -85,6 +95,12 @@ const RecipeChoose = () => {
   return (
     <div style={style.container}>
       <h1>Choose</h1>
+      <Button
+        value='Swing'
+        onClick={() => {
+          nextRecipe()
+        }}
+      />
       {displayRecipe ? (
         <ul style={style.ul}>
           <li key='fav' style={style.li}>
