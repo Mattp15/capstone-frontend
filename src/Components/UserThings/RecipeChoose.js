@@ -11,6 +11,7 @@ const RecipeChoose = () => {
 
   useEffect(() => {
     getRecipes()
+    initiate()
   }, [])
   //TODO needs a function to remove recipes from recipeList that are either
   //*user_thing dislike = true, user_thing in recipe * dislike = false, pull recipes with Favorite = true first.
@@ -22,51 +23,63 @@ const RecipeChoose = () => {
   }
   const initiate = async () => {
     //TODO Use this as a "would you like to continue your list or start over" for initiation to populate state
-    setDisplayRecipe(recipeList[Math.floor(Math.random() * recipeList.length)])
+    const response = await Fetch('things/', 'GET', '')
+    setUsersThings(response.data)
   }
   const nextRecipe = async (name) => {
-    console.log(usersThings, 'usersThings')
     switch (name) {
       default:
         break
       case 'Dislike':
-        const dislikeResponse = await Fetch('user/index/' + displayRecipe.id, 'POST', { dislike: true })
+        const dislikeResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: true })
         if (dislikeResponse.status === 200) {
           console.log(dislikeResponse.data, dislikeResponse.message, dislikeResponse.status, 'dislike')
         }
         break
       case 'Favorite':
-        const favoriteResponse = await Fetch('user/index/' + displayRecipe.id, 'POST', { favorite: true })
+        const favoriteResponse = await Fetch('things/' + displayRecipe.id, 'POST', { favorite: true })
         if (favoriteResponse.status === 200) {
           console.log(favoriteResponse.data, favoriteResponse.message, 'favorite')
         }
         break
       case 'Pass':
-        const passResponse = await Fetch('user/index/' + displayRecipe.id, 'POST', { dislike: false })
+        const passResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: false })
         if (passResponse.status === 200) {
           console.log(passResponse.data, passResponse.message, 'pass')
         }
 
         break
       case 'Select':
-        const selectResponse = await Fetch('user/index/' + displayRecipe.id, 'POST', { dislike: false })
+        const selectResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: false })
         if (selectResponse.status === 200) {
           console.log(selectResponse.data, selectResponse.message, 'select')
         }
         break
+      case 'Start':
+        // const ffs = await initiate()
+        console.log('bla')
+        console.log(recipeList[0])
+        if (usersThings) {
+          for (const i of usersThings) {
+            setRecipeList((prev) => prev, recipeList.unshift(i.recipe_id))
+          }
+          console.log(recipeList[0], '2nd')
+        }
     }
     //If user has favorite recipes, they'll show first
-    if (favoriteRecipes) {
-      // for (i in favoriteRecipes){
-      //     if()
-      // }
-      setDisplayRecipe()
-    } else if (recipeList) {
+    // if (favoriteRecipes) {
+    //   // for (i in favoriteRecipes){
+    //   //     if()
+    //   // }
+    //   setDisplayRecipe()
+    // }
+    if (recipeList) {
       //Shuffling array on python side//TODO shuffle array on python side
+
       setDisplayRecipe(recipeList[0])
       setRecipeList((prev) => prev, recipeList.shift())
+      console.log(displayRecipe, 'displayRecipe')
     }
-    console.log(displayRecipe.title, 'displayRecipe no change?')
   }
 
   return (
@@ -74,6 +87,9 @@ const RecipeChoose = () => {
       <h1>Choose</h1>
       {displayRecipe ? (
         <ul style={style.ul}>
+          <li key='fav' style={style.li}>
+            {usersThings[0].title}
+          </li>
           <li key='0' style={style.li}>
             {displayRecipe.title}
           </li>
@@ -103,7 +119,16 @@ const RecipeChoose = () => {
         ''
       )}
       <div style={style.buttonContainer}>
-        {!displayRecipe ? <Button value='Start' onClick={initiate} /> : ''}
+        {!displayRecipe ? (
+          <Button
+            value='Initiate'
+            onClick={() => {
+              nextRecipe('Start')
+            }}
+          />
+        ) : (
+          ''
+        )}
         {displayRecipe ? (
           <Button
             value='Favorite'
