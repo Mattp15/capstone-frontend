@@ -77,12 +77,6 @@ const RecipeChoose = () => {
         setRecipeList((prev) => [prev.shift(), ...prev])
         break
     }
-
-    if (recipeList) {
-      //Shuffling array on python side//TODO shuffle array on python side
-      //TODO this below doesn't work, figure out a way to filter matching id with favorite recipe to take them out of recipe list, before unshifting
-    }
-    console.log(recipeList)
   }
   return (
     <div style={style.container}>
@@ -93,7 +87,7 @@ const RecipeChoose = () => {
           nextRecipe()
         }}
       />
-      {displayRecipe ? (
+      {displayRecipe && recipeList[0] ? (
         <ul style={style.ul}>
           <li key='0' style={style.li}>
             {recipeList[0].title}
