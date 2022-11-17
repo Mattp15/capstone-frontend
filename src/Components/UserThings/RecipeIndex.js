@@ -20,18 +20,19 @@ const RecipeIndex = () => {
   }, [usersThings])
   return (
     // {userThings ? " " : " "}
-    <div>
+    <div style={style.container}>
       {thingsDisplay ? (
-        <ul>
+        <ul style={style.ul}>
           {thingsDisplay.map((x, i) => {
             return (
               <li
+                style={style.li}
                 key={i}
                 onClick={() => {
                   handleDelete(x)
                 }}
               >
-                {x.id}
+                {x.recipe_id.title}
               </li>
             )
           })}
@@ -39,7 +40,6 @@ const RecipeIndex = () => {
       ) : (
         ''
       )}
-      <p onClick={() => handleDelete({ id: 1 })}>click</p>
       {/* {thingsDisplay ? (
         <div>
           <p onClick={() => handleDelete(thingsDisplay[0])}>{thingsDisplay[0].id}</p>

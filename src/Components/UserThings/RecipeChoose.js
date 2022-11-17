@@ -31,15 +31,15 @@ const RecipeChoose = () => {
       default:
         break
       case 'Dislike':
-        const dislikeResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: true, favorite: false })
+        const dislikeResponse = await Fetch('things/' + recipeList[0].id, 'POST', { dislike: true, favorite: false })
         if (dislikeResponse.status === 200) {
-          console.log(dislikeResponse.message, dislikeResponse.status, 'dislike')
+          console.log(dislikeResponse.message, recipeList[0].status, 'dislike')
         }
         setRecipeList((prev) => [prev.shift(), ...prev])
 
         break
       case 'Favorite':
-        const favoriteResponse = await Fetch('things/' + displayRecipe.id, 'POST', { favorite: true, dislike: false })
+        const favoriteResponse = await Fetch('things/' + recipeList[0].id, 'POST', { favorite: true, dislike: false })
         if (favoriteResponse.status === 200) {
           console.log(favoriteResponse.message, 'favorite')
         } else if (favoriteResponse.status === 409) {
@@ -49,7 +49,7 @@ const RecipeChoose = () => {
 
         break
       case 'Select':
-        const selectResponse = await Fetch('things/' + displayRecipe.id, 'POST', { dislike: false, favorite: false })
+        const selectResponse = await Fetch('things/' + recipeList[0].id, 'POST', { dislike: false, favorite: false })
         if (selectResponse.status === 200) {
           console.log(selectResponse.message, 'select')
         }
@@ -58,10 +58,14 @@ const RecipeChoose = () => {
         break
       case 'Start':
         if (usersThings) {
+          //TODO needs to filter
           const favs = []
+          console.log(recipeList)
           for (const i of usersThings) {
             if (i.favorite) {
-              console.log(i.recipe_id, 'i.recipe_id')
+              setRecipeList((prev) => {
+                return [...prev.filter((fil) => fil.id !== i.recipe_id.id)]
+              })
               favs.push(i.recipe_id)
             }
           }

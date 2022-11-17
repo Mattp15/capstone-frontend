@@ -29,7 +29,7 @@ const UserRecipeList = () => {
       ) : (
         ''
       )}
-      <Button value='Get users recipes' onClick={handleClick} />
+      {/* <Button value='Get users recipes' onClick={handleClick} /> */}
     </div>
   )
 }
