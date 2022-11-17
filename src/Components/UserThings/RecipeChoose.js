@@ -12,6 +12,9 @@ const RecipeChoose = () => {
   useEffect(() => {
     getRecipes()
     initiate()
+    setTimeout(() => {
+      return
+    }, 40)
   }, [])
   //TODO needs a function to remove recipes from recipeList that are either
   //*user_thing dislike = true, user_thing in recipe * dislike = false, pull recipes with Favorite = true first.
@@ -58,9 +61,7 @@ const RecipeChoose = () => {
         break
       case 'Start':
         if (usersThings) {
-          //TODO needs to filter
           const favs = []
-          console.log(recipeList)
           for (const i of usersThings) {
             if (i.favorite) {
               setRecipeList((prev) => {
