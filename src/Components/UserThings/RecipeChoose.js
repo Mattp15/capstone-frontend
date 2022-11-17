@@ -3,12 +3,12 @@ import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
 import { isValidPassword } from '../Forms/Login'
+import Cookies from 'js-cookie'
 const RecipeChoose = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
   const [favoriteRecipes, setFavoriteRecipes] = useState()
-  const { loggedUser, usersThings, setUsersThings } = useContext(UserContext)
-
+  const { loggedUser, usersThings, setUsersThings, userCookie, setUserCookie } = useContext(UserContext)
   useEffect(() => {
     getRecipes()
     initiate()
@@ -25,10 +25,7 @@ const RecipeChoose = () => {
     setRecipeList(response.data)
     nextRecipe('Start')
   }
-  const initiate = async () => {
-    // const response = await Fetch('things/', 'GET', '')
-    // setUsersThings(response.data)
-  }
+  const initiate = async () => {}
   const nextRecipe = async (name) => {
     switch (name) {
       default:
@@ -70,14 +67,23 @@ const RecipeChoose = () => {
               favs.push(i.recipe_id)
             }
           }
+          //TODO add a loop for removing recipes's already in users's current working list//add a restart list, that will delete all the tables matchin gthe user for the current working list
           setDisplayRecipe(true)
           setRecipeList((prev) => [...favs, ...prev])
         }
         break
       case 'Pass':
+        const passResponse = await Fetch('things/' + recipeList[0].id, 'POST', { favorite: true, dislike: true })
+        if (passResponse.status === 200) {
+          console.log('item skipped')
+        } else if (passResponse.status === 409) {
+          console.log(passResponse.message)
+        }
         setRecipeList((prev) => [prev.shift(), ...prev])
         break
     }
+    setUserCookie(Cookies.get('Name'))
+    console.log(userCookie, Cookies.get('session'))
   }
   return (
     <div style={style.container}>

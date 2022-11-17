@@ -13,7 +13,7 @@ const UserInfo = () => {
 
   return (
     <div>
-      <h1>Account Info</h1>
+      <h1>User Info</h1>
       {loggedUser ? <p>{loggedUser}</p> : ''}
       <Button value='update email' onClick={handleClick} />
       <Button value='Change Password' />
@@ -21,6 +21,7 @@ const UserInfo = () => {
         <ul>
           {usersThings.map((x) => {
             return <li key={x.id}>{x.recipe_id.title}</li>
+            // put a stat here, the state should be set by clickign on the title and the onClick will populate the state, it should be cleared with a repeated click of title or replaced by clicking on another title, resulting in the card expanding (contains ingredients or    nutrition facts or description  or epand into button selections to "delete" or toggle favorite/dislike
           })}
         </ul>
       ) : (

@@ -4,7 +4,8 @@ import Fetch from '../../Resources/Fetch'
 const RecipeIndex = () => {
   const [thingsDisplay, setThingsDisplay] = useState()
   const { usersThings } = useContext(UserContext)
-  //! This will be where user can view their selected recipes including distinct areas off sections for Favorited and disliked
+  //! This will be where user can view their selected recipes for the current working list including distinct areas off sections for Favorited and disliked
+  //* like a selectable that takes to a "favorites" and "disliked" edit page
   //TODO When a user deletes an item, the "DELTED" confirmation text can replace the item at location, with a setTimeout to be removed => fade out. Lower items should push up at this point
   const handleDelete = async ({ id }) => {
     const response = await Fetch('things/' + id, 'DELETE')
