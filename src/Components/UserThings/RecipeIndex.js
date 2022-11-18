@@ -8,9 +8,7 @@ const RecipeIndex = () => {
   //* like a selectable that takes to a "favorites" and "disliked" edit page
   //TODO When a user deletes an item, the "DELTED" confirmation text can replace the item at location, with a setTimeout to be removed => fade out. Lower items should push up at this point
   const handleDelete = async ({ id }) => {
-    const response = await Fetch('things/' + id, 'DELETE')
-    console.log(response.message)
-    console.log(id)
+    const response = await Fetch('things/' + id, 'DELETE', '')
     setThingsDisplay((prev) => {
       return prev.filter((fil) => id !== fil.id)
     })

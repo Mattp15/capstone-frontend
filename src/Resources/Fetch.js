@@ -8,7 +8,7 @@ const Fetch = async (url, method, data = '') => {
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     })
-  } else if (method === 'GET' || method === 'DELETE') {
+  } else if (method === 'GET') {
     res = await fetch(rootUrl + url, {
       method: method,
       credentials: 'include',
@@ -16,6 +16,15 @@ const Fetch = async (url, method, data = '') => {
         'Content-Type': 'application/json',
       },
     })
+  } else if (method === 'DELETE') {
+    res = await fetch(rootUrl + url, {
+      method: method,
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    return
   }
   const result = await res.json()
   return result
