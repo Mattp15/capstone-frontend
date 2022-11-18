@@ -12,16 +12,26 @@ export const UserContext = createContext()
 const App = () => {
   const [loggedUser, setLoggedUser] = useState()
   const [usersThings, setUsersThings] = useState()
+  const [usersList, setUsersList] = useState()
   const [userCookie, setUserCookie] = useState()
-  //TODO fetch route to get USER_THINGS =
 
   useEffect(() => {
     getUsersThings()
-    setUserCookie(Cookies.get(loggedUser))
+    getUsersList()
+    // setUserCookie(Cookies.get(loggedUser))
   }, [])
   const getUsersThings = async () => {
     const response = await Fetch('things/', 'GET', '')
     setUsersThings(response.data)
+  }
+  const getUsersList = async () => {
+    const response2 = await Fetch('user/list', 'GET')
+    if (response2.status === 200) {
+      console.log(response2.message)
+      setUsersList(response2.data)
+    } else {
+      console.log('did not fetch users list')
+    }
   }
 
   const handleDeleteUserThing = ({ target }) => {
@@ -31,7 +41,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings, userCookie, setUserCookie }}>
+      <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings, userCookie, setUserCookie, usersList, setUsersList }}>
         <UserInfo />
         <NavContainer />
         <Landing />

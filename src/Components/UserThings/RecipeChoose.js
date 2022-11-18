@@ -7,8 +7,7 @@ import Cookies from 'js-cookie'
 const RecipeChoose = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
-  const [favoriteRecipes, setFavoriteRecipes] = useState()
-  const { loggedUser, usersThings, setUsersThings, userCookie, setUserCookie } = useContext(UserContext)
+  const { usersThings, userCookie, setUserCookie, usersList } = useContext(UserContext)
   useEffect(() => {
     getRecipes()
     initiate()
@@ -27,6 +26,7 @@ const RecipeChoose = () => {
   }
   const initiate = async () => {}
   const nextRecipe = async (name) => {
+    console.log(usersList, 'userlist')
     switch (name) {
       default:
         break
@@ -67,9 +67,14 @@ const RecipeChoose = () => {
               favs.push(i.recipe_id)
             }
           }
-          //TODO add a loop for removing recipes's already in users's current working list//add a restart list, that will delete all the tables matchin gthe user for the current working list
+          //TODO add a loop for removing recipes's already in users's current working list//add a d
           setDisplayRecipe(true)
           setRecipeList((prev) => [...favs, ...prev])
+          for (const j of usersList) {
+            setRecipeList((prev) => {
+              return [...prev.filter((fil) => fil.id !== j.recipe_id.id)]
+            })
+          }
         }
         break
       case 'Pass':
@@ -80,6 +85,7 @@ const RecipeChoose = () => {
           console.log(passResponse.message)
         }
         setRecipeList((prev) => [prev.shift(), ...prev])
+
         break
     }
     setUserCookie(Cookies.get('Name'))
