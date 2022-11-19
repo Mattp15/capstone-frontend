@@ -135,7 +135,7 @@ const RecipeChoose = () => {
             Protein: {recipeList[0].protein}
           </li>
           <li key='7' style={style.li}>
-            Source: <NavLink src={recipeList[0].author_credit} />
+            <a href={recipeList[0].author_credit}>Source</a>
           </li>
         </ul>
       ) : (
