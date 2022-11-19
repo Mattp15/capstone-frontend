@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react'
 import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
-import { isValidPassword } from '../Forms/Login'
 import Cookies from 'js-cookie'
+import { NavLink } from 'react-router-dom'
 const RecipeChoose = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
@@ -89,10 +89,10 @@ const RecipeChoose = () => {
 
         break
     }
-    console.log(recipeList, 'recipeList')
-    console.log(usersThings, 'usersthings')
+    console.log(recipeList[0])
+    console.log(displayRecipe)
     setUserCookie(Cookies.get('Name'))
-    console.log(userCookie, Cookies.get('session'))
+    // console.log(userCookie, Cookies.get('session'))
   }
   const addToList = ({ id }) => {
     console.log(id)
@@ -114,25 +114,28 @@ const RecipeChoose = () => {
             {recipeList[0].title}
           </li>
           <li key='img' style={style.li}>
-            {recipeList[0].image}
+            <img src={recipeList[0].image} alt={recipeList[0].title} width='200' height='200' />
           </li>
           <li key='1' style={style.li}>
-            {recipeList[0].ingredients}
+            Total Time: {recipeList[0].time}
           </li>
           <li key='2' style={style.li}>
-            {recipeList[0].calories}
+            Servings: {recipeList[0].servings}
           </li>
           <li key='3' style={style.li}>
-            {recipeList[0].fat}
+            Calories: {recipeList[0].calories}
           </li>
           <li key='4' style={style.li}>
-            {recipeList[0].carbohydrate}
+            Total-Fat: {recipeList[0].fat}
           </li>
           <li key='5' style={style.li}>
-            {recipeList[0].protein}
+            Total-Carbs: {recipeList[0].carbs}
           </li>
           <li key='6' style={style.li}>
-            {recipeList[0].author_credit}
+            Protein: {recipeList[0].protein}
+          </li>
+          <li key='7' style={style.li}>
+            Source: <NavLink src={recipeList[0].author_credit} />
           </li>
         </ul>
       ) : (
