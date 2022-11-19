@@ -27,7 +27,6 @@ const App = () => {
   const getUsersList = async () => {
     const response2 = await Fetch('user/list', 'GET')
     if (response2.status === 200) {
-      console.log(response2.message)
       setUsersList(response2.data)
     } else {
       console.log('did not fetch users list')

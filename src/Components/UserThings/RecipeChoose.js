@@ -22,11 +22,9 @@ const RecipeChoose = () => {
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET')
     setRecipeList(response.data)
-    nextRecipe('Start')
   }
   const initiate = async () => {}
   const nextRecipe = async (name) => {
-    console.log(usersList, 'userlist')
     switch (name) {
       default:
         break
@@ -45,14 +43,12 @@ const RecipeChoose = () => {
         } else if (favoriteResponse.status === 409) {
           console.log(favoriteResponse.message)
         }
+        addToList(recipeList[0])
         setRecipeList((prev) => [prev.shift(), ...prev])
 
         break
       case 'Select':
-        const selectResponse = await Fetch('things/' + recipeList[0].id, 'POST', { dislike: false, favorite: false })
-        if (selectResponse.status === 200) {
-          console.log(selectResponse.message, 'select')
-        }
+        addToList(recipeList[0])
         setRecipeList((prev) => [prev.shift(), ...prev])
 
         break
@@ -64,10 +60,15 @@ const RecipeChoose = () => {
               setRecipeList((prev) => {
                 return [...prev.filter((fil) => fil.id !== i.recipe_id.id)]
               })
+              console.log(i.favorite)
               favs.push(i.recipe_id)
+            } else {
+              setRecipeList((prev) => {
+                return [...prev.filter((fil) => fil.id !== i.recipe_id.id)]
+              })
             }
           }
-          //TODO add a loop for removing recipes's already in users's current working list//add a d
+
           setDisplayRecipe(true)
           setRecipeList((prev) => [...favs, ...prev])
           for (const j of usersList) {
@@ -78,7 +79,7 @@ const RecipeChoose = () => {
         }
         break
       case 'Pass':
-        const passResponse = await Fetch('things/' + recipeList[0].id, 'POST', { favorite: true, dislike: true })
+        const passResponse = await Fetch('things/' + recipeList[0].id, 'POST', { favorite: false, dislike: false })
         if (passResponse.status === 200) {
           console.log('item skipped')
         } else if (passResponse.status === 409) {
@@ -88,8 +89,15 @@ const RecipeChoose = () => {
 
         break
     }
+    console.log(recipeList, 'recipeList')
+    console.log(usersThings, 'usersthings')
     setUserCookie(Cookies.get('Name'))
     console.log(userCookie, Cookies.get('session'))
+  }
+  const addToList = ({ id }) => {
+    console.log(id)
+    const response = Fetch('user/list', 'POST', { id: id })
+    console.log(response.message)
   }
   return (
     <div style={style.container}>
