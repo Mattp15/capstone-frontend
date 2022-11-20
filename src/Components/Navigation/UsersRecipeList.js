@@ -11,23 +11,36 @@ const UserRecipeList = () => {
   //TODO Needs a way for user to delete lists from their favorites//chosen//disliked
   //*Consider allowing users to switch chosen recipes to dislike or favorite in this list
 
-  const handleClick = async () => {
-    const response2 = await Fetch('user/list', 'GET')
-    if (response2.status === 200) {
-      console.log(response2.message)
-      setUsersList(response2.data)
-    } else {
-      console.log('did not fetch users list')
-    }
+  //   const handleClick = async () => {
+  //     const response2 = await Fetch('user/list', 'GET')
+  //     if (response2.status === 200) {
+  //       console.log(response2.message)
+  //       setUsersList(response2.data)
+  //     } else {
+  //       console.log('did not fetch users list')
+  //     }
+  //   }
+  const handleClick = (id) => {
+    window.location.href = 'http://localhost:3000/recipes/' + id
   }
   return (
-    <div>
-      <h1>Users List</h1>
-      <Button value='Get list' onClick={handleClick} />
+    <div style={style.container}>
+      <h1>Users recipes List</h1>
+      {/* <Button value='Get list' onClick={handleClick} /> */}
       {usersList ? (
-        <ul>
+        <ul style={style.ul}>
           {usersList.map((recipe, index) => {
-            return <li key={index}>{recipe.recipe_id.title}</li>
+            return (
+              <li
+                key={index}
+                style={style.li}
+                onClick={() => {
+                  handleClick(recipe.id)
+                }}
+              >
+                {recipe.recipe_id.title}
+              </li>
+            )
           })}
         </ul>
       ) : (
@@ -39,3 +52,26 @@ const UserRecipeList = () => {
 }
 
 export default UserRecipeList
+
+const style = {
+  buttonContainer: {},
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  li: {
+    // margin: '5px',
+    margin: '0 auto',
+    // marginRight: 'auto',
+  },
+  ul: {
+    listStyleType: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    // justifyContent: 'flex-start',
+    margin: '20px',
+    width: '50%',
+  },
+}

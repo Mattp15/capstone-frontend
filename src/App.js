@@ -1,13 +1,13 @@
-import logo from './logo.svg'
 import React, { useState, createContext, useEffect } from 'react'
 import './App.css'
 import { Landing } from './Components'
 import { Login, Register } from './Components/Forms/index'
-import { UserInfo, ShoppingList, RecipeChoose, RecipeIndex } from './Components/UserThings/index'
+import { UserInfo, ShoppingList, RecipeChoose, RecipeIndex, RecipeShow } from './Components/UserThings/index'
 import { NavContainer } from './Components/Navigation/index'
 import Fetch from './Resources/Fetch'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import Cookies from 'js-cookie'
-export const UserContext = createContext()
 
 const App = () => {
   const [loggedUser, setLoggedUser] = useState()
@@ -41,17 +41,23 @@ const App = () => {
   return (
     <div className='App'>
       <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings, userCookie, setUserCookie, usersList, setUsersList }}>
-        <UserInfo />
         <NavContainer />
-        <Landing />
-        <Register />
-        <Login />
-        <ShoppingList />
-        <RecipeChoose />
-        <RecipeIndex />
+        <Router>
+          <Routes>
+            <Route path='/' element={<Landing />} />
+            <Route path='/user' element={<UserInfo />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/list' element={<ShoppingList />} />
+            <Route path='/choices' element={<RecipeChoose />} />
+            <Route path='/user/list' element={<RecipeIndex />} />
+            <Route path='/recipes/*' element={<RecipeShow />} />
+          </Routes>
+        </Router>
       </UserContext.Provider>
     </div>
   )
 }
 
 export default App
+export const UserContext = createContext()

@@ -5,6 +5,7 @@ import UserRecipeList from './UsersRecipeList'
 const NavContainer = () => {
   return (
     <div>
+      <h1>Nav Container</h1>
       <LogoutButton />
       <UserRecipeList />
     </div>

@@ -20,20 +20,27 @@ const RecipeIndex = () => {
   return (
     // {userThings ? " " : " "}
     <div style={style.container}>
-      {thingsDisplay ? (
+      {usersThings ? (
         <ul style={style.ul}>
-          {thingsDisplay.map((x, i) => {
-            return (
-              <li
-                style={style.li}
-                key={i}
-                onClick={() => {
-                  handleDelete(x)
-                }}
-              >
-                {x.recipe_id.title}
-              </li>
-            )
+          <h2 style={{ marginRight: 'auto' }}>Favorites</h2>
+          {usersThings.map((x) => {
+            if (x.favorite) {
+              return (
+                <li key={x.id} style={style.li}>
+                  {x.recipe_id.title}
+                </li>
+              )
+            }
+          })}
+          <h2 style={{ marginRight: 'auto' }}>Dislikes</h2>
+          {usersThings.map((x) => {
+            if (x.dislike) {
+              return (
+                <li key={x.id} style={style.li}>
+                  {x.recipe_id.title}
+                </li>
+              )
+            }
           })}
         </ul>
       ) : (
@@ -69,8 +76,8 @@ const style = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    // justifyContent: 'flex-start',
     margin: '20px',
+    marginLeft: '-10%',
   },
 }
 

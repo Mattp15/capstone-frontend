@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Words from './Words'
 import Login from './Forms/Login'
 
 const Landing = ({ item }) => {

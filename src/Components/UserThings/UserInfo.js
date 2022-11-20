@@ -1,33 +1,49 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { UserContext } from '../../App'
+import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
+import { RecipeIndex } from './index'
 //This will be for the user to update their account information (consider added a (forgot password) feature)
 const UserInfo = () => {
-  const { loggedUser, setLoggedUser, userData } = useContext(UserContext)
-  const [thingsDisplay, setThingsDisplay] = useState()
-  const [singleThing, setSingleThing] = useState()
-  const { usersThings } = useContext(UserContext)
+  const { loggedUser, setLoggedUser, usersThings, setUsersThings } = useContext(UserContext)
+  const [favorites, setFavorites] = useState()
+  const [dislikes, setDislikes] = useState()
+
   const handleClick = () => {
     //prolly use a Nav tag to change to a page for chnaging email/password require correct password to change password
   }
 
   return (
-    <div>
+    <div style={style.container}>
       <h1>User Info</h1>
       {loggedUser ? <p>{loggedUser}</p> : ''}
       <Button value='update email' onClick={handleClick} />
       <Button value='Change Password' />
-      {usersThings ? (
-        <ul>
-          {usersThings.map((x) => {
-            return <li key={x.id}>{x.recipe_id.title}</li>
-            // put a stat here, the state should be set by clickign on the title and the onClick will populate the state, it should be cleared with a repeated click of title or replaced by clicking on another title, resulting in the card expanding (contains ingredients or    nutrition facts or description  or epand into button selections to "delete" or toggle favorite/dislike
-          })}
-        </ul>
-      ) : (
-        ''
-      )}
+      <RecipeIndex />
     </div>
   )
 }
+// put a stat here, the state should be set by clickign on the title and the onClick will populate the state, it should be cleared with a repeated click of title or replaced by clicking on another title, resulting in the card expanding (contains ingredients or    nutrition facts or description  or epand into button selections to "delete" or toggle favorite/dislike
 export default UserInfo
+
+const style = {
+  buttonContainer: {},
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  li: {
+    margin: '5px',
+    // marginRight: 'auto',
+  },
+  ul: {
+    listStyleType: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    // justifyContent: 'flex-start',
+    margin: '20px',
+    width: '50%',
+  },
+}

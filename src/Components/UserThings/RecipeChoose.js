@@ -4,6 +4,7 @@ import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
 import Cookies from 'js-cookie'
 import { NavLink } from 'react-router-dom'
+
 const RecipeChoose = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
@@ -116,12 +117,16 @@ const RecipeChoose = () => {
           <li key='img' style={style.li}>
             <img src={recipeList[0].image} alt={recipeList[0].title} width='200' height='200' />
           </li>
+          <li key='7' style={style.li}>
+            <a href={recipeList[0].author_credit}>Source</a>
+          </li>
           <li key='1' style={style.li}>
             Total Time: {recipeList[0].time}
           </li>
           <li key='2' style={style.li}>
             Servings: {recipeList[0].servings}
           </li>
+          <li key='description'>{recipeList[0].description}</li>
           <li key='3' style={style.li}>
             Calories: {recipeList[0].calories}
           </li>
@@ -133,9 +138,6 @@ const RecipeChoose = () => {
           </li>
           <li key='6' style={style.li}>
             Protein: {recipeList[0].protein}
-          </li>
-          <li key='7' style={style.li}>
-            <a href={recipeList[0].author_credit}>Source</a>
           </li>
         </ul>
       ) : (
@@ -208,7 +210,7 @@ const style = {
   },
   li: {
     margin: '5px',
-    marginRight: 'auto',
+    // marginRight: 'auto',
   },
   ul: {
     listStyleType: 'none',
@@ -217,5 +219,6 @@ const style = {
     alignItems: 'center',
     // justifyContent: 'flex-start',
     margin: '20px',
+    width: '50%',
   },
 }
