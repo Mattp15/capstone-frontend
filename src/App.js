@@ -14,6 +14,7 @@ const App = () => {
   const [usersThings, setUsersThings] = useState()
   const [usersList, setUsersList] = useState()
   const [userCookie, setUserCookie] = useState()
+  const [shoppingList, setShoppingList] = useState()
 
   useEffect(() => {
     getUsersThings()
@@ -32,6 +33,41 @@ const App = () => {
       console.log('did not fetch users list')
     }
   }
+  useEffect(() => {
+    const listObject = {}
+    const sList = usersList
+      ? usersList.map((x) => {
+          return x.recipe_id.shopping_list
+        })
+      : null
+    const splitList = []
+    if (sList) {
+      for (const i of sList) {
+        i.split(',')
+        splitList.push(i.split(','))
+      }
+      console.log(splitList[0])
+      //Needs to be iterate over whole splitList
+      //for (const j of splitList){
+      // for (const i of j){
+
+      // }
+      //}
+      for (const i of splitList[0]) {
+        const amount = parseInt(i.slice(0, i.indexOf(' ')))
+        if (amount) {
+          const name = i.slice(i.indexOf(' '), i.length).trim()
+          console.log(name)
+          listObject[name] = (listObject[name] + amount) | amount
+        } else {
+          listObject[i] = listObject[i] | 1
+        }
+      }
+    }
+    console.log(listObject)
+    // if (sList) setShoppingList(listObject)
+    // if (sList) console.log(sList, 'slist')
+  }, [usersList])
 
   const handleDeleteUserThing = ({ target }) => {
     const { id } = target
@@ -40,7 +76,8 @@ const App = () => {
 
   return (
     <div className='App'>
-      <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings, userCookie, setUserCookie, usersList, setUsersList }}>
+      {shoppingList ? <p>{shoppingList}</p> : ''}
+      <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings, userCookie, setUserCookie, usersList, setUsersList, shoppingList }}>
         <NavContainer />
         <Router>
           <Routes>
@@ -61,3 +98,5 @@ const App = () => {
 
 export default App
 export const UserContext = createContext()
+
+//!Work on finguring out how to populate the shoping list
