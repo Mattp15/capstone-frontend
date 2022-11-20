@@ -3,6 +3,8 @@ import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
 import { RecipeIndex } from './index'
+import { style } from '../../Resources/Style'
+
 //This will be for the user to update their account information (consider added a (forgot password) feature)
 const UserInfo = () => {
   const { loggedUser, setLoggedUser, usersThings, setUsersThings } = useContext(UserContext)
@@ -25,25 +27,3 @@ const UserInfo = () => {
 }
 // put a stat here, the state should be set by clickign on the title and the onClick will populate the state, it should be cleared with a repeated click of title or replaced by clicking on another title, resulting in the card expanding (contains ingredients or    nutrition facts or description  or epand into button selections to "delete" or toggle favorite/dislike
 export default UserInfo
-
-const style = {
-  buttonContainer: {},
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-  },
-  li: {
-    margin: '5px',
-    // marginRight: 'auto',
-  },
-  ul: {
-    listStyleType: 'none',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    // justifyContent: 'flex-start',
-    margin: '20px',
-    width: '50%',
-  },
-}

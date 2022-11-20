@@ -4,6 +4,7 @@ import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
 import Cookies from 'js-cookie'
 import { NavLink } from 'react-router-dom'
+import { style } from '../../Resources/Style'
 
 const RecipeChoose = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
@@ -200,25 +201,3 @@ const RecipeChoose = () => {
 }
 
 export default RecipeChoose
-
-const style = {
-  buttonContainer: {},
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-  },
-  li: {
-    margin: '5px',
-    // marginRight: 'auto',
-  },
-  ul: {
-    listStyleType: 'none',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    // justifyContent: 'flex-start',
-    margin: '20px',
-    width: '50%',
-  },
-}

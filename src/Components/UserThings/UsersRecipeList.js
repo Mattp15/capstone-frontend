@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { UserContext } from '../../App'
 import { Button } from '../Button/index'
 import Fetch from '../../Resources/Fetch.js'
+import { style } from '../../Resources/Style'
 
 const UserRecipeList = () => {
   //Getting User index next to do figure out to organize it for the view
@@ -20,6 +21,7 @@ const UserRecipeList = () => {
   //       console.log('did not fetch users list')
   //     }
   //   }
+
   const handleClick = (id) => {
     window.location.href = 'http://localhost:3000/recipes/' + id
   }
@@ -52,26 +54,3 @@ const UserRecipeList = () => {
 }
 
 export default UserRecipeList
-
-const style = {
-  buttonContainer: {},
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-  },
-  li: {
-    // margin: '5px',
-    margin: '0 auto',
-    // marginRight: 'auto',
-  },
-  ul: {
-    listStyleType: 'none',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    // justifyContent: 'flex-start',
-    margin: '20px',
-    width: '50%',
-  },
-}

@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
+import { style } from '../../Resources/Style'
+
 const RecipeIndex = () => {
   const [thingsDisplay, setThingsDisplay] = useState()
   const { usersThings } = useContext(UserContext)
@@ -59,27 +61,6 @@ const RecipeIndex = () => {
 }
 
 export default RecipeIndex
-
-const style = {
-  buttonContainer: {},
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-  },
-  li: {
-    margin: '5px',
-    marginRight: 'auto',
-  },
-  ul: {
-    listStyleType: 'none',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    margin: '20px',
-    marginLeft: '-10%',
-  },
-}
 
 // const list = recipeList.map((recipe) => {
 //displays all recipes = maybe make a list of just titles or title + ingredients or title and image

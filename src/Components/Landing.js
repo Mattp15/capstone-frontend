@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import Login from './Forms/Login'
 
 const Landing = ({ item }) => {
-  return <div></div>
+  return (
+    <div>
+      <h1>LANDING</h1>
+    </div>
+  )
 }
 export default Landing
 const style = {
