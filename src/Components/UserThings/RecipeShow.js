@@ -27,7 +27,7 @@ const RecipeShow = () => {
       {recipe ? (
         <>
           <h1>{recipe.title}</h1>
-          <img src={recipe.image} alt={'Image of ' + recipe.title} />
+          <img src={recipe.image} alt={'Image of ' + recipe.title} style={style.img} />
         </>
       ) : (
         ''
@@ -64,6 +64,7 @@ const RecipeShow = () => {
 
 export default RecipeShow
 
+//TODO Probably make this in context
 const style = {
   buttonContainer: {},
   container: {
@@ -71,27 +72,28 @@ const style = {
     alignItems: 'center',
     flexDirection: 'column',
   },
+  img: {
+    width: '100%',
+    height: 'auto',
+  },
+  instructions: {
+    margin: '15px',
+    lineHeight: '1.45rem',
+  },
   li: {
     lineHeight: '2rem',
+  },
+  ol: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginRight: '10%',
+    width: '98%',
   },
   ul: {
     listStyleType: 'none',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-  },
-  instructions: {
-    margin: '15px',
-    lineHeight: '1.5rem',
-
-    // marginRight: 'auto',
-    // marginLeft: '0',
-  },
-  ol: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    marginTop: '20px',
-    width: '90%',
   },
 }
