@@ -69,7 +69,9 @@ const ShoppingList = () => {
     // console.log(produce)
     // console.log(spice)
   }, [shoppingList])
-
+  const handleClick = (e) => {
+    console.log(e)
+  }
   return (
     <div style={style.container}>
       {dairy ? (
@@ -89,7 +91,7 @@ const ShoppingList = () => {
           <h3>Dry Goods</h3>
           <ul style={style.ul}>
             {dryGood.map((x, i) => {
-              return <List key={i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} sty={lineStyle} />
+              return <List key={i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
             })}
           </ul>
         </div>
