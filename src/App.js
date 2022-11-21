@@ -2,7 +2,7 @@ import React, { useState, createContext, useEffect } from 'react'
 import './App.css'
 import { Landing } from './Components'
 import { Login, Register } from './Components/Forms/index'
-import { UserInfo, ShoppingList, RecipeChoose, RecipeIndex, RecipeShow } from './Components/UserThings/index'
+import { UserInfo, ShoppingList, RecipeChoose, RecipeIndex, RecipeShow, UsersRecipeList } from './Components/UserThings/index'
 import { NavContainer } from './Components/Navigation/index'
 import Fetch from './Resources/Fetch'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -83,7 +83,7 @@ const App = () => {
             <Route path='/user' element={<UserInfo />} />
             <Route path='/list' element={<ShoppingList />} />
             <Route path='/roulette' element={<RecipeChoose />} />
-            <Route path='/user/list' element={<RecipeIndex />} />
+            <Route path='/user/list' element={<UsersRecipeList />} />
             <Route path='/recipes/*' element={<RecipeShow />} />
             <Route path='/user/list/shopping' element={<ShoppingList />} />
           </Routes>

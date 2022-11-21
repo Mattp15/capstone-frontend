@@ -24,7 +24,7 @@ const RecipeIndex = () => {
     <div style={style.container}>
       {usersThings ? (
         <ul style={style.ul}>
-          <h2 style={{ marginRight: 'auto' }}>Favorites</h2>
+          <h2 style={{ margin: '0 auto', marginTop: '15%' }}>Favorites</h2>
           {usersThings.map((x) => {
             if (x.favorite) {
               return (
@@ -34,7 +34,7 @@ const RecipeIndex = () => {
               )
             }
           })}
-          <h2 style={{ marginRight: 'auto' }}>Dislikes</h2>
+          <h2 style={{ margin: '0 auto', marginTop: '15%' }}>Dislikes</h2>
           {usersThings.map((x) => {
             if (x.dislike) {
               return (

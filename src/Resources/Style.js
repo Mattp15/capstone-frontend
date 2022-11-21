@@ -1,5 +1,9 @@
 export const style = {
-  buttonContainer: {},
+  buttonContainer: {
+    display: 'flex',
+    flexFlow: 'row no-wrap',
+    justifyContent: 'center',
+  },
   container: {
     display: 'flex',
     alignItems: 'center',
@@ -16,6 +20,7 @@ export const style = {
   li: {
     lineHeight: '2rem',
   },
+  navButton: {},
   ol: {
     display: 'flex',
     flexDirection: 'column',

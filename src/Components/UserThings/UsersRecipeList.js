@@ -4,7 +4,7 @@ import { Button } from '../Button/index'
 import Fetch from '../../Resources/Fetch.js'
 import { style } from '../../Resources/Style'
 
-const UserRecipeList = () => {
+const UsersRecipeList = () => {
   //Getting User index next to do figure out to organize it for the view
   const { loggedUser, usersRecipes, setUsersRecipes, usersList, setUsersList } = useContext(UserContext)
   //! do i need loggedUser??
@@ -53,4 +53,4 @@ const UserRecipeList = () => {
   )
 }
 
-export default UserRecipeList
+export default UsersRecipeList

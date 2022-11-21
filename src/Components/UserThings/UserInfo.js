@@ -21,7 +21,9 @@ const UserInfo = () => {
       {loggedUser ? <p>{loggedUser}</p> : ''}
       <Button value='update email' onClick={handleClick} />
       <Button value='Change Password' />
-      <RecipeIndex />
+      <div style={{ display: 'flex', marginRight: '10%' }}>
+        <RecipeIndex />
+      </div>
     </div>
   )
 }
