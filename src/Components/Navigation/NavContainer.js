@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useInsertionEffect } from 'react'
 import { Button } from '../Button/index'
 import { LogoutButton } from './index'
 import { Login } from '../Forms/index'
@@ -10,6 +10,7 @@ const URL = 'http://localhost:3000'
 
 const NavContainer = () => {
   const { loggedUser, setLoggedUser } = useContext(UserContext)
+
   const handleClick = (target) => {
     switch (target) {
       default:

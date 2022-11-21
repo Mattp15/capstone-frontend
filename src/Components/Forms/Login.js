@@ -23,13 +23,20 @@ const Login = (props) => {
     e.preventDefault()
     const { email, password } = user
     if (isValidEmail(email) && isValidPassword(password)) {
-      const response = await Fetch('user/login', 'POST', { email, password })
-      if (response.status === 200) {
-        console.log(response.message)
-        setLoggedUser(user.email)
-        //add redirect
-      } else if (response.status === 404) {
-        console.log(response.message)
+      try {
+        const response = await Fetch('user/login', 'POST', { email, password })
+
+        if (response.status === 200) {
+          console.log(response.message)
+          setLoggedUser(user.email)
+          window.location.href = 'http://localhost:3000/user'
+        } else if (response.status === 404) {
+          console.log(response.message)
+        } else {
+          setEmailError(style.show)
+        }
+      } catch (err) {
+        setEmailError(style.show)
       }
     } else {
       setEmailError(style.show)
