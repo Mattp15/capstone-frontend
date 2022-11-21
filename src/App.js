@@ -49,13 +49,14 @@ const App = () => {
         for (const j of splitList) {
           for (const i of j) {
             const number = i.slice(0, i.indexOf(' '))
-            const amount = parseFloat(number)
-            if (amount) {
-              const name = i.slice(i.indexOf(' '), i.length).trim().replaceAll('-', ' ')
+            const qnty = parseFloat(number)
+            if (qnty) {
+              const name = i.slice(i.indexOf(' '), i.lastIndexOf(' ')).trim().replaceAll('-', ' ')
+              const cgy = i.slice(i.lastIndexOf(' '), i.length).trim().replaceAll('-', ' ')
               if (listObject[name]) {
-                listObject[name] += amount
+                listObject[name].amount = listObject[name].amount + qnty
               } else {
-                listObject[name] = amount
+                listObject[name] = { amount: qnty, category: cgy }
               }
             }
           }
