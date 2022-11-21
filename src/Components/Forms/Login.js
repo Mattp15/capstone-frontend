@@ -3,6 +3,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
 import Fetch from '../../Resources/Fetch'
 import { UserContext } from '../../App'
+import { useLocation, NavLink } from 'react-router-dom'
+import { NavContainer } from '../Navigation'
 
 const Login = (props) => {
   const [user, setUser] = useState({
@@ -10,7 +12,7 @@ const Login = (props) => {
     password: '',
   })
   const [emailError, setEmailError] = useState(style.hidden)
-  const { setLoggedUser } = useContext(UserContext)
+  const { setLoggedUser, loggedUser } = useContext(UserContext)
   const handleChange = ({ target }) => {
     const { value, name } = target
     setUser((prev) => ({
@@ -29,7 +31,6 @@ const Login = (props) => {
         if (response.status === 200) {
           console.log(response.message)
           setLoggedUser(user.email)
-          window.location.href = 'http://localhost:3000/user'
         } else if (response.status === 404) {
           console.log(response.message)
         } else {
@@ -45,6 +46,7 @@ const Login = (props) => {
 
   return (
     <div style={style.container}>
+      <NavContainer />
       <h1>Login</h1>
       {/* <div style={style.container}> */}
       <form onSubmit={handleSubmit} style={style.formStyle}>

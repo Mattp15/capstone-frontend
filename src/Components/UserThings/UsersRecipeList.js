@@ -3,6 +3,7 @@ import { UserContext } from '../../App'
 import { Button } from '../Button/index'
 import Fetch from '../../Resources/Fetch.js'
 import { style } from '../../Resources/Style'
+import { NavContainer } from '../Navigation'
 
 const UsersRecipeList = () => {
   //Getting User index next to do figure out to organize it for the view
@@ -27,8 +28,8 @@ const UsersRecipeList = () => {
   }
   return (
     <div style={style.container}>
+      <NavContainer />
       <h1>Users recipes List</h1>
-      {/* <Button value='Get list' onClick={handleClick} /> */}
       {usersList ? (
         <ul style={style.ul}>
           {usersList.map((recipe, index) => {

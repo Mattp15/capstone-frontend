@@ -1,25 +1,29 @@
 import React, { useState, createContext, useEffect } from 'react'
 import './App.css'
 import { Landing } from './Components'
-import { Login, Register } from './Components/Forms/index'
-import { UserInfo, ShoppingList, RecipeChoose, RecipeIndex, RecipeShow, UsersRecipeList } from './Components/UserThings/index'
-import { NavContainer } from './Components/Navigation/index'
+import { Login, Register } from './Components/Forms'
+import { UserInfo, ShoppingList, Roulette, RecipeIndex, RecipeShow, UsersRecipeList } from './Components/UserThings'
+import { NavContainer } from './Components/Navigation'
 import Fetch from './Resources/Fetch'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Cookies from 'js-cookie'
 export const UserContext = createContext()
 const App = () => {
-  const [loggedUser, setLoggedUser] = useState('')
-  const [usersThings, setUsersThings] = useState(null)
-  const [usersList, setUsersList] = useState(null)
+  const [loggedUser, setLoggedUser] = useState()
+  const [usersThings, setUsersThings] = useState()
+  const [usersList, setUsersList] = useState()
   const [userCookie, setUserCookie] = useState()
-  const [shoppingList, setShoppingList] = useState(null)
+  const [shoppingList, setShoppingList] = useState()
+
+  useEffect(() => {
+    console.log(loggedUser)
+  }, [loggedUser])
 
   useEffect(() => {
     getUsersThings()
     getUsersList()
     // setUserCookie(Cookies.get(loggedUser))
-  }, [])
+  }, [loggedUser])
   const getUsersThings = async () => {
     const response = await Fetch('things/', 'GET', '')
     setUsersThings(response.data)
@@ -74,16 +78,16 @@ const App = () => {
   return (
     <div className='App'>
       <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings, userCookie, setUserCookie, usersList, setUsersList, shoppingList }}>
-        <NavContainer />
         <Router>
           <Routes>
+            <Route path='/*' element={<NavContainer />} />
             <Route path='/' element={<Landing />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
 
             <Route path='/user' element={<UserInfo />} />
             <Route path='/list' element={<ShoppingList />} />
-            <Route path='/roulette' element={<RecipeChoose />} />
+            <Route path='/roulette' element={<Roulette />} />
             <Route path='/user/list' element={<UsersRecipeList />} />
             <Route path='/recipes/*' element={<RecipeShow />} />
             <Route path='/user/list/shopping' element={<ShoppingList />} />

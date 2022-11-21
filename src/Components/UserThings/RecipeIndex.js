@@ -20,7 +20,6 @@ const RecipeIndex = () => {
     setThingsDisplay(usersThings)
   }, [usersThings])
   return (
-    // {userThings ? " " : " "}
     <div style={style.container}>
       {usersThings ? (
         <ul style={style.ul}>

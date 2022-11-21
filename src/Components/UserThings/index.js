@@ -1,6 +1,6 @@
 export { default as UserInfo } from './UserInfo'
 export { default as ShoppingList } from './ShoppingList'
-export { default as RecipeChoose } from './RecipeChoose'
+export { default as Roulette } from './Roulette'
 export { default as RecipeIndex } from './RecipeIndex'
 export { default as RecipeShow } from './RecipeShow'
 export { default as UsersRecipeList } from './UsersRecipeList'

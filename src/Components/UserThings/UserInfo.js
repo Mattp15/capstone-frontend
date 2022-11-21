@@ -4,19 +4,26 @@ import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
 import { RecipeIndex } from './index'
 import { style } from '../../Resources/Style'
+import { useLocation } from 'react-router-dom'
+import { NavContainer } from '../Navigation/index'
 
 //This will be for the user to update their account information (consider added a (forgot password) feature)
 const UserInfo = () => {
   const { loggedUser, setLoggedUser, usersThings, setUsersThings } = useContext(UserContext)
   const [favorites, setFavorites] = useState()
   const [dislikes, setDislikes] = useState()
+  const location = useLocation()
 
   const handleClick = () => {
     //prolly use a Nav tag to change to a page for chnaging email/password require correct password to change password
+
+    console.log(location)
+    console.log(loggedUser)
   }
 
   return (
     <div style={style.container}>
+      <NavContainer />
       <h1>User Info</h1>
       {loggedUser ? <p>{loggedUser}</p> : ''}
       <Button value='update email' onClick={handleClick} />

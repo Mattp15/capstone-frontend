@@ -3,10 +3,10 @@ import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
 import Cookies from 'js-cookie'
-import { NavLink } from 'react-router-dom'
 import { style } from '../../Resources/Style'
+import { NavContainer } from '../Navigation'
 
-const RecipeChoose = () => {
+const Roulette = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
   const { usersThings, userCookie, setUserCookie, usersList } = useContext(UserContext)
@@ -104,6 +104,7 @@ const RecipeChoose = () => {
   }
   return (
     <div style={style.container}>
+      <NavContainer />
       <h1>Choose</h1>
       <Button
         value='Swing'
@@ -201,4 +202,4 @@ const RecipeChoose = () => {
   )
 }
 
-export default RecipeChoose
+export default Roulette

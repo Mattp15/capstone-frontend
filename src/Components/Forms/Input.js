@@ -1,6 +1,7 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const Input = ({ type, value, onChange, name, inputStyle }) => {
+const Input = ({ type, value, onChange, name, inputStyle, link }) => {
   return (
     <label>
       <label htmlFor={name} style={style.hideLabel}>

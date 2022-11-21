@@ -19,8 +19,19 @@ export const style = {
   },
   li: {
     lineHeight: '2rem',
+    marginRight: 'auto',
   },
-  navButton: {},
+  liContainer: {
+    border: '1px solid red',
+    borderRadius: '20px',
+    margin: '1vw',
+    width: '80vw',
+  },
+  navButton: {
+    color: 'black',
+    textDecoration: 'none',
+  },
+
   ol: {
     display: 'flex',
     flexDirection: 'column',
