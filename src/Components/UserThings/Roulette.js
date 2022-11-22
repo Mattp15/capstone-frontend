@@ -23,6 +23,7 @@ const Roulette = () => {
 
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET')
+    console.log(response.data)
     setRecipeList(response.data)
   }
   const addToList = ({ id }) => {
@@ -65,12 +66,12 @@ const Roulette = () => {
           for (const i of usersThings) {
             if (i.favorite) {
               setRecipeList((prev) => {
-                return [prev.filter((fil) => fil.id !== i.recipe_id.id)]
+                return [...prev.filter((fil) => fil.id !== i.recipe_id.id)]
               })
 
               favs.push(i.recipe_id)
             } else {
-              setRecipeList((prev) => [prev.filter((fil) => fil.id !== i.recipe_id.id)])
+              setRecipeList((prev) => [...prev.filter((fil) => fil.id !== i.recipe_id.id)])
             }
           }
 
@@ -89,7 +90,7 @@ const Roulette = () => {
         } else if (passResponse.status === 409) {
           console.log(passResponse.message)
         }
-        setRecipeList((prev) => [prev.shift(), ...prev])
+        setRecipeList((prev) => [...prev.shift(), ...prev])
 
         break
       case 'new':
@@ -104,8 +105,10 @@ const Roulette = () => {
         if (newListResponse.status === 200 || newListResponse.status === 404) {
           nextRecipe('Start')
         }
+
         break
     }
+    console.log(recipeList)
     // setUserCookie(Cookies.get('Name'))
     // console.log(userCookie, Cookies.get('session'))
   }
@@ -164,13 +167,6 @@ const Roulette = () => {
           <li key='6' style={style.li}>
             Protein: {recipeList[0].protein}
           </li>
-          {recipeList[0].favorite ? (
-            <li key='7' style={style.li}>
-              Favorite
-            </li>
-          ) : (
-            ''
-          )}
         </ul>
       ) : (
         ''
