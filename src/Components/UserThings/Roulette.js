@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useCallback } from 'react'
 import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button/index'
@@ -18,9 +18,16 @@ const Roulette = () => {
     getRecipes()
     initiate()
   }, [])
+  useCallback(() => {
+    // getUsersList()
+  }, [usersList])
 
   const initiate = async () => {}
-
+  const getUsersList = async () => {
+    const gettingUsersList = await Fetch('user/list', 'GET')
+    console.log(gettingUsersList)
+    setUsersList(gettingUsersList.data)
+  }
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET')
     setRecipeList(response.data)
@@ -103,6 +110,7 @@ const Roulette = () => {
         const newListResponse = await Fetch('user/list', 'DELETE', { id: 0 })
         console.log(newListResponse)
         if (newListResponse) {
+          setUsersList(null)
           nextRecipe('Start')
         }
 
