@@ -16,6 +16,15 @@ const Fetch = async (url, method, data = '') => {
         'Content-Type': 'application/json',
       },
     })
+  } else if (method === 'DELETE' && data.id === 0) {
+    res = await fetch(rootUrl + url, {
+      method: method,
+      credentials: 'include',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
   } else if (method === 'DELETE') {
     res = await fetch(rootUrl + url, {
       method: method,

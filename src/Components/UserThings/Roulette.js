@@ -9,7 +9,7 @@ import { NavContainer } from '../Navigation'
 const Roulette = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
-  const { usersThings, userCookie, setUserCookie, usersList } = useContext(UserContext)
+  const { usersThings, userCookie, setUserCookie, usersList, setUsersList } = useContext(UserContext)
   useEffect(() => {
     getRecipes()
     initiate()
@@ -21,7 +21,12 @@ const Roulette = () => {
   //TODO needs a function to remove recipes from recipeList that are either
   //*user_thing dislike = true, user_thing in recipe * dislike = false, pull recipes with Favorite = true first.
   //TODO needs a way to delete recipes in user_thing that are not TRUE for either dislike or favorite
-
+  useEffect(() => {
+    if (!usersList) {
+      getRecipes()
+      nextRecipe('Start')
+    }
+  }, [usersList])
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET')
     setRecipeList(response.data)
@@ -91,9 +96,15 @@ const Roulette = () => {
         setRecipeList((prev) => [prev.shift(), ...prev])
 
         break
+      case 'new':
+        const newListResponse = await Fetch('user/list', 'DELETE', { id: 0 })
+        console.log(newListResponse)
+        if (newListResponse.status === 200 || newListResponse.status === 404) {
+          setUsersList('')
+        }
+        break
     }
-    console.log(recipeList[0])
-    console.log(displayRecipe)
+
     setUserCookie(Cookies.get('Name'))
     // console.log(userCookie, Cookies.get('session'))
   }
@@ -106,12 +117,26 @@ const Roulette = () => {
     <div style={style.container}>
       <NavContainer />
       <h1>Choose</h1>
-      <Button
-        value='Swing'
-        onClick={() => {
-          nextRecipe()
-        }}
-      />
+      {usersList && !displayRecipe ? (
+        <Button
+          value='Continue?'
+          onClick={() => {
+            nextRecipe('Start')
+          }}
+        />
+      ) : (
+        ''
+      )}
+      {usersList && !displayRecipe ? (
+        <Button
+          value='New List?'
+          onClick={() => {
+            nextRecipe('new')
+          }}
+        />
+      ) : (
+        ''
+      )}
       {displayRecipe && recipeList[0] ? (
         <ul style={style.ul}>
           <li key='0' style={style.li}>
@@ -147,16 +172,6 @@ const Roulette = () => {
         ''
       )}
       <div style={style.buttonContainer}>
-        {!displayRecipe ? (
-          <Button
-            value='Initiate'
-            onClick={() => {
-              nextRecipe('Start')
-            }}
-          />
-        ) : (
-          ''
-        )}
         {displayRecipe ? (
           <Button
             value='Favorite'

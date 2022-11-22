@@ -1,4 +1,7 @@
 export const style = {
+  button: {
+    borderRadius: '200px',
+  },
   buttonContainer: {
     display: 'flex',
     flexFlow: 'row no-wrap',
@@ -44,5 +47,12 @@ export const style = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
+  },
+
+  userThingsUl: {
+    listStyleType: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 }

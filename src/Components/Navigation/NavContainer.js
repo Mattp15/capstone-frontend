@@ -13,24 +13,6 @@ const NavContainer = () => {
   const location = useLocation()
   const handleClick = (target) => {
     console.log(location)
-    // switch (target) {
-    //   default:
-    //     break
-    //   case 'user':
-    //     window.location.href = URL + '/user'
-    //     break
-    //   case 'recipes':
-    //     window.location.href = URL + '/user/list'
-    //     break
-    //   case 'shopping':
-    //     window.location.href = URL + '/user/list/shopping'
-    //     break
-    //   case 'roulette':
-    //     window.location.href = URL + '/roulette'
-    //     break
-    //   case 'login':
-    //     window.location.href = URL + '/login'
-    // }
   }
   useEffect(() => {
     console.log(loggedUser)

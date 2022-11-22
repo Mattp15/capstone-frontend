@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { style } from '../../Resources/Style'
+import { UserRecipeListComponent } from './'
 
 const RecipeIndex = () => {
   const [thingsDisplay, setThingsDisplay] = useState()
@@ -22,27 +23,11 @@ const RecipeIndex = () => {
   return (
     <div style={style.container}>
       {usersThings ? (
-        <ul style={style.ul}>
+        <ul style={style.userThingsUl}>
           <h2 style={{ margin: '0 auto', marginTop: '15%' }}>Favorites</h2>
-          {usersThings.map((x) => {
-            if (x.favorite) {
-              return (
-                <li key={x.id} style={style.li}>
-                  {x.recipe_id.title}
-                </li>
-              )
-            }
-          })}
+          {usersThings.map((x) => (x.favorite ? <UserRecipeListComponent key={x.id} style={style.li} value={x.recipe_id.title} status='Favorites' /> : ''))}
           <h2 style={{ margin: '0 auto', marginTop: '15%' }}>Dislikes</h2>
-          {usersThings.map((x) => {
-            if (x.dislike) {
-              return (
-                <li key={x.id} style={style.li}>
-                  {x.recipe_id.title}
-                </li>
-              )
-            }
-          })}
+          {usersThings.map((x) => (x.dislike ? <UserRecipeListComponent key={x.id} style={style.li} value={x.recipe_id.title} status='Dislikes' /> : ''))}
         </ul>
       ) : (
         ''

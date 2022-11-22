@@ -1,6 +1,10 @@
 import React from 'react'
-
-const Button = ({ value, onClick }) => {
-  return <button onClick={onClick}>{value}</button>
+import { style } from '../../Resources/Style'
+const Button = ({ value, onClick, xtyle }) => {
+  return (
+    <button onClick={onClick} style={style.button}>
+      {value}
+    </button>
+  )
 }
 export default Button
