@@ -102,7 +102,8 @@ const Roulette = () => {
           }
         }
         const newListResponse = await Fetch('user/list', 'DELETE', { id: 0 })
-        if (newListResponse.status === 200 || newListResponse.status === 404) {
+        console.log(newListResponse)
+        if (newListResponse) {
           nextRecipe('Start')
         }
 
