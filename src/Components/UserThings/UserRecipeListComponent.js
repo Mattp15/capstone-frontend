@@ -11,7 +11,6 @@ const UserRecipeListComponent = ({ zkey, value, style, status, onClick, ids, typ
     !clicked ? setClicked(true) : setClicked(false)
   }
   const handleDelete = async ({ id }) => {
-    console.log(id)
     const response = await Fetch('things/' + id, 'DELETE', '')
     setUsersThings((prev) => {
       return prev.filter((fil) => id !== fil.id)
