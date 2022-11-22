@@ -23,7 +23,7 @@ const NavContainer = () => {
       {loggedUser ? (
         <Button
           value={
-            <NavLink to='/' style={style.navButton}>
+            <NavLink to='/login' style={style.navButton}>
               Logout
             </NavLink>
           }

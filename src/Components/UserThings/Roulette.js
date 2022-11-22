@@ -10,17 +10,25 @@ import { useNavigate } from 'react-router-dom'
 const Roulette = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
+
   const { usersThings, setUsersThings, usersList, setUsersList } = useContext(UserContext)
 
   const navigate = useNavigate()
 
   useEffect(() => {
-    getRecipes()
-    initiate()
+    const interval = setInterval(() => {
+      getRecipes()
+      initiate()
+    }, 500)
+    setTimeout(() => {
+      return clearInterval(interval)
+    }, 1000)
   }, [])
-  useCallback(() => {
-    // getUsersList()
-  }, [usersList])
+  // useEffect(() => {
+  //   initiate()
+  // getRecipes()
+  // console.log('htsoeith')
+  // }, [recipeList])
 
   const initiate = async () => {}
   const getUsersList = async () => {
