@@ -18,6 +18,7 @@ const App = () => {
   useEffect(() => {
     getUsersThings()
     getUsersList()
+    getCurrentUser()
     // setUserCookie(Cookies.get(loggedUser))
   }, [loggedUser])
   const getUsersThings = async () => {
@@ -31,6 +32,11 @@ const App = () => {
     } else {
       console.log('did not fetch users list')
     }
+  }
+  const getCurrentUser = async () => {
+    const currentUser = await Fetch('user/user', 'GET')
+    console.log(currentUser)
+    setLoggedUser(currentUser.data.email)
   }
   useEffect(() => {
     if (usersList) {

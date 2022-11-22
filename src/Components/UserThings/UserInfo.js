@@ -13,7 +13,13 @@ const UserInfo = () => {
   const [favorites, setFavorites] = useState()
   const [dislikes, setDislikes] = useState()
   const location = useLocation()
-
+  useEffect(() => {
+    getUsersThings()
+  }, [])
+  const getUsersThings = async () => {
+    const response = await Fetch('things/', 'GET', '')
+    setUsersThings(response.data)
+  }
   const handleClick = () => {
     //prolly use a Nav tag to change to a page for chnaging email/password require correct password to change password
 

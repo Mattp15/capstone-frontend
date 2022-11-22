@@ -23,7 +23,6 @@ const Roulette = () => {
 
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET')
-    console.log(response.data)
     setRecipeList(response.data)
   }
   const addToList = ({ id }) => {
@@ -109,7 +108,7 @@ const Roulette = () => {
 
         break
     }
-    console.log(recipeList)
+    console.log(usersList)
     // setUserCookie(Cookies.get('Name'))
     // console.log(userCookie, Cookies.get('session'))
   }
@@ -118,7 +117,7 @@ const Roulette = () => {
     <div style={style.container}>
       <NavContainer />
       <h1>Choose</h1>
-      {usersList && !displayRecipe ? (
+      {!displayRecipe ? (
         <Button
           value='Continue?'
           onClick={() => {

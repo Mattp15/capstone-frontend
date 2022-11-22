@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { style } from '../../Resources/Style'
 
-const List = ({ value, sty, key, onClick }) => {
+const List = ({ value, sty, pkey, onClick }) => {
   const [list, setList] = useState()
   const [lineStyle, setLineStyle] = useState('li')
   useEffect(() => {
@@ -10,7 +10,7 @@ const List = ({ value, sty, key, onClick }) => {
     }
   }, [sty])
   return (
-    <li key={key} style={style[lineStyle]} onClick={() => setLineStyle(lineStyle === 'li' ? 'liStrike' : 'li')}>
+    <li key={pkey} style={style[lineStyle]} onClick={() => setLineStyle(lineStyle === 'li' ? 'liStrike' : 'li')}>
       {value}
     </li>
   )

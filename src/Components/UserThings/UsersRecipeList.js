@@ -17,26 +17,18 @@ const UsersRecipeList = () => {
     getList()
   }, [])
   const getList = async () => {
-    const response2 = await Fetch('user/list', 'GET')
-    if (response2.status === 200) {
-      console.log(response2.message)
-      setUsersList(response2.data)
+    const response = await Fetch('user/list', 'GET')
+    if (response.status === 200) {
+      setUsersList(response.data)
     } else {
       console.log('did not fetch users list')
-    }
-  }
-  const handleClick = async ({ id, title }) => {
-    const favoriteResponse = await Fetch('things/' + id, 'POST', { favorite: true, dislike: false })
-    if (favoriteResponse.status === 200) {
-      console.log(favoriteResponse.message, 'favorite')
-    } else if (favoriteResponse.status === 409) {
-      console.log(favoriteResponse.message)
     }
   }
   const handleDelete = async ({ id }) => {
     const deleted = await Fetch('user/list', 'DELETE', { id: id })
     setUsersList((prev) => [...prev.filter((fil) => fil.id !== id)])
   }
+
   return (
     <div style={style.container}>
       <NavContainer />
@@ -47,13 +39,7 @@ const UsersRecipeList = () => {
             return (
               <li key={index} style={style.li}>
                 <NavLink to={'/recipes/' + recipe.id}> {recipe.recipe_id.title}</NavLink>
-                <button
-                  onClick={() => {
-                    handleClick(recipe)
-                  }}
-                >
-                  Favorite
-                </button>
+
                 <button onClick={() => handleDelete(recipe)}>Delete</button>
               </li>
             )
@@ -68,3 +54,20 @@ const UsersRecipeList = () => {
 }
 
 export default UsersRecipeList
+
+// const handleClick = async ({ id, title }) => {
+//   const favoriteResponse = await Fetch('things/' + id, 'POST', { favorite: true, dislike: false })
+//   if (favoriteResponse.status === 200) {
+//     console.log(favoriteResponse.message, 'favorite')
+//   } else if (favoriteResponse.status === 409) {
+//     console.log(favoriteResponse.message)
+//   }
+// }
+// const handleDislike = async (recipe) => {
+//   console.log(recipe)
+//   const id = recipe.id
+// const disliked = await Fetch('things/' + recipe.id, 'POST', { favorite: false, dislike: true })
+// console.log(disliked)
+// const deleted = await Fetch('user/list', 'DELETE', { id: id })
+// setUsersList((prev) => [...prev.filter((fil) => fil.id !== id)])
+// }

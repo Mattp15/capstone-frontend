@@ -132,7 +132,7 @@ const ShoppingList = () => {
           <h3>Produce</h3>
           <ul style={style.ul}>
             {produce.map((x, i) => {
-              return <List key={'produce' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
+              return <List key={+i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
             })}
           </ul>
         </div>
