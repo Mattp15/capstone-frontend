@@ -16,10 +16,6 @@ const App = () => {
   const [shoppingList, setShoppingList] = useState()
 
   useEffect(() => {
-    console.log(loggedUser)
-  }, [loggedUser])
-
-  useEffect(() => {
     getUsersThings()
     getUsersList()
     // setUserCookie(Cookies.get(loggedUser))

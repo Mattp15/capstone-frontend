@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import UserContext from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { style } from '../../Resources/Style'
+import { NavContainer } from '../Navigation'
 const RecipeShow = () => {
   const [recipe, setRecipe] = useState()
   const [ingredients, setIngredients] = useState()
@@ -22,6 +23,7 @@ const RecipeShow = () => {
   }, [])
   return (
     <div style={style.container}>
+      <NavContainer />
       {recipe ? (
         <>
           <h1>{recipe.title}</h1>

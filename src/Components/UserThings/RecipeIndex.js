@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useCallback } from 'react'
 import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { style } from '../../Resources/Style'
@@ -6,28 +6,31 @@ import { UserRecipeListComponent } from './'
 
 const RecipeIndex = () => {
   const [thingsDisplay, setThingsDisplay] = useState()
-  const { usersThings } = useContext(UserContext)
-  //! This will be where user can view their selected recipes for the current working list including distinct areas off sections for Favorited and disliked
-  //* like a selectable that takes to a "favorites" and "disliked" edit page
-  //TODO When a user deletes an item, the "DELTED" confirmation text can replace the item at location, with a setTimeout to be removed => fade out. Lower items should push up at this point
+  const { usersThings, setUserThings } = useContext(UserContext)
+  const initiate = async () => {}
+  useEffect(() => {}, [thingsDisplay])
   const handleDelete = async ({ id }) => {
     const response = await Fetch('things/' + id, 'DELETE', '')
     setThingsDisplay((prev) => {
+      return prev.filter((fil) => id !== fil.id)
+    })
+    setUserThings((prev) => {
       return prev.filter((fil) => id !== fil.id)
     })
     console.log(thingsDisplay)
   }
   useEffect(() => {
     setThingsDisplay(usersThings)
-  }, [usersThings])
+    initiate()
+  }, [usersThings, thingsDisplay])
   return (
     <div style={style.container}>
       {usersThings ? (
         <ul style={style.userThingsUl}>
           <h2 style={{ margin: '0 auto', marginTop: '15%' }}>Favorites</h2>
-          {usersThings.map((x) => (x.favorite ? <UserRecipeListComponent key={x.id} style={style.li} value={x.recipe_id.title} status='Favorites' /> : ''))}
+          {usersThings.map((x, i) => (x.favorite ? <UserRecipeListComponent type='button' key={i} zkey={x.id} style={style.li} value={x.recipe_id.title} status='Favorites' ids={x} /> : ''))}
           <h2 style={{ margin: '0 auto', marginTop: '15%' }}>Dislikes</h2>
-          {usersThings.map((x) => (x.dislike ? <UserRecipeListComponent key={x.id} style={style.li} value={x.recipe_id.title} status='Dislikes' /> : ''))}
+          {usersThings.map((x, i) => (x.dislike ? <UserRecipeListComponent type='button' key={i} zkey={x.id} style={style.li} value={x.recipe_id.title} status='Dislikes' ids={x} /> : ''))}
         </ul>
       ) : (
         ''

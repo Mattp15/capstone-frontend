@@ -1,22 +1,15 @@
-import React, { useContext, useEffect, useInsertionEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Button } from '../Button/index'
 import { LogoutButton } from './index'
 import { UserContext } from '../../App'
 import { style } from '../../Resources/Style'
 import Fetch from '../../Resources/Fetch'
-import { useLocation, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const URL = 'http://localhost:3000'
 
 const NavContainer = () => {
   const { loggedUser, setLoggedUser } = useContext(UserContext)
-  const location = useLocation()
-  const handleClick = (target) => {
-    console.log(location)
-  }
-  useEffect(() => {
-    console.log(loggedUser)
-  }, [loggedUser])
 
   const handleLogout = async () => {
     const response = await Fetch('user/logout', 'GET')
@@ -39,7 +32,7 @@ const NavContainer = () => {
       ) : (
         <Button
           value={
-            <NavLink to='/user' style={style.navButton}>
+            <NavLink to='/login' style={style.navButton}>
               Login
             </NavLink>
           }

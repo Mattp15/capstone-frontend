@@ -1,28 +1,41 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useCallback } from 'react'
 import { style } from '../../Resources/Style'
 import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button'
 
-const UserRecipeListComponent = ({ key, value, style, status }) => {
+const UserRecipeListComponent = ({ zkey, value, style, status, onClick, ids, type }) => {
   const [clicked, setClicked] = useState(false)
-  const { setThingsDisplay, thingsDisplay } = useContext(UserContext)
+  const { usersThings, setUsersThings } = useContext(UserContext)
   const handleClick = () => {
     !clicked ? setClicked(true) : setClicked(false)
   }
   const handleDelete = async ({ id }) => {
+    console.log(id)
     const response = await Fetch('things/' + id, 'DELETE', '')
-    setThingsDisplay((prev) => {
+    setUsersThings((prev) => {
       return prev.filter((fil) => id !== fil.id)
     })
-    console.log(thingsDisplay)
   }
+  useCallback(() => {
+    console.log('inefffect')
+  }, [usersThings])
   return (
     <div>
-      <li key={key} style={style} onClick={handleClick}>
+      <li key={zkey} style={style} onClick={handleClick}>
         {value}
       </li>
-      {clicked ? <Button key={key} value={'Delete from ' + status} xtyle='button' /> : ''}
+      {clicked && type === 'button' ? (
+        <Button
+          value={'Delete from ' + status}
+          xtyle='button'
+          onClick={() => {
+            handleDelete(ids)
+          }}
+        />
+      ) : (
+        ''
+      )}
       {/* {clicked ? <Button key={key} value='Cancel' onClick={handleClick} style={style.userButton} /> : ''} */}
     </div>
   )

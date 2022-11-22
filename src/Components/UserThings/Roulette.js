@@ -5,34 +5,33 @@ import { Button } from '../Button/index'
 import Cookies from 'js-cookie'
 import { style } from '../../Resources/Style'
 import { NavContainer } from '../Navigation'
+import { useNavigate } from 'react-router-dom'
 
 const Roulette = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
-  const { usersThings, userCookie, setUserCookie, usersList, setUsersList } = useContext(UserContext)
+  const { usersThings, setUsersThings, usersList, setUsersList } = useContext(UserContext)
+
+  const navigate = useNavigate()
+
   useEffect(() => {
     getRecipes()
     initiate()
-    setTimeout(() => {
-      return
-    }, 40)
   }, [])
 
-  //TODO needs a function to remove recipes from recipeList that are either
-  //*user_thing dislike = true, user_thing in recipe * dislike = false, pull recipes with Favorite = true first.
-  //TODO needs a way to delete recipes in user_thing that are not TRUE for either dislike or favorite
-  useEffect(() => {
-    if (!usersList) {
-      getRecipes()
-      nextRecipe('Start')
-    }
-  }, [usersList])
+  const initiate = async () => {}
+
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET')
     setRecipeList(response.data)
   }
-  const initiate = async () => {}
+  const addToList = ({ id }) => {
+    const response = Fetch('user/list', 'POST', { id: id })
+  }
   const nextRecipe = async (name) => {
+    if (!recipeList[1]) {
+      navigate('/user/list')
+    }
     switch (name) {
       default:
         break
@@ -66,25 +65,22 @@ const Roulette = () => {
           for (const i of usersThings) {
             if (i.favorite) {
               setRecipeList((prev) => {
-                return [...prev.filter((fil) => fil.id !== i.recipe_id.id)]
+                return [prev.filter((fil) => fil.id !== i.recipe_id.id)]
               })
-              console.log(i.favorite)
+
               favs.push(i.recipe_id)
             } else {
-              setRecipeList((prev) => {
-                return [...prev.filter((fil) => fil.id !== i.recipe_id.id)]
-              })
+              setRecipeList((prev) => [prev.filter((fil) => fil.id !== i.recipe_id.id)])
             }
           }
 
           setDisplayRecipe(true)
           setRecipeList((prev) => [...favs, ...prev])
           for (const j of usersList) {
-            setRecipeList((prev) => {
-              return [...prev.filter((fil) => fil.id !== j.recipe_id.id)]
-            })
+            setRecipeList((prev) => [...prev.filter((fil) => fil.id !== j.recipe_id.id)])
           }
         }
+
         break
       case 'Pass':
         const passResponse = await Fetch('things/' + recipeList[0].id, 'POST', { favorite: false, dislike: false })
@@ -97,22 +93,23 @@ const Roulette = () => {
 
         break
       case 'new':
+        for (const x of usersThings) {
+          if (!x.favorite && !x.dislike) {
+            console.log(x)
+            const deletePassed = await Fetch('things/' + x.id, 'DELETE')
+            console.log(deletePassed)
+          }
+        }
         const newListResponse = await Fetch('user/list', 'DELETE', { id: 0 })
-        console.log(newListResponse)
         if (newListResponse.status === 200 || newListResponse.status === 404) {
-          setUsersList('')
+          nextRecipe('Start')
         }
         break
     }
-
-    setUserCookie(Cookies.get('Name'))
+    // setUserCookie(Cookies.get('Name'))
     // console.log(userCookie, Cookies.get('session'))
   }
-  const addToList = ({ id }) => {
-    console.log(id)
-    const response = Fetch('user/list', 'POST', { id: id })
-    console.log(response.message)
-  }
+
   return (
     <div style={style.container}>
       <NavContainer />
@@ -167,12 +164,19 @@ const Roulette = () => {
           <li key='6' style={style.li}>
             Protein: {recipeList[0].protein}
           </li>
+          {recipeList[0].favorite ? (
+            <li key='7' style={style.li}>
+              Favorite
+            </li>
+          ) : (
+            ''
+          )}
         </ul>
       ) : (
         ''
       )}
       <div style={style.buttonContainer}>
-        {displayRecipe ? (
+        {displayRecipe && recipeList[0] ? (
           <Button
             value='Favorite'
             onClick={() => {
@@ -182,7 +186,7 @@ const Roulette = () => {
         ) : (
           ''
         )}
-        {displayRecipe ? (
+        {displayRecipe && recipeList[0] ? (
           <Button
             value='Dislike'
             onClick={() => {
@@ -192,7 +196,7 @@ const Roulette = () => {
         ) : (
           ''
         )}
-        {displayRecipe ? (
+        {displayRecipe && recipeList[0] ? (
           <Button
             value='Pass'
             onClick={() => {
@@ -202,7 +206,7 @@ const Roulette = () => {
         ) : (
           ''
         )}
-        {displayRecipe ? (
+        {displayRecipe && recipeList[0] ? (
           <Button
             value='Select'
             onClick={() => {
