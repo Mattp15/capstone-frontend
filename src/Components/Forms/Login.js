@@ -1,4 +1,3 @@
-import { findByLabelText } from '@testing-library/react'
 import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
 import Fetch from '../../Resources/Fetch'

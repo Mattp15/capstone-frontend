@@ -93,10 +93,10 @@ const Roulette = () => {
         const passResponse = await Fetch('things/' + recipeList[0].id, 'POST', { favorite: false, dislike: false })
         if (passResponse.status === 200) {
           console.log('item skipped')
+          setRecipeList((prev) => [prev.shift(), ...prev])
         } else if (passResponse.status === 409) {
           console.log(passResponse.message)
         }
-        setRecipeList((prev) => [...prev.shift(), ...prev])
 
         break
       case 'new':

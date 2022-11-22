@@ -29,13 +29,10 @@ const App = () => {
     const response2 = await Fetch('user/list', 'GET')
     if (response2.status === 200) {
       setUsersList(response2.data)
-    } else {
-      console.log('did not fetch users list')
     }
   }
   const getCurrentUser = async () => {
     const currentUser = await Fetch('user/user', 'GET')
-    console.log(currentUser)
     setLoggedUser(currentUser.data.email)
   }
   useEffect(() => {
