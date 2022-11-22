@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
 import Fetch from '../../Resources/Fetch'
 import { UserContext } from '../../App'
-import { useLocation, NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { NavContainer } from '../Navigation'
 
 const Login = (props) => {
@@ -20,7 +20,7 @@ const Login = (props) => {
       [name]: value,
     }))
   }
-
+  const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault()
     const { email, password } = user
@@ -31,6 +31,7 @@ const Login = (props) => {
         if (response.status === 200) {
           console.log(response.message)
           setLoggedUser(user.email)
+          navigate('/roulette')
         } else if (response.status === 404) {
           console.log(response.message)
         } else {
