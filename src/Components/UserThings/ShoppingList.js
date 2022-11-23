@@ -3,6 +3,7 @@ import { UserContext } from '../../App'
 import { style } from '../../Resources/Style'
 import { List } from '../List/index'
 import { NavContainer } from '../Navigation'
+import Fetch from '../../Resources/Fetch'
 
 const ShoppingList = () => {
   const [dairy, setDairy] = useState()
@@ -12,7 +13,15 @@ const ShoppingList = () => {
   const [produce, setProduce] = useState()
   const [spice, setSpice] = useState()
   const [lineStyle, setLineStyle] = useState('li')
-  const { shoppingList, setShoppingList, usersThings, usersList, count } = useContext(UserContext)
+  const { shoppingList, setShoppingList, usersThings, usersList, count, setLoggedUser, setCount } = useContext(UserContext)
+  useContext(() => {
+    refresh()
+    console.log('yes')
+  }, [count])
+  const refresh = async () => {
+    const response = Fetch('user/user', 'GET')
+    setLoggedUser(response)
+  }
   useEffect(() => {
     if (shoppingList) {
       const dairyArray = []

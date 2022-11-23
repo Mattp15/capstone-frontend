@@ -12,7 +12,7 @@ const Roulette = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
 
-  const { usersThings, setUsersThings, usersList, setUsersList, setCount } = useContext(UserContext)
+  const { usersThings, setUsersThings, usersList, setUsersList } = useContext(UserContext)
 
   const navigate = useNavigate()
 
@@ -30,14 +30,10 @@ const Roulette = () => {
     initiate()
     getRecipes()
     console.log('htsoeith')
-  }, [recipeList])
+  }, [usersList])
 
   const initiate = async () => {}
-  const getUsersList = async () => {
-    const gettingUsersList = await Fetch('user/list', 'GET')
-    console.log(gettingUsersList)
-    setUsersList(gettingUsersList.data)
-  }
+
   const getRecipes = async () => {
     const response = await Fetch('recipes/', 'GET')
     setRecipeList(response.data)
@@ -49,7 +45,6 @@ const Roulette = () => {
     if (!recipeList[1]) {
       navigate('/user/list')
     }
-    setCount((prev) => prev + 1)
 
     switch (name) {
       default:
@@ -57,7 +52,6 @@ const Roulette = () => {
       case 'Dislike':
         const dislikeResponse = await Fetch('things/' + recipeList[0].id, 'POST', { dislike: true, favorite: false })
         if (dislikeResponse.status === 200) {
-          console.log(dislikeResponse.message, recipeList[0].status, 'dislike')
         }
         setRecipeList((prev) => [prev.shift(), ...prev])
 
@@ -79,7 +73,18 @@ const Roulette = () => {
 
         break
       case 'Start':
+        for (const x of usersThings) {
+          if (!x.favorite && !x.dislike) {
+            console.log(x)
+            const deletePassed = await Fetch('things/' + x.id, 'DELETE')
+          }
+        }
+        const newListResponse2 = await Fetch('user/list', 'DELETE', { id: 0 })
+        if (newListResponse2) {
+          setUsersList('')
+        }
         if (usersThings) {
+          console.log('start')
           const favs = []
           for (const i of usersThings) {
             if (i.favorite) {
@@ -109,7 +114,6 @@ const Roulette = () => {
           console.log('item skipped')
           setRecipeList((prev) => [prev.shift(), ...prev])
         } else if (passResponse.status === 409) {
-          console.log(passResponse.message)
           setRecipeList((prev) => [prev.shift(), ...prev])
         }
 
@@ -119,11 +123,9 @@ const Roulette = () => {
           if (!x.favorite && !x.dislike) {
             console.log(x)
             const deletePassed = await Fetch('things/' + x.id, 'DELETE')
-            console.log(deletePassed)
           }
         }
         const newListResponse = await Fetch('user/list', 'DELETE', { id: 0 })
-        console.log(newListResponse)
         if (newListResponse) {
           setUsersList('')
           nextRecipe('Start')

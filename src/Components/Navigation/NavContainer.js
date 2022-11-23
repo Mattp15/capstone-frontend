@@ -62,14 +62,14 @@ const NavContainer = () => {
         />
       ) : (
         ''
-      )}
+      )}*/}
       <Button
         value={
           <NavLink to='/roulette' style={style.navButton}>
             Roulette
           </NavLink>
         }
-      /> */}
+      />
     </div>
   )
 }
