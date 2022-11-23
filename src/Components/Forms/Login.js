@@ -46,7 +46,6 @@ const Login = (props) => {
 
   return (
     <div style={style.container}>
-      <NavContainer />
       <h1>Login</h1>
       {/* <div style={style.container}> */}
       <form onSubmit={handleSubmit} style={style.formStyle}>

@@ -5,55 +5,104 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 /* font-family: 'Montserrat', sans-serif;
   font-family: 'Sofadi One', cursive;
   font-family: 'Work Sans', sans-serif; */
 
-.letuce,
-.turnip,
-.beet,
-.the {
-  font-family: 'Sofadi One', cursive;
-  text-shadow: 1px 1px black;
-  position: absolute;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-.letuce,
-.turnip,
-.beet {
-  font-size: 4.5em;
-}
-.letuce {
-  /* top: -2vw; */
-  color: #e0ff87;
-  /* left: 9vw; */
-  left: 3%;
-}
-.turnip {
-  color: #ffe656;
-  /* left: 30vw;
+@media (max-width: 720px) {
+  .letuce,
+  .turnip,
+  .beet,
+  .the {
+    font-family: 'Sofadi One', cursive;
+    text-shadow: 1px 1px black;
+    position: absolute;
+  }
+  .letuce,
+  .turnip,
+  .beet {
+    font-size: 4.5em;
+  }
+  .letuce {
+    /* top: -2vw; */
+    color: #e0ff87;
+    /* left: 9vw; */
+    left: 3%;
+  }
+  .turnip {
+    color: #ffe656;
+    /* left: 30vw;
   top: 31vw; */
-  top: 11%;
-  left: 23%;
-}
-.the {
-  color: #0e79b2;
-  font-size: 3em;
-  top: 38%;
-  left: 30%;
-}
-.beet {
-  color: #df0054;
-  top: 36%;
-  left: 52%;
-}
-.characters {
-  position: absolute;
-  left: 2.5%;
-  top: 21%;
-  width: 75%;
-  height: auto;
+    top: 11%;
+    left: 23%;
+  }
+  .the {
+    color: #0e79b2;
+    font-size: 3em;
+    top: 38%;
+    left: 30%;
+  }
+  .beet {
+    color: #df0054;
+    top: 36%;
+    left: 52%;
+  }
+  .characters {
+    position: absolute;
+    left: 2.5%;
+    top: 21%;
+    width: 75%;
+    height: auto;
+  }
+  .donut,
+  .fresh {
+    position: absolute;
+    font-family: 'Work Sans';
+    font-size: 1.65em;
+    line-height: -2em;
+    width: 60%;
+    font-weight: bold;
+  }
+  .fresh {
+    top: 58%;
+    left: 4%;
+  }
+  .donut {
+    top: 48%;
+    left: 35%;
+  }
+  .footer {
+    position: absolute;
+    top: 85%;
+    width: 70%;
+    left: 14%;
+    font-size: 0.8em;
+  }
+  .fresh,
+  .donut,
+  .footer,
+  .landing-login {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .landing-button {
+    position: absolute;
+    top: 72%;
+    left: 23%;
+    width: 50%;
+    height: 10%;
+    border-radius: 20px;
+    color: white;
+    background-color: #ffe656;
+    font-size: 2em;
+    font-weight: bolder;
+    text-shadow: 1px 1px black;
+  }
+  .landing-login {
+    position: absolute;
+    top: 80.5%;
+    left: 25%;
+  }
 }

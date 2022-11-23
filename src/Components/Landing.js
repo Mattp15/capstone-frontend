@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Login from './Forms/Login'
+import { NavLink, useNavigate } from 'react-router-dom'
 // import { Characters } from '../../public/images/characters'
 
 const Landing = ({ item }) => {
@@ -19,24 +20,35 @@ const Landing = ({ item }) => {
       </h1>
 
       <img src={require('../images/Characters.png')} className='characters' alt='a letuce, turnip and beet characters' />
+      <p className='donut'>Donut you know you're special?</p>
+      <p className='fresh'>It's corny but this is a-maize-ing!</p>
+      <button className='landing-button'>
+        <NavLink to='/register' style={style.navLink1}>
+          Butter Up!
+        </NavLink>
+      </button>
+      <p className='landing-login'>
+        Have an account?{' '}
+        <span style={{ fontWeight: 'bold' }}>
+          <NavLink style={style.navLink2} to='/login'>
+            Login
+          </NavLink>
+        </span>
+        !
+      </p>
+      <p className='footer'>The information on this website is for general informatiional purposes only. Letuce Turnip the Beet makes no representation or warranty, express or implied. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for.</p>
     </div>
   )
 }
 export default Landing
 const style = {
-  lettuce: {
-    color: 'red',
-    fontSize: 20,
-    border: 1,
-    borderColor: 'black',
+  navLink1: {
+    textDecoration: 'none',
+    color: 'white',
+    textShadow: '1px 1px black',
   },
-  turnip: {},
-  theBeet: {},
-  p1: {},
-  p2: {},
-  button: {},
-  characters: {
-    width: '80%',
-    height: 'auto',
+  navLink2: {
+    color: 'rgba(0,0,0,0.6)',
+    textDecoration: 'none',
   },
 }

@@ -38,13 +38,13 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 720px) {
   .App {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    max-width: 50%;
+    max-width: 720px;
     border: 2px red solid;
   }
 }
