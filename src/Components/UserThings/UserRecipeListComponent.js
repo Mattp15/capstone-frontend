@@ -15,6 +15,7 @@ const UserRecipeListComponent = ({ zkey, value, style, status, onClick, ids, typ
     setUsersThings((prev) => {
       return prev.filter((fil) => id !== fil.id)
     })
+    handleClick()
   }
   useCallback(() => {
     console.log('inefffect')

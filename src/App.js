@@ -19,7 +19,6 @@ const App = () => {
     getUsersThings()
     getUsersList()
     getCurrentUser()
-    // setUserCookie(Cookies.get(loggedUser))
   }, [loggedUser])
   const getUsersThings = async () => {
     const response = await Fetch('things/', 'GET', '')

@@ -91,8 +91,10 @@ const Roulette = () => {
 
           setDisplayRecipe(true)
           setRecipeList((prev) => [...favs, ...prev])
-          for (const j of usersList) {
-            setRecipeList((prev) => [...prev.filter((fil) => fil.id !== j.recipe_id.id)])
+          if (usersList) {
+            for (const j of usersList) {
+              setRecipeList((prev) => [...prev.filter((fil) => fil.id !== j.recipe_id.id)])
+            }
           }
         }
 
@@ -104,6 +106,7 @@ const Roulette = () => {
           setRecipeList((prev) => [prev.shift(), ...prev])
         } else if (passResponse.status === 409) {
           console.log(passResponse.message)
+          setRecipeList((prev) => [prev.shift(), ...prev])
         }
 
         break
@@ -118,7 +121,10 @@ const Roulette = () => {
         const newListResponse = await Fetch('user/list', 'DELETE', { id: 0 })
         console.log(newListResponse)
         if (newListResponse) {
-          setUsersList(null)
+          setUsersList()
+          setTimeout(() => {
+            nextRecipe('Start')
+          }, 500)
           nextRecipe('Start')
         }
 
@@ -143,7 +149,7 @@ const Roulette = () => {
       ) : (
         ''
       )}
-      {usersList && !displayRecipe ? (
+      {!displayRecipe ? (
         <Button
           value='New List?'
           onClick={() => {
@@ -175,13 +181,13 @@ const Roulette = () => {
             Calories: {recipeList[0].calories}
           </li>
           <li key='4' style={style.li}>
-            Total-Fat: {recipeList[0].fat}
+            Total-Fat: {recipeList[0].fat}g
           </li>
           <li key='5' style={style.li}>
-            Total-Carbs: {recipeList[0].carbs}
+            Total-Carbs: {recipeList[0].carbs}g
           </li>
           <li key='6' style={style.li}>
-            Protein: {recipeList[0].protein}
+            Protein: {recipeList[0].protein}g
           </li>
         </ul>
       ) : (
