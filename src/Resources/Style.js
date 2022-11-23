@@ -55,8 +55,32 @@ export const style = {
     flexDirection: 'column',
     alignItems: 'center',
   },
-  letuce: {},
-  turnip: {},
-  the: {},
-  beet: { fontSize: '3em' },
+
+  navLink1: {
+    textDecoration: 'none',
+    color: 'white',
+    textShadow: '1px 1px black',
+  },
+  navLink2: {
+    color: 'rgba(0,0,0,0.6)',
+    textDecoration: 'none',
+  },
+  formContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  formStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  notMatching: {
+    alignItems: 'flex-start',
+    color: 'red',
+    display: 'flex',
+    fontSize: '.7em',
+    marginBottom: '-1px',
+    marginTop: '-11px',
+  },
 }

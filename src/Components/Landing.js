@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Login from './Forms/Login'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import { style } from '../Resources/Style'
 // import { Characters } from '../../public/images/characters'
 
 const Landing = ({ item }) => {
@@ -41,14 +42,3 @@ const Landing = ({ item }) => {
   )
 }
 export default Landing
-const style = {
-  navLink1: {
-    textDecoration: 'none',
-    color: 'white',
-    textShadow: '1px 1px black',
-  },
-  navLink2: {
-    color: 'rgba(0,0,0,0.6)',
-    textDecoration: 'none',
-  },
-}

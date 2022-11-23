@@ -3,6 +3,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
 import Fetch from '../../Resources/Fetch'
 import { UserContext } from '../../App'
+import { NavLink } from 'react-router-dom'
+import { style } from '../../Resources/Style'
 const Register = (props) => {
   const [email, setEmail] = useState('')
   const [matchEmail, setMatchEmail] = useState('')
@@ -74,17 +76,27 @@ const Register = (props) => {
   }
 
   return (
-    <div style={style.container}>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit} style={style.formStyle}>
-        <Input type='text' value={email} name='email' onChange={handleChange} inputStyle='default' />
+    <div style={style.formContainer}>
+      <form onSubmit={handleSubmit} style={style.formStyle} className='form-container'>
+        <h1 className='form-header'>Sign Up</h1>
+        <Input type='text' value={email} name='email' onChange={handleChange} inputStyle='default' placeholder='                Email' />
         <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} inputStyle='default' />
         {emailError ? <p style={style.notMatching}>{emailError}</p> : ''}
         <Input type='password' value={password} name='password' onChange={handleChange} inputStyle='default' />
         <Input type='password' inputStyle='default' value={matchPassword} name='matchPassword' onChange={handleChange} />
         {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
-        <Input type='submit' value='Submit' />
+        <p className='landing-login'>
+          Have an account?{' '}
+          <span style={{ fontWeight: 'bold' }}>
+            <NavLink style={style.navLink2} to='/login'>
+              Login
+            </NavLink>
+          </span>
+          !
+        </p>
+        <Input type='submit' value='CREATE ACCOUNT' />
       </form>
+      <p className='footer'>The information on this website is for general informatiional purposes only. Letuce Turnip the Beet makes no representation or warranty, express or implied. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for.</p>
     </div>
   )
 }
@@ -104,25 +116,4 @@ export const isValidPassword = (password) => {
   if (password.match(pwdChk)) {
     return true
   }
-}
-
-const style = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  formStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  notMatching: {
-    alignItems: 'flex-start',
-    color: 'red',
-    display: 'flex',
-    fontSize: '.7em',
-    marginBottom: '-1px',
-    marginTop: '-11px',
-  },
 }
