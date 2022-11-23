@@ -53,6 +53,8 @@ const Roulette = () => {
         const dislikeResponse = await Fetch('things/' + recipeList[0].id, 'POST', { dislike: true, favorite: false })
         if (dislikeResponse.status === 200) {
         }
+        const dislikeThingRecall = await Fetch('things/', 'GET')
+        setUsersThings(dislikeThingRecall.data)
         setRecipeList((prev) => [prev.shift(), ...prev])
 
         break
@@ -63,11 +65,15 @@ const Roulette = () => {
         } else if (favoriteResponse.status === 409) {
           console.log(favoriteResponse.message)
         }
+        const favoriteThingRecall = await Fetch('things/', 'GET')
+        setUsersThings(favoriteThingRecall.data)
         addToList(recipeList[0])
         setRecipeList((prev) => [prev.shift(), ...prev])
 
         break
       case 'Select':
+        const selectThingRecall = await Fetch('things/', 'GET')
+        setUsersThings(selectThingRecall.data)
         addToList(recipeList[0])
         setRecipeList((prev) => [prev.shift(), ...prev])
 
@@ -86,6 +92,8 @@ const Roulette = () => {
         if (usersThings) {
           console.log('start')
           const favs = []
+          const startThingRecall = await Fetch('things/', 'GET')
+          setUsersThings(startThingRecall.data)
           for (const i of usersThings) {
             if (i.favorite) {
               setRecipeList((prev) => {
@@ -116,10 +124,15 @@ const Roulette = () => {
         } else if (passResponse.status === 409) {
           setRecipeList((prev) => [prev.shift(), ...prev])
         }
-
+        const passThingRecall = await Fetch('things/', 'GET')
+        setUsersThings(passThingRecall.data)
         break
+
       case 'new':
+        const newThingRecall = await Fetch('things/', 'GET')
+        setUsersThings(newThingRecall.data)
         for (const x of usersThings) {
+          console.log(x)
           if (!x.favorite && !x.dislike) {
             console.log(x)
             const deletePassed = await Fetch('things/' + x.id, 'DELETE')
@@ -132,7 +145,7 @@ const Roulette = () => {
         }
         break
     }
-    //TODO can add a put route for 409 efr
+    //TODO can add a put route for 409
     // setUserCookie(Cookies.get('Name'))
     // console.log(userCookie, Cookies.get('session'))
   }

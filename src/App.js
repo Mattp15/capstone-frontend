@@ -24,6 +24,9 @@ const App = () => {
     const response = await Fetch('things/', 'GET', '')
     setUsersThings(response.data)
   }
+  useEffect(() => {
+    getUsersList()
+  }, [usersThings])
   const getUsersList = async () => {
     const response2 = await Fetch('user/list', 'GET')
     if (response2.status === 200) {

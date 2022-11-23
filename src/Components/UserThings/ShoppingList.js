@@ -77,7 +77,7 @@ const ShoppingList = () => {
     // console.log(meat)
     // console.log(produce)
     // console.log(spice)
-  }, [shoppingList, usersThings, usersList, count])
+  }, [shoppingList])
   const handleClick = (e) => {
     console.log(e)
   }

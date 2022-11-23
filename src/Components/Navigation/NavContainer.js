@@ -52,7 +52,7 @@ const NavContainer = () => {
           </NavLink>
         }
       />
-      {/* {shoppingList ? (
+      {shoppingList ? (
         <Button
           value={
             <NavLink to='/user/list/shopping' style={style.navButton}>
@@ -62,7 +62,7 @@ const NavContainer = () => {
         />
       ) : (
         ''
-      )}*/}
+      )}
       <Button
         value={
           <NavLink to='/roulette' style={style.navButton}>
