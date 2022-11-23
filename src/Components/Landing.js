@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Login from './Forms/Login'
+// import { Characters } from '../../public/images/characters'
 
 const Landing = ({ item }) => {
   return (
@@ -16,6 +17,8 @@ const Landing = ({ item }) => {
       <h1 className='beet' style={style.beet}>
         Beet
       </h1>
+
+      <img src={'../../public/images/characters.png'} alt='a letuce, turnip and beet characters' />
     </div>
   )
 }
