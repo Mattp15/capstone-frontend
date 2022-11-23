@@ -25,6 +25,7 @@ const Roulette = () => {
       return clearInterval(interval)
     }, 1000)
   }, [])
+  //! don't change any thing
   useContext(() => {
     initiate()
     getRecipes()
