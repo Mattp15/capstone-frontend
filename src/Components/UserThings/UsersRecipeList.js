@@ -32,9 +32,17 @@ const UsersRecipeList = () => {
   return (
     <div style={style.container}>
       <NavContainer />
+
       <h1>Users recipes List</h1>
       {usersList ? (
         <ul style={style.ul}>
+          <Button
+            value={
+              <NavLink to='/user/list/shopping' style={style.navButton}>
+                Shopping List
+              </NavLink>
+            }
+          />
           {usersList.map((recipe, index) => {
             return (
               <li key={index} style={style.li}>

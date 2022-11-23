@@ -41,5 +41,3 @@ const UserRecipeListComponent = ({ zkey, value, style, status, onClick, ids, typ
   )
 }
 export default UserRecipeListComponent
-
-const inStyle = {}

@@ -6,12 +6,13 @@ import Cookies from 'js-cookie'
 import { style } from '../../Resources/Style'
 import { NavContainer } from '../Navigation'
 import { useNavigate } from 'react-router-dom'
+import { List } from '../List'
 
 const Roulette = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
 
-  const { usersThings, setUsersThings, usersList, setUsersList } = useContext(UserContext)
+  const { usersThings, setUsersThings, usersList, setUsersList, setCount } = useContext(UserContext)
 
   const navigate = useNavigate()
 
@@ -47,6 +48,8 @@ const Roulette = () => {
     if (!recipeList[1]) {
       navigate('/user/list')
     }
+    setCount((prev) => prev + 1)
+
     switch (name) {
       default:
         break
@@ -127,10 +130,9 @@ const Roulette = () => {
           }, 500)
           nextRecipe('Start')
         }
-
         break
     }
-    console.log(usersList)
+
     // setUserCookie(Cookies.get('Name'))
     // console.log(userCookie, Cookies.get('session'))
   }
@@ -161,9 +163,9 @@ const Roulette = () => {
       )}
       {displayRecipe && recipeList[0] ? (
         <ul style={style.ul}>
-          <li key='0' style={style.li}>
-            {recipeList[0].title}
-          </li>
+          {/* Seems like using componants rather than HTML forces renders when they are populated with data */}
+          <List key='0' style={style.li} value={recipeList[0].title} />
+
           <li key='img' style={style.li}>
             <img src={recipeList[0].image} alt={recipeList[0].title} width='200' height='200' />
           </li>

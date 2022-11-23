@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 const URL = 'http://localhost:3000'
 
 const NavContainer = () => {
-  const { loggedUser, setLoggedUser } = useContext(UserContext)
+  const { loggedUser, setLoggedUser, shoppingList } = useContext(UserContext)
 
   const handleLogout = async () => {
     const response = await Fetch('user/logout', 'GET')
@@ -52,13 +52,7 @@ const NavContainer = () => {
           </NavLink>
         }
       />
-      <Button
-        value={
-          <NavLink to='/user/list/shopping' style={style.navButton}>
-            Shopping List
-          </NavLink>
-        }
-      />
+
       <Button
         value={
           <NavLink to='/roulette' style={style.navButton}>

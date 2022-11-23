@@ -14,6 +14,7 @@ const App = () => {
   const [usersList, setUsersList] = useState()
   const [userCookie, setUserCookie] = useState()
   const [shoppingList, setShoppingList] = useState()
+  const [count, setCount] = useState()
 
   useEffect(() => {
     getUsersThings()
@@ -75,7 +76,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings, userCookie, setUserCookie, usersList, setUsersList, shoppingList }}>
+      <UserContext.Provider value={{ loggedUser, setLoggedUser, usersThings, setUsersThings, userCookie, setUserCookie, usersList, setUsersList, shoppingList, count, setCount }}>
         <Router>
           <Routes>
             <Route path='/*' element={<NavContainer />} />

@@ -12,7 +12,7 @@ const ShoppingList = () => {
   const [produce, setProduce] = useState()
   const [spice, setSpice] = useState()
   const [lineStyle, setLineStyle] = useState('li')
-  const { loggedUser, shoppingList, setShoppingList } = useContext(UserContext)
+  const { shoppingList, setShoppingList, usersThings, usersList, count } = useContext(UserContext)
   useEffect(() => {
     if (shoppingList) {
       const dairyArray = []
@@ -68,10 +68,13 @@ const ShoppingList = () => {
     // console.log(meat)
     // console.log(produce)
     // console.log(spice)
-  }, [shoppingList])
+  }, [shoppingList, usersThings, usersList, count])
   const handleClick = (e) => {
     console.log(e)
   }
+  useEffect(() => {
+    console.log('bleh')
+  }, [count])
   return (
     <div style={style.container}>
       <NavContainer />
