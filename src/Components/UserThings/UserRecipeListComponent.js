@@ -3,7 +3,7 @@ import { style } from '../../Resources/Style'
 import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { Button } from '../Button'
-
+import '../../index.css'
 const UserRecipeListComponent = ({ zkey, value, style, status, onClick, ids, type }) => {
   const [clicked, setClicked] = useState(false)
   const { usersThings, setUsersThings } = useContext(UserContext)

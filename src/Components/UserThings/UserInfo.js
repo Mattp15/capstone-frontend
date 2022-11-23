@@ -6,6 +6,7 @@ import { RecipeIndex } from './index'
 import { style } from '../../Resources/Style'
 import { useLocation } from 'react-router-dom'
 import { NavContainer } from '../Navigation/index'
+import '../../index.css'
 
 //This will be for the user to update their account information (consider added a (forgot password) feature)
 const UserInfo = () => {

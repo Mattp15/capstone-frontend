@@ -7,7 +7,7 @@ import { style } from '../../Resources/Style'
 import { NavContainer } from '../Navigation'
 import { useNavigate } from 'react-router-dom'
 import { List } from '../List'
-
+import '../../index.css' //TODO currently only forcing favorite/dislike priority with a restart after starting a new list :(
 const Roulette = () => {
   const [displayRecipe, setDisplayRecipe] = useState()
   const [recipeList, setRecipeList] = useState()
@@ -17,20 +17,9 @@ const Roulette = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      getRecipes()
-      initiate()
-    }, 500)
-    setTimeout(() => {
-      return clearInterval(interval)
-    }, 1000)
-  }, [])
-  //! don't change any thing
-  useContext(() => {
-    initiate()
     getRecipes()
-    console.log('htsoeith')
-  }, [usersList])
+    initiate()
+  }, [])
 
   const initiate = async () => {}
 
@@ -132,7 +121,6 @@ const Roulette = () => {
         const newThingRecall = await Fetch('things/', 'GET')
         setUsersThings(newThingRecall.data)
         for (const x of usersThings) {
-          console.log(x)
           if (!x.favorite && !x.dislike) {
             console.log(x)
             const deletePassed = await Fetch('things/' + x.id, 'DELETE')
@@ -145,6 +133,7 @@ const Roulette = () => {
         }
         break
     }
+
     //TODO can add a put route for 409
     // setUserCookie(Cookies.get('Name'))
     // console.log(userCookie, Cookies.get('session'))

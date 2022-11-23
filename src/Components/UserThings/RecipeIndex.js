@@ -5,7 +5,7 @@ import { style } from '../../Resources/Style'
 import { UserRecipeListComponent } from './'
 import { Button } from '../Button'
 import { NavLink } from 'react-router-dom'
-
+import '../../index.css'
 const RecipeIndex = () => {
   const [thingsDisplay, setThingsDisplay] = useState()
   const { usersThings, setUserThings } = useContext(UserContext)

@@ -55,4 +55,8 @@ export const style = {
     flexDirection: 'column',
     alignItems: 'center',
   },
+  letuce: {},
+  turnip: {},
+  the: {},
+  beet: { fontSize: '3em' },
 }

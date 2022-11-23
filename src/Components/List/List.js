@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { style } from '../../Resources/Style'
+import '../../index.css'
 
 const List = ({ value, sty, pkey, onClick }) => {
   const [list, setList] = useState()

@@ -4,7 +4,7 @@ import { style } from '../../Resources/Style'
 import { List } from '../List/index'
 import { NavContainer } from '../Navigation'
 import Fetch from '../../Resources/Fetch'
-
+import '../../index.css'
 const ShoppingList = () => {
   const [dairy, setDairy] = useState()
   const [dryGood, setDryGood] = useState()

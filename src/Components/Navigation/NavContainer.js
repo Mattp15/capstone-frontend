@@ -5,7 +5,7 @@ import { UserContext } from '../../App'
 import { style } from '../../Resources/Style'
 import Fetch from '../../Resources/Fetch'
 import { NavLink } from 'react-router-dom'
-
+import '../../index.css'
 const URL = 'http://localhost:3000'
 
 const NavContainer = () => {

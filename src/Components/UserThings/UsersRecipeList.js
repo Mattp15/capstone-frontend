@@ -5,7 +5,7 @@ import Fetch from '../../Resources/Fetch.js'
 import { style } from '../../Resources/Style'
 import { NavContainer } from '../Navigation'
 import { NavLink } from 'react-router-dom'
-
+import '../../index.css'
 const UsersRecipeList = () => {
   //Getting User index next to do figure out to organize it for the view
   const { usersList, setUsersList } = useContext(UserContext)

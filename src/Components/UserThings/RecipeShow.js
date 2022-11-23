@@ -3,6 +3,7 @@ import UserContext from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { style } from '../../Resources/Style'
 import { NavContainer } from '../Navigation'
+import '../../index.css'
 const RecipeShow = () => {
   const [recipe, setRecipe] = useState()
   const [ingredients, setIngredients] = useState()
