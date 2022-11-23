@@ -72,9 +72,7 @@ const ShoppingList = () => {
   const handleClick = (e) => {
     console.log(e)
   }
-  useEffect(() => {
-    console.log('bleh')
-  }, [count])
+
   return (
     <div style={style.container}>
       <NavContainer />

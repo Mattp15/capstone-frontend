@@ -32,7 +32,20 @@ const UsersRecipeList = () => {
   return (
     <div style={style.container}>
       <NavContainer />
-
+      <Button
+        value={
+          <NavLink to='/user/list/shopping' style={style.navButton}>
+            Shopping List
+          </NavLink>
+        }
+      />
+      <Button
+        value={
+          <NavLink to='/roulette' style={style.navButton}>
+            Roulette
+          </NavLink>
+        }
+      />
       <h1>Users recipes List</h1>
       {usersList ? (
         <ul style={style.ul}>

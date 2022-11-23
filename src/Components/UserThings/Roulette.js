@@ -25,11 +25,11 @@ const Roulette = () => {
       return clearInterval(interval)
     }, 1000)
   }, [])
-  // useEffect(() => {
-  //   initiate()
-  // getRecipes()
-  // console.log('htsoeith')
-  // }, [recipeList])
+  useContext(() => {
+    initiate()
+    getRecipes()
+    console.log('htsoeith')
+  }, [recipeList])
 
   const initiate = async () => {}
   const getUsersList = async () => {
@@ -124,15 +124,12 @@ const Roulette = () => {
         const newListResponse = await Fetch('user/list', 'DELETE', { id: 0 })
         console.log(newListResponse)
         if (newListResponse) {
-          setUsersList()
-          setTimeout(() => {
-            nextRecipe('Start')
-          }, 500)
+          setUsersList('')
           nextRecipe('Start')
         }
         break
     }
-
+    //TODO can add a put route for 409 efr
     // setUserCookie(Cookies.get('Name'))
     // console.log(userCookie, Cookies.get('session'))
   }
@@ -163,7 +160,6 @@ const Roulette = () => {
       )}
       {displayRecipe && recipeList[0] ? (
         <ul style={style.ul}>
-          {/* Seems like using componants rather than HTML forces renders when they are populated with data */}
           <List key='0' style={style.li} value={recipeList[0].title} />
 
           <li key='img' style={style.li}>

@@ -3,6 +3,8 @@ import { UserContext } from '../../App'
 import Fetch from '../../Resources/Fetch'
 import { style } from '../../Resources/Style'
 import { UserRecipeListComponent } from './'
+import { Button } from '../Button'
+import { NavLink } from 'react-router-dom'
 
 const RecipeIndex = () => {
   const [thingsDisplay, setThingsDisplay] = useState()
