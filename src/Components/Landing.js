@@ -18,7 +18,7 @@ const Landing = ({ item }) => {
         Beet
       </h1>
 
-      <img src={'../../public/images/characters.png'} alt='a letuce, turnip and beet characters' />
+      <img src={require('../images/Characters.png')} className='characters' alt='a letuce, turnip and beet characters' />
     </div>
   )
 }
@@ -35,4 +35,8 @@ const style = {
   p1: {},
   p2: {},
   button: {},
+  characters: {
+    width: '80%',
+    height: 'auto',
+  },
 }

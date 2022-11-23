@@ -19,21 +19,41 @@ code {
 .the {
   font-family: 'Sofadi One', cursive;
   text-shadow: 1px 1px black;
+  position: absolute;
 }
 .letuce,
 .turnip,
 .beet {
-  font-size: 3em;
+  font-size: 4.5em;
 }
 .letuce {
+  /* top: -2vw; */
   color: #e0ff87;
+  /* left: 9vw; */
+  left: 3%;
 }
 .turnip {
   color: #ffe656;
+  /* left: 30vw;
+  top: 31vw; */
+  top: 11%;
+  left: 23%;
 }
 .the {
   color: #0e79b2;
+  font-size: 3em;
+  top: 38%;
+  left: 30%;
 }
 .beet {
   color: #df0054;
+  top: 36%;
+  left: 52%;
+}
+.characters {
+  position: absolute;
+  left: 2.5%;
+  top: 21%;
+  width: 75%;
+  height: auto;
 }
