@@ -79,20 +79,32 @@ const Register = (props) => {
     <div style={style.formContainer}>
       <form onSubmit={handleSubmit} style={style.formStyle} className='form-container'>
         <h1 className='form-header'>Sign Up</h1>
-        <Input type='text' value={email} name='email' onChange={handleChange} inputStyle='default' placeholder='                Email' />
-        <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} inputStyle='default' />
-        {emailError ? <p style={style.notMatching}>{emailError}</p> : ''}
-        <Input type='password' value={password} name='password' onChange={handleChange} inputStyle='default' />
-        <Input type='password' inputStyle='default' value={matchPassword} name='matchPassword' onChange={handleChange} />
-        {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
-        <p className='landing-login'>
+        <div className='inputWrapper'>
+          <Input type='text' value={email} name='email' onChange={handleChange} inputStyle='default' placeholder='Email' style={{ paddingRight: '200px' }} />
+
+          <img src={require('../../images/emailicon.png')} alt='Envelope' className='email-one' />
+        </div>
+        <div className='inputWrapper'>
+          <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} inputStyle='default' placeholder='Email' />
+          <img src={require('../../images/emailicon.png')} alt='Envelope' className='email-two' />
+          {emailError ? <p style={style.notMatching}>{emailError}</p> : ''}
+        </div>
+        <div className='inputWrapper'>
+          <Input type='password' value={password} name='password' onChange={handleChange} inputStyle='default' />
+          <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-one' />
+        </div>
+        <div className='inputWrapper'>
+          <Input type='password' inputStyle='default' value={matchPassword} name='matchPassword' onChange={handleChange} />
+          <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-two' />
+          {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
+        </div>
+        <p className='landing-login' style={style.already}>
           Have an account?{' '}
           <span style={{ fontWeight: 'bold' }}>
             <NavLink style={style.navLink2} to='/login'>
               Login
             </NavLink>
           </span>
-          !
         </p>
         <Input type='submit' value='CREATE ACCOUNT' />
       </form>

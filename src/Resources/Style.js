@@ -83,4 +83,7 @@ export const style = {
     marginBottom: '-1px',
     marginTop: '-11px',
   },
+  already: {
+    top: '76%',
+  },
 }

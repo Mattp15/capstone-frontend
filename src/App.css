@@ -38,13 +38,178 @@
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 844px) {
   .App {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    max-width: 720px;
-    border: 2px red solid;
+    width: 720px;
+    height: auto;
+  }
+  body {
+    overflow: hidden;
+  }
+  .letuce,
+  .turnip,
+  .beet,
+  .the {
+    font-family: 'Sofadi One', cursive;
+    text-shadow: 1px 1px black;
+    position: absolute;
+  }
+  .letuce,
+  .turnip,
+  .beet {
+    font-size: 4.5em;
+  }
+  .letuce {
+    /* top: -2vw; */
+    color: #e0ff87;
+    /* left: 9vw; */
+    left: 3%;
+  }
+  .turnip {
+    color: #ffe656;
+    /* left: 30vw;
+  top: 31vw; */
+    top: 11%;
+    left: 23%;
+  }
+  .the {
+    color: #0e79b2;
+    font-size: 3em;
+    top: 38%;
+    left: 30%;
+  }
+  .beet {
+    color: #df0054;
+    top: 36%;
+    left: 52%;
+  }
+  .characters {
+    position: absolute;
+    left: 2.5%;
+    top: 21%;
+    width: 75%;
+    height: auto;
+  }
+  .donut,
+  .fresh {
+    position: absolute;
+    font-family: 'Work Sans';
+    font-size: 1.65em;
+    line-height: -2em;
+    width: 60%;
+    font-weight: bold;
+  }
+  .fresh {
+    top: 58%;
+    left: 4%;
+  }
+  .donut {
+    top: 48%;
+    left: 35%;
+  }
+  .footer {
+    position: absolute;
+    top: 85%;
+    width: 70%;
+    left: 15%;
+    font-size: 0.8em;
+  }
+  .fresh,
+  .donut,
+  .footer,
+  .landing-login {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .landing-button {
+    position: absolute;
+    top: 72%;
+    left: 23%;
+    width: 50%;
+    height: 10%;
+    border-radius: 20px;
+    color: white;
+    background-color: #ffe656;
+    font-size: 2em;
+    font-weight: bolder;
+    text-shadow: 1px 1px black;
+  }
+  .landing-login {
+    position: absolute;
+    top: 80.5%;
+    left: 25%;
+  }
+  .form-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    box-shadow: inset 0px 0px 1px 1px rgba(255, 230, 86, 0.1);
+    margin-top: 15%;
+    width: 95vw;
+    background-color: white;
+  }
+  .form-header {
+    margin-top: 5vw;
+  }
+  input[type='text'],
+  input[type='password'] {
+    height: 15vw;
+    width: 80vw;
+    border-radius: 30px;
+    margin: 5%;
+    overflow-x: hidden;
+    font-weight: bolder;
+    font-size: 1.7em;
+  }
+  input[type='submit'] {
+    margin: 7vw;
+    height: 15vw;
+    border-radius: 20px;
+    color: white;
+    background-color: #ffe656;
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-shadow: 1px 1px black;
+    /* width: 30vw; */
+  }
+  input[type='submit']:focus,
+  input[type='text']:focus,
+  input[type='password']:focus {
+    box-shadow: 0px 0px 10px 10px rgba(255, 230, 86, 0.1);
+  }
+  input[type='submit']:hover {
+    box-shadow: 0px 0px 1px 1px rgba(255, 230, 86, 0.1);
+  }
+  .email-one,
+  .email-two,
+  .lock-one,
+  .lock-two {
+    position: absolute;
+    height: auto;
+  }
+  .email-one,
+  .email-two {
+    width: 30%;
+    left: 5%;
+  }
+  .email-one {
+    top: 20.5%;
+  }
+  .email-two {
+    top: 32%;
+  }
+  .lock-one,
+  .lock-two {
+    width: 23%;
+    left: 7%;
+  }
+  .lock-one {
+    top: 45%;
+  }
+  .lock-two {
+    top: 56%;
   }
 }

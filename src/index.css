@@ -5,7 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   justify-content: center;
-  /* background-color: rgba(220, 220, 220, 0.25); */
+  background-color: rgba(255, 230, 86, 0.1);
 }
 
 /* font-family: 'Montserrat', sans-serif;
@@ -15,7 +15,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-@media (max-width: 720px) {
+@media (max-width: 844px) {
   .letuce,
   .turnip,
   .beet,
@@ -111,31 +111,83 @@ code {
   .form-container {
     display: flex;
     justify-content: center;
-    border-radius: 10px;
-    border: 1px solid rgba(100, 100, 100, 0.25);
+    border-radius: 100px;
+    box-shadow: inset 0px 0px 1px 1px rgba(255, 230, 86, 0.1);
     margin-top: 15%;
     width: 95vw;
-    background-image: linear-gradient(to bottom right, white, white, rgba(100, 100, 100, 0.1), white, rgba(100, 100, 100, 0.1), white, white);
-    box-shadow: 0px 1px rgba(0, 0, 0, 0.1), inset 0px 1px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
   }
   .form-header {
     margin-top: 5vw;
   }
   input[type='text'],
   input[type='password'] {
+    margin-top: 3%;
+    margin-left: 21%;
+    height: 10vw;
+    width: 11em;
+    font-size: 0.8em;
+    font-weight: bolder;
+    overflow-x: hidden;
+    border: hidden;
+  }
+
+  .inputWrapper {
     height: 15vw;
     width: 80vw;
-    border-radius: 30px;
-    margin: 5%;
+    font-size: 1.7em;
+    font-weight: bolder;
     overflow-x: hidden;
+    border-radius: 30px;
+    border: 1px solid black;
+    margin: 5%;
   }
   input[type='submit'] {
-    margin: 9vw;
-    border-radius: 9px;
-    border: 1px solid rgba(0, 0, 0, 0.9);
-    height: 10vw;
-    background-color: white;
+    margin: 7vw;
 
+    height: 15vw;
+    border-radius: 20px;
+    color: white;
+    background-color: #ffe656;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 1px 1px black;
     /* width: 30vw; */
+  }
+  input[type='submit']:focus,
+  input[type='text']:focus {
+    border-radius: 12px;
+  }
+  input[type='submit']:hover {
+    box-shadow: 0px 0px 1px 1px rgba(255, 230, 86, 0.1);
+  }
+  .email-one,
+  .email-two,
+  .lock-one,
+  .lock-two {
+    position: absolute;
+    height: auto;
+  }
+  .email-one,
+  .email-two {
+    width: 30%;
+    left: 5%;
+  }
+  .email-one {
+    top: 20.5%;
+  }
+  .email-two {
+    top: 32%;
+  }
+  .lock-one,
+  .lock-two {
+    width: 23%;
+    left: 7%;
+  }
+  .lock-one {
+    top: 45.5%;
+  }
+  .lock-two {
+    top: 57%;
   }
 }
