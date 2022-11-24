@@ -15,6 +15,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+a {
+  text-decoration: none;
+  color: #0e79b2;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+a::after {
+  text-decoration: none;
+  color: #0e79b2;
+  font-weight: bold;
+  font-size: 1.2em;
+}
 @media (max-width: 844px) {
   .letuce,
   .turnip,
@@ -98,18 +110,21 @@ code {
   .landing-login {
     color: rgba(0, 0, 0, 0.6);
   }
+  .button {
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #ffe656;
+    font-size: 2em;
+    font-weight: bolder;
+    text-shadow: 1px 1px black;
+  }
   .landing-button {
     position: absolute;
     top: 72%;
     left: 23%;
     width: 50%;
     height: 10%;
-    border-radius: 20px;
-    color: white;
-    background-color: #ffe656;
-    font-size: 2em;
-    font-weight: bolder;
-    text-shadow: 1px 1px black;
   }
   .landing-login {
     position: absolute;
@@ -228,5 +243,81 @@ code {
     /* position: relative; */
     width: 75%;
     height: auto;
+  }
+  .card-title {
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Work Sans', sans-serif; */
+    font-size: 2em;
+    width: 300px;
+    margin-bottom: 10%;
+    font-weight: bold;
+  }
+  .title {
+    font-family: 'Sofadi One', cursive;
+    font-size: 2em;
+    margin-bottom: 3%;
+    font-weight: bold;
+  }
+  .recipe-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+    height: 75%;
+    top: 13%;
+    width: 390px;
+    padding: 5%;
+  }
+
+  .macros {
+    font-family: 'Work Sans', sans-serif;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 2%;
+  }
+  .description {
+    font-family: 'Work Sans', sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 120%;
+    font-size: 1.05em;
+    height: 100px;
+    overflow: scroll;
+  }
+  .time {
+    font-size: 1.1em;
+    margin: 20px;
+  }
+  .recipe-card-content {
+  }
+  .roulette-button-container {
+    display: flex;
+    flex-flow: row nowrap;
+    /* flex: 1 1 auto; */
+    position: absolute;
+    top: 92%;
+    width: 390px;
+    box-shadow: inset 0px 0px 1px 1px rgba(255, 230, 86, 0.1);
+  }
+  .roulette-button {
+    display: flex;
+    flex: 1;
+    height: 80px;
+    width: 25vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+  }
+  ul {
+    list-style: none;
+    margin-right: 15%;
+  }
+  .title-left {
+    color: #e0ff87;
+    text-shadow: 1px 1px black;
+  }
+  .title-right {
+    color: #df0054;
+    text-shadow: 1px 1px white;
   }
 }

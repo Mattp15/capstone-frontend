@@ -140,69 +140,93 @@ const Roulette = () => {
   }
 
   return (
-    <div style={style.container}>
+    <div
+      style={style.container}
+      className='
+    container'
+    >
       <NavContainer />
-      <h1>Choose</h1>
-      {!displayRecipe ? (
-        <Button
-          value='Continue?'
-          onClick={() => {
-            nextRecipe('Start')
-          }}
-        />
-      ) : (
-        ''
-      )}
-      {!displayRecipe ? (
-        <Button
-          value='New List?'
-          onClick={() => {
-            nextRecipe('new')
-          }}
-        />
-      ) : (
-        ''
-      )}
-      {displayRecipe && recipeList[0] ? (
-        <ul style={style.ul}>
-          <List key='0' style={style.li} value={recipeList[0].title} />
+      <h1 className='title'>
+        <span className='title-left'>Recipe</span> <span className='title-right'>Roulette</span>
+      </h1>
+      <div style={style.rouletteButtonContainer}>
+        {!displayRecipe ? (
+          <Button
+            value='Continue List'
+            onClick={() => {
+              nextRecipe('Start')
+            }}
+            classProp='button'
+            style={style.rouletteButton}
+          />
+        ) : (
+          ''
+        )}
+        {!displayRecipe ? (
+          <Button
+            value='New List'
+            onClick={() => {
+              nextRecipe('new')
+            }}
+            classProp='button'
+            style={style.rouletteButton}
+          />
+        ) : (
+          ''
+        )}
+      </div>
+      <div className='recipe-card'>
+        {displayRecipe && recipeList[0] ? (
+          <ul style={style.recipeCardContent} className='recipe-card-content'>
+            <List key='0' value={recipeList[0].title} className='card-title' />
 
-          <li key='img' style={style.li}>
-            <img src={recipeList[0].image} alt={recipeList[0].title} width='200' height='200' />
-          </li>
-          <li key='7' style={style.li}>
-            <a href={recipeList[0].author_credit}>Source</a>
-          </li>
-          <li key='1' style={style.li}>
-            Total Time: {recipeList[0].time}
-          </li>
-          <li key='2' style={style.li}>
-            Servings: {recipeList[0].servings}
-          </li>
-          <li key='description'>{recipeList[0].description}</li>
-          <li key='3' style={style.li}>
-            Calories: {recipeList[0].calories}
-          </li>
-          <li key='4' style={style.li}>
-            Total-Fat: {recipeList[0].fat}g
-          </li>
-          <li key='5' style={style.li}>
-            Total-Carbs: {recipeList[0].carbs}g
-          </li>
-          <li key='6' style={style.li}>
-            Protein: {recipeList[0].protein}g
-          </li>
-        </ul>
-      ) : (
-        ''
-      )}
-      <div style={style.buttonContainer}>
+            <li key='img' style={style.li}>
+              <img src={recipeList[0].image} alt={recipeList[0].title} width='200' height='auto' />
+            </li>
+            <li key='7' style={style.li}>
+              <a href={recipeList[0].author_credit} target='_blank' rel='noreferrer noopener'>
+                Source
+              </a>
+            </li>
+            <div className='time'>
+              <li key='1' style={style.li}>
+                Total Time: {'  ' + recipeList[0].time}
+              </li>
+              <li key='2' style={style.li}>
+                Servings: {recipeList[0].servings}
+              </li>
+            </div>
+            <li key='description' className='description'>
+              {recipeList[0].description}
+            </li>
+
+            <ul style={style.macros} className='macros'>
+              <li key='3' style={style.li}>
+                Calories: {recipeList[0].calories}
+              </li>
+              <li key='4' style={style.li}>
+                Total-Fat: {recipeList[0].fat}g
+              </li>
+              <li key='5' style={style.li}>
+                Total-Carbs: {recipeList[0].carbs}g
+              </li>
+              <li key='6' style={style.li}>
+                Protein: {recipeList[0].protein}g
+              </li>
+            </ul>
+          </ul>
+        ) : (
+          ''
+        )}
+      </div>
+      <div className='roulette-button-container'>
         {displayRecipe && recipeList[0] ? (
           <Button
             value='Favorite'
             onClick={() => {
               nextRecipe('Favorite')
             }}
+            className='roulette-button'
           />
         ) : (
           ''
@@ -213,6 +237,7 @@ const Roulette = () => {
             onClick={() => {
               nextRecipe('Dislike')
             }}
+            className='roulette-button'
           />
         ) : (
           ''
@@ -223,6 +248,7 @@ const Roulette = () => {
             onClick={() => {
               nextRecipe('Pass')
             }}
+            className='roulette-button'
           />
         ) : (
           ''
@@ -233,6 +259,7 @@ const Roulette = () => {
             onClick={() => {
               nextRecipe('Select')
             }}
+            className='roulette-button'
           />
         ) : (
           ''

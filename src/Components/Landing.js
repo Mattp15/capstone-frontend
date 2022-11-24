@@ -23,7 +23,7 @@ const Landing = ({ item }) => {
       <img src={require('../images/Characters.png')} className='characters' alt='a letuce, turnip and beet characters' />
       <p className='donut'>Donut you know you're special?</p>
       <p className='fresh'>It's corny but this is a-maize-ing!</p>
-      <button className='landing-button'>
+      <button className='landing-button button'>
         <NavLink to='/register' style={style.navLink1}>
           Butter Up!
         </NavLink>

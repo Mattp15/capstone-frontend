@@ -64,7 +64,7 @@ const Login = (props) => {
           Email or Password does not match or is invalid
         </p>
 
-        <Input type='submit' value='Log in' name='submit' />
+        <Input type='submit' value='Log in' name='submit' className='button' />
         <p className='login-register' style={{ marginTop: '-10px' }}>
           Don't have an account?
           <span style={{ fontWeight: 'bold' }}>

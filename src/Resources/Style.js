@@ -1,7 +1,4 @@
 export const style = {
-  button: {
-    borderRadius: '200px',
-  },
   buttonContainer: {
     display: 'flex',
     flexFlow: 'row no-wrap',
@@ -9,6 +6,7 @@ export const style = {
   },
   container: {
     display: 'flex',
+    flexFlow: 'column no-wrap',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
