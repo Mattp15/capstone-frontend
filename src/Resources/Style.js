@@ -9,6 +9,7 @@ export const style = {
   },
   container: {
     display: 'flex',
+    justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
   },
@@ -79,7 +80,7 @@ export const style = {
     alignItems: 'flex-start',
     color: 'red',
     display: 'flex',
-    fontSize: '.7em',
+
     marginBottom: '-1px',
     marginTop: '-11px',
   },

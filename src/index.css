@@ -79,8 +79,11 @@ code {
   }
   .footer-login {
     display: flex;
-    margin-top: 69%;
+    margin-top: auto;
+    /* margin-top: 40px; */
+    width: 70%;
     justify-content: center;
+    font-size: 0.8em;
   }
   .footer-register {
     position: absolute;
@@ -143,9 +146,14 @@ code {
     outline: none;
     background-color: white;
   }
-  .error {
+  .error,
+  .error-login {
     display: flex;
     justify-content: center;
+    font-size: 0.7em;
+  }
+  .error-login {
+    font-size: 1.2em;
   }
 
   .inputWrapper {
@@ -161,6 +169,7 @@ code {
     margin: 7vw;
 
     height: 15vw;
+    width: 200px;
     border-radius: 20px;
     color: white;
     background-color: #ffe656;
@@ -178,31 +187,46 @@ code {
   }
   .email-one,
   .email-two,
+  .email-three,
   .lock-one,
-  .lock-two {
+  .lock-two,
+  .lock-three {
     position: absolute;
     height: auto;
   }
   .email-one,
-  .email-two {
+  .email-two,
+  .email-three {
     width: 30%;
-    left: 5%;
+    left: 4%;
   }
   .email-one {
-    top: 20.5%;
+    top: 16%;
   }
   .email-two {
-    top: 32%;
+    top: 28%;
+  }
+  .email-three {
+    top: 16%;
   }
   .lock-one,
-  .lock-two {
+  .lock-two,
+  .lock-three {
     width: 23%;
-    left: 7%;
+    left: 4%;
   }
   .lock-one {
-    top: 45.5%;
+    top: 41%;
   }
   .lock-two {
-    top: 57%;
+    top: 52.5%;
+  }
+  .lock-three {
+    top: 29%;
+  }
+  .login-characters {
+    /* position: relative; */
+    width: 75%;
+    height: auto;
   }
 }

@@ -85,7 +85,7 @@ const Register = (props) => {
           <img src={require('../../images/emailicon.png')} alt='Envelope' className='email-one' />
         </div>
         <div className='inputWrapper'>
-          <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} inputStyle='default' placeholder='Email' />
+          <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} inputStyle='default' placeholder='Match-Email' />
           <img src={require('../../images/emailicon.png')} alt='Envelope' className='email-two' />
           {emailError ? (
             <p style={style.notMatching} className='error'>
@@ -96,11 +96,11 @@ const Register = (props) => {
           )}
         </div>
         <div className='inputWrapper'>
-          <Input type='password' value={password} name='password' onChange={handleChange} inputStyle='default' />
+          <Input type='password' value={password} name='password' onChange={handleChange} inputStyle='default' placeholder='Password' />
           <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-one' />
         </div>
         <div className='inputWrapper'>
-          <Input type='password' inputStyle='default' value={matchPassword} name='matchPassword' onChange={handleChange} />
+          <Input type='password' inputStyle='default' value={matchPassword} name='matchPassword' onChange={handleChange} placeholder='Match-Password' />
           <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-two' />
           {errorMessage ? (
             <p style={style.notMatching} className='error'>

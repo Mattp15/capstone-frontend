@@ -47,31 +47,35 @@ const Login = (props) => {
 
   return (
     <div style={style.container}>
-      {/* <div style={style.container}> */}
-      <form onSubmit={handleSubmit} style={style.formStyle}>
+      <form onSubmit={handleSubmit} style={style.formStyle} className='form-container'>
         <h1 className='form-header'>Login</h1>
+
         <div className='inputWrapper'>
           <Input type='text' value={user.email} onChange={handleChange} name='email' inputStyle='default' />
-          <img src={require('../../images/emailicon.png')} alt='Envelope' className='email-two' />
+          <img src={require('../../images/emailicon.png')} alt='Envelope' className='email-three' />
         </div>
+
         <div className='inputWrapper'>
           <Input type='password' value={user.password} onChange={handleChange} name='password' inputStyle='default' />
-          <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-two' />
+          <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-three' style={{ width: '25%', height: 'auto' }} />
         </div>
-        <p className='landing-login' style={style.already}>
-          Don't have an account?{' '}
+        <p style={style.notMatching} className='error-login'>
+          Email or Password does not match or is invalid
+        </p>
+
+        <Input type='submit' value='Log in' name='submit' />
+        <p className='login-register' style={{ marginTop: '-10px' }}>
+          Don't have an account?
           <span style={{ fontWeight: 'bold' }}>
             <NavLink style={style.navLink2} to='/register'>
               Register
             </NavLink>
           </span>
         </p>
-        <Input type='submit' value='Log in' name='submit' />
-        <p style={emailError}>Email or Password does not match or is invalid</p>
       </form>
+      <img className='login-characters' src={require('../../images/Characters.png')} alt='a letuce, turnip and beet characters' />
       <p className='footer-login'>The information on this website is for general informatiional purposes only. Letuce Turnip the Beet makes no representation or warranty, express or implied. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for.</p>
     </div>
-    // </div>
   )
 }
 export default Login
