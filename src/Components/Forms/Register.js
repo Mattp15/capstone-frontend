@@ -87,7 +87,13 @@ const Register = (props) => {
         <div className='inputWrapper'>
           <Input type='text' value={matchEmail} name='matchEmail' onChange={handleChange} inputStyle='default' placeholder='Email' />
           <img src={require('../../images/emailicon.png')} alt='Envelope' className='email-two' />
-          {emailError ? <p style={style.notMatching}>{emailError}</p> : ''}
+          {emailError ? (
+            <p style={style.notMatching} className='error'>
+              {emailError}
+            </p>
+          ) : (
+            ''
+          )}
         </div>
         <div className='inputWrapper'>
           <Input type='password' value={password} name='password' onChange={handleChange} inputStyle='default' />
@@ -96,7 +102,13 @@ const Register = (props) => {
         <div className='inputWrapper'>
           <Input type='password' inputStyle='default' value={matchPassword} name='matchPassword' onChange={handleChange} />
           <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-two' />
-          {errorMessage ? <p style={style.notMatching}>{errorMessage}</p> : ''}
+          {errorMessage ? (
+            <p style={style.notMatching} className='error'>
+              {errorMessage}
+            </p>
+          ) : (
+            ''
+          )}
         </div>
         <p className='landing-login' style={style.already}>
           Have an account?{' '}
