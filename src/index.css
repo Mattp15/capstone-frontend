@@ -122,10 +122,11 @@ code {
   }
   input[type='text'],
   input[type='password'] {
-    margin-top: 3%;
+    /* margin: 3%; */
+    margin-top: 10px;
     margin-left: 21%;
     height: 10vw;
-    width: 11em;
+    width: 10em;
     font-size: 0.8em;
     font-weight: bolder;
     overflow-x: hidden;
@@ -137,7 +138,6 @@ code {
     width: 80vw;
     font-size: 1.7em;
     font-weight: bolder;
-    overflow-x: hidden;
     border-radius: 30px;
     border: 1px solid black;
     margin: 5%;
