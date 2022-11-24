@@ -20,22 +20,23 @@ const Login = (props) => {
       [name]: value,
     }))
   }
+
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault()
     const { email, password } = user
     if (isValidEmail(email) && isValidPassword(password)) {
       try {
-        const response = await Fetch('user/login', 'POST', { email, password })
+        const responseLogin = await Fetch('user/login', 'POST', { email, password })
 
-        if (response.status === 200) {
-          console.log(response.message)
+        if (responseLogin.status === 200) {
+          console.log(responseLogin.message)
           setLoggedUser(user.email)
           navigate('/roulette')
-        } else if (response.status === 404) {
-          console.log(response.message)
-        } else {
+        } else if (responseLogin.status === 404) {
+          console.log(responseLogin.message)
           setEmailError(style.show)
+        } else {
         }
       } catch (err) {
         setEmailError(style.show)
@@ -59,7 +60,7 @@ const Login = (props) => {
           <Input type='password' value={user.password} onChange={handleChange} name='password' inputStyle='default' />
           <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-three' style={{ width: '25%', height: 'auto' }} />
         </div>
-        <p style={style.notMatching} className='error-login'>
+        <p className='error-login' style={emailError}>
           Email or Password does not match or is invalid
         </p>
 
@@ -95,23 +96,3 @@ export const isValidPassword = (password) => {
     return true
   }
 }
-
-// const style = {
-//   container: {
-//     display: 'flex',
-//     alignItems: 'center',
-//     flexDirection: 'column',
-//   },
-//   formStyle: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//   },
-//   hidden: {
-//     fontSize: '12px',
-//     color: 'rgba(0, 0, 0, 0)',
-//   },
-//   show: {
-//     fontSize: '12px',
-//     color: 'red',
-//   },
-// }

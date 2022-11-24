@@ -87,4 +87,10 @@ export const style = {
   already: {
     top: '76%',
   },
+  hidden: {
+    color: 'rgba(0, 0, 0, 0)',
+  },
+  show: {
+    color: 'red',
+  },
 }
