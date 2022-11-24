@@ -77,7 +77,12 @@ code {
     top: 48%;
     left: 35%;
   }
-  .footer {
+  .footer-login {
+    display: flex;
+    margin-top: 69%;
+    justify-content: center;
+  }
+  .footer-register {
     position: absolute;
     top: 85%;
     width: 70%;

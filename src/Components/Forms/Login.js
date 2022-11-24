@@ -2,8 +2,9 @@ import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
 import Fetch from '../../Resources/Fetch'
 import { UserContext } from '../../App'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import { NavContainer } from '../Navigation'
+import { style } from '../../Resources/Style'
 
 const Login = (props) => {
   const [user, setUser] = useState({
@@ -46,14 +47,29 @@ const Login = (props) => {
 
   return (
     <div style={style.container}>
-      <h1>Login</h1>
       {/* <div style={style.container}> */}
       <form onSubmit={handleSubmit} style={style.formStyle}>
-        <Input type='text' value={user.email} onChange={handleChange} name='email' inputStyle='default' />
-        <Input type='password' value={user.password} onChange={handleChange} name='password' inputStyle='default' />
+        <h1 className='form-header'>Login</h1>
+        <div className='inputWrapper'>
+          <Input type='text' value={user.email} onChange={handleChange} name='email' inputStyle='default' />
+          <img src={require('../../images/emailicon.png')} alt='Envelope' className='email-two' />
+        </div>
+        <div className='inputWrapper'>
+          <Input type='password' value={user.password} onChange={handleChange} name='password' inputStyle='default' />
+          <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-two' />
+        </div>
+        <p className='landing-login' style={style.already}>
+          Don't have an account?{' '}
+          <span style={{ fontWeight: 'bold' }}>
+            <NavLink style={style.navLink2} to='/register'>
+              Register
+            </NavLink>
+          </span>
+        </p>
         <Input type='submit' value='Log in' name='submit' />
         <p style={emailError}>Email or Password does not match or is invalid</p>
       </form>
+      <p className='footer-login'>The information on this website is for general informatiional purposes only. Letuce Turnip the Beet makes no representation or warranty, express or implied. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for.</p>
     </div>
     // </div>
   )
@@ -76,22 +92,22 @@ export const isValidPassword = (password) => {
   }
 }
 
-const style = {
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-  },
-  formStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  hidden: {
-    fontSize: '12px',
-    color: 'rgba(0, 0, 0, 0)',
-  },
-  show: {
-    fontSize: '12px',
-    color: 'red',
-  },
-}
+// const style = {
+//   container: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     flexDirection: 'column',
+//   },
+//   formStyle: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//   },
+//   hidden: {
+//     fontSize: '12px',
+//     color: 'rgba(0, 0, 0, 0)',
+//   },
+//   show: {
+//     fontSize: '12px',
+//     color: 'red',
+//   },
+// }
