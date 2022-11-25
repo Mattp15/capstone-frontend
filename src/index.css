@@ -220,13 +220,13 @@ a::after {
     left: 4%;
   }
   .email-one {
-    top: 16%;
+    top: 15%;
   }
   .email-two {
-    top: 28%;
+    top: 26.5%;
   }
   .email-three {
-    top: 16%;
+    top: 15%;
   }
   .lock-one,
   .lock-two,
@@ -235,13 +235,13 @@ a::after {
     left: 4%;
   }
   .lock-one {
-    top: 41%;
+    top: 39.5%;
   }
   .lock-two {
-    top: 52.5%;
+    top: 51%;
   }
   .lock-three {
-    top: 29%;
+    top: 28%;
   }
   .login-characters {
     /* position: relative; */
@@ -313,6 +313,20 @@ a::after {
     top: 92%;
     width: 390px;
     box-shadow: inset 0px 0px 1px 1px rgba(255, 230, 86, 0.1);
+  }
+  .roulette-start {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 200px;
+    font-size: 2em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+  }
+  .roulette-start-contaner {
+    display: flex;
   }
   .roulette-button {
     display: flex;

@@ -52,12 +52,12 @@ const Login = (props) => {
         <h1 className='form-header'>Login</h1>
 
         <div className='inputWrapper'>
-          <Input type='text' value={user.email} onChange={handleChange} name='email' inputStyle='default' />
+          <Input type='text' value={user.email} onChange={handleChange} name='email' inputStyle='default' placeholder='Email' />
           <img src={require('../../images/emailicon.png')} alt='Envelope' className='email-three' />
         </div>
 
         <div className='inputWrapper'>
-          <Input type='password' value={user.password} onChange={handleChange} name='password' inputStyle='default' />
+          <Input type='password' value={user.password} onChange={handleChange} name='password' inputStyle='default' placeholder='Password' />
           <img src={require('../../images/lockicon.png')} alt='Padlock' className='lock-three' style={{ width: '25%', height: 'auto' }} />
         </div>
         <p className='error-login' style={emailError}>

@@ -149,10 +149,12 @@ const Roulette = () => {
       <h1 className='title'>
         <span className='title-left'>Recipe</span> <span className='title-right'>Roulette</span>
       </h1>
-      <div>
+      {!displayRecipe ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='200px' style={{ marginLeft: '90px' }} /> : ''}
+      {displayRecipe && recipeList[0] ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='100px' style={{ position: 'absolute', top: '65px', left: '280px', zIndex: '-1' }} /> : ''}
+      <div className='roulette-start-container'>
         {!displayRecipe ? (
           <Button
-            value='Continue List'
+            value={'Continue List'}
             onClick={() => {
               nextRecipe('Start')
             }}
@@ -175,6 +177,8 @@ const Roulette = () => {
           ''
         )}
       </div>
+      {!displayRecipe ? <img src={require('../../images/karage.png')} alt='cute karage' width='200px' style={{ marginLeft: '200px' }} /> : ''}
+      {!displayRecipe ? <img src={require('../../images/pizza.png')} alt='cute pizza' width='200px' style={{ marginRight: '170px', marginTop: '-90px' }} /> : ''}
       <div className='recipe-card'>
         {displayRecipe && recipeList[0] ? (
           <ul style={style.recipeCardContent} className='recipe-card-content'>
@@ -221,6 +225,7 @@ const Roulette = () => {
           ''
         )}
       </div>
+      {displayRecipe && recipeList[0] ? <img src={require('../../images/burger.png')} alt='cute sushi' width='100px' style={{ position: 'absolute', top: '680px', left: '-10px', zIndex: '-2', rotate: '45deg' }} /> : ''}
       <div className='roulette-button-container'>
         {displayRecipe && recipeList[0] ? (
           <Button
