@@ -108,7 +108,7 @@ export const style = {
     top: '400px',
     left: '-20px',
   },
-  karage: {
+  sando: {
     position: 'absolute',
     top: '270px',
     left: '340px',

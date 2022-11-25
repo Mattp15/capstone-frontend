@@ -177,8 +177,8 @@ const Roulette = () => {
           ''
         )}
       </div>
-      {!displayRecipe ? <img src={require('../../images/karage.png')} alt='cute karage' width='200px' style={{ marginLeft: '200px' }} /> : ''}
-      {!displayRecipe ? <img src={require('../../images/pizza.png')} alt='cute pizza' width='200px' style={{ marginRight: '170px', marginTop: '-90px' }} /> : ''}
+      {!displayRecipe ? <img src={require('../../images/karage.png')} alt='cute karage' width='200px' style={{ marginRight: '100px', marginTop: '-80px' }} /> : ''}
+      {/* {!displayRecipe ? <img src={require('../../images/pizza.png')} alt='cute pizza' width='200px' style={{ marginRight: '170px', marginTop: '-90px' }} /> : ''} */}
 
       {/* add keyframes to this */}
       <div className='recipe-card'>
@@ -232,6 +232,7 @@ const Roulette = () => {
         )}
       </div>
       {/* end of keyframes */}
+      {!displayRecipe ? <p className='footer-register'>The information on this website is for general informatiional purposes only. Letuce Turnip the Beet makes no representation or warranty, express or implied. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for.</p> : ''}
 
       <div className='roulette-button-container'>
         {displayRecipe && recipeList[0] ? (

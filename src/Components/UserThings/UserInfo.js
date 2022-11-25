@@ -32,7 +32,7 @@ const UserInfo = () => {
     <div style={style.container}>
       <NavContainer />
       <img src={require('../../images/pizza.png')} alt='cute pizza' width='100px' style={style.pizza} />
-      <img src={require('../../images/karage.png')} alt='cute karage' width='100px' style={style.karage} />
+      <img src={require('../../images/sando.png')} alt='cute sandowich' width='100px' style={style.sando} />
       <img src={require('../../images/taco.png')} alt='cute taco' width='100px' style={style.taco} />
       <img src={require('../../images/fries.png')} alt='cute fries' width='100px' style={style.fries} />
       {loggedUser ? (

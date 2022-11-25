@@ -92,20 +92,22 @@ a::after {
     top: 48%;
     left: 35%;
   }
+  .footer-login,
+  .footer-register {
+    font-size: 0.8em;
+  }
   .footer-login {
     display: flex;
     margin-top: auto;
     /* margin-top: 40px; */
     width: 70%;
     justify-content: center;
-    font-size: 0.8em;
   }
   .footer-register {
     position: absolute;
     top: 85%;
     width: 70%;
     left: 15%;
-    font-size: 0.8em;
   }
   .fresh,
   .donut,
