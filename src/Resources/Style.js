@@ -84,6 +84,7 @@ export const style = {
     marginBottom: '-1px',
     marginTop: '-11px',
   },
+
   already: {
     top: '76%',
   },
@@ -118,5 +119,13 @@ export const style = {
     top: '600px',
     left: '300px',
     rotate: '10deg',
+  },
+  red: {
+    color: 'red',
+    fontSize: '0.5em',
+  },
+  green: {
+    color: 'green',
+    fontSize: '0.5em',
   },
 }
