@@ -12,7 +12,7 @@ const ShoppingList = () => {
   const [meat, setMeat] = useState()
   const [produce, setProduce] = useState()
   const [spice, setSpice] = useState()
-  const [lineStyle, setLineStyle] = useState('li')
+
   const { shoppingList, setShoppingList, usersThings, usersList, count, setLoggedUser, setCount } = useContext(UserContext)
   useContext(() => {
     refresh()
@@ -22,6 +22,7 @@ const ShoppingList = () => {
     const response = Fetch('user/user', 'GET')
     setLoggedUser(response)
   }
+
   useEffect(() => {
     if (shoppingList) {
       const dairyArray = []
@@ -71,16 +72,7 @@ const ShoppingList = () => {
       setProduce(clean(produceArray))
       setSpice(clean(spiceArray))
     }
-    // console.log(dairy[0][0][0], dairy[0][0][1].amount)
-    // console.log(dryGood)
-    // console.log(frozen)
-    // console.log(meat)
-    // console.log(produce)
-    // console.log(spice)
   }, [shoppingList])
-  const handleClick = (e) => {
-    console.log(e)
-  }
 
   return (
     <div style={style.container}>
@@ -90,7 +82,7 @@ const ShoppingList = () => {
           <h3>Dairy</h3>
           <ul style={style.ul}>
             {dairy.map((x, i) => {
-              return <List key={'dairy' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
+              return <List pkey={'dairy' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>
@@ -104,7 +96,7 @@ const ShoppingList = () => {
             {dryGood.map((x, i) => {
               return (
                 <div style={style.liContainer}>
-                  <List key={'dryGoods' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+                  <List pkey={'dryGoods' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
                 </div>
               )
             })}
@@ -118,7 +110,7 @@ const ShoppingList = () => {
           <h3>Frozen</h3>
           <ul style={style.ul}>
             {frozen.map((x, i) => {
-              return <List key={'frozen' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+              return <List pkey={'frozen' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
             })}
           </ul>
         </div>
@@ -130,7 +122,7 @@ const ShoppingList = () => {
           <h3>Meat</h3>
           <ul style={style.ul}>
             {meat.map((x, i) => {
-              return <List key={'meat' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+              return <List pkey={'meat' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>
@@ -142,7 +134,7 @@ const ShoppingList = () => {
           <h3>Produce</h3>
           <ul style={style.ul}>
             {produce.map((x, i) => {
-              return <List key={+i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+              return <List pkey={+i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>
@@ -154,7 +146,7 @@ const ShoppingList = () => {
           <h3>Spices</h3>
           <ul style={style.ul}>
             {spice.map((x, i) => {
-              return <List key={'spices' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+              return <List pkey={'spices' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>

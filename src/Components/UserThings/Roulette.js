@@ -21,6 +21,9 @@ const Roulette = () => {
     initiate()
   }, [])
 
+  useEffect(() => {
+    console.log('userEffect')
+  }, [usersList])
   const initiate = async () => {}
 
   const getRecipes = async () => {
