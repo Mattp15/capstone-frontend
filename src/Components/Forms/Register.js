@@ -19,11 +19,13 @@ const Register = (props) => {
 
   const { setLoggedUser } = useContext(UserContext)
 
+  //Password Requirements Check
   useEffect(() => {
     ;/[A-Z]/.test(password) ? setCapital('green') : setCapital('red')
     ;/[0-9]/.test(password) ? setNumber('green') : setNumber('red')
     ;/[.!#$%&'*+/=?^_`{|}~-]/.test(password) ? setSpecialChar('green') : setSpecialChar('red')
   }, [password])
+
   const handleChange = ({ target }) => {
     const { value, name } = target
     if (name === 'email') {

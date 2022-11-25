@@ -167,16 +167,16 @@ a::after {
     /* margin: 3%; */
     margin-top: 5px;
     margin-left: 20%;
-    height: 13vw;
+    height: 85%;
     width: 11em;
     font-size: 0.8em;
     font-weight: bolder;
     overflow-x: hidden;
     border: hidden;
-
     border-radius: 25px;
   }
-  input[type='text']:focus {
+  input[type='text']:focus,
+  input[type='password']:focus {
     outline: none;
     background-color: white;
   }
@@ -215,8 +215,7 @@ a::after {
   input[type='submit'].register-submit {
     margin-top: 100px;
   }
-  input[type='submit']:focus,
-  input[type='text']:focus {
+  input[type='submit']:focus {
     border-radius: 12px;
   }
   input[type='submit']:hover {
