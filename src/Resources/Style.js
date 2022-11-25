@@ -16,10 +16,7 @@ export const style = {
     height: '200px',
     overflow: 'hidden',
   },
-  img: {
-    width: '325px',
-    height: 'auto',
-  },
+
   instructions: {
     margin: '15px',
     lineHeight: '1.45rem',

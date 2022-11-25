@@ -179,14 +179,18 @@ const Roulette = () => {
       </div>
       {!displayRecipe ? <img src={require('../../images/karage.png')} alt='cute karage' width='200px' style={{ marginLeft: '200px' }} /> : ''}
       {!displayRecipe ? <img src={require('../../images/pizza.png')} alt='cute pizza' width='200px' style={{ marginRight: '170px', marginTop: '-90px' }} /> : ''}
+
+      {/* add keyframes to this */}
       <div className='recipe-card'>
         {displayRecipe && recipeList[0] ? (
           <ul style={style.recipeCardContent} className='recipe-card-content'>
-            <List key='0' value={recipeList[0].title} className='card-title' />
+            <div className='title-container'>
+              <List key='0' value={recipeList[0].title} className='card-title' />
+            </div>
 
             <li key='img' style={style.li}>
               <div style={style.imageContainer}>
-                <img src={recipeList[0].image} alt={recipeList[0].title} style={style.img} />
+                <img src={recipeList[0].image} alt={recipeList[0].title} className='roulette-img' />
               </div>
             </li>
             <li key='7' style={style.li}>
@@ -196,10 +200,12 @@ const Roulette = () => {
             </li>
             <div className='time'>
               <li key='1' style={style.li}>
-                Total Time: {'  ' + recipeList[0].time}
+                <span style={{ fontWeight: 'normal' }}>Total Time</span> <br />
+                {recipeList[0].time}
               </li>
               <li key='2' style={style.li}>
-                Servings: {recipeList[0].servings}
+                <span style={{ fontWeight: 'normal' }}>Servings </span> <br />
+                {recipeList[0].servings}
               </li>
             </div>
             <li key='description' className='description'>
@@ -225,6 +231,7 @@ const Roulette = () => {
           ''
         )}
       </div>
+      {/* end of keyframes */}
 
       <div className='roulette-button-container'>
         {displayRecipe && recipeList[0] ? (
