@@ -31,15 +31,21 @@ const UserInfo = () => {
   return (
     <div style={style.container}>
       <NavContainer />
-      <h1>User Info</h1>
-      {loggedUser ? <p>{loggedUser}</p> : ''}
-      <Button value='update email' onClick={handleClick} />
-      <Button value='Change Password' />
-      <div style={{ display: 'flex', marginRight: '10%' }}>
-        <RecipeIndex />
-      </div>
+      <img src={require('../../images/pizza.png')} alt='cute pizza' width='100px' style={style.pizza} />
+      <img src={require('../../images/karage.png')} alt='cute karage' width='100px' style={style.karage} />
+      <img src={require('../../images/taco.png')} alt='cute taco' width='100px' style={style.taco} />
+      <img src={require('../../images/fries.png')} alt='cute fries' width='100px' style={style.fries} />
+      {loggedUser ? (
+        <h1 className='title' style={style.accountTitle}>
+          {loggedUser.split('@').shift().toUpperCase()}
+        </h1>
+      ) : (
+        ''
+      )}
+
+      {loggedUser ? <RecipeIndex /> : ''}
     </div>
   )
 }
-// put a stat here, the state should be set by clickign on the title and the onClick will populate the state, it should be cleared with a repeated click of title or replaced by clicking on another title, resulting in the card expanding (contains ingredients or    nutrition facts or description  or epand into button selections to "delete" or toggle favorite/dislike
+
 export default UserInfo

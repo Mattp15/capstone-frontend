@@ -93,4 +93,30 @@ export const style = {
   show: {
     color: 'red',
   },
+  pizza: {
+    position: 'absolute',
+    top: '90px',
+    left: '20px',
+    zIndex: '-2',
+  },
+  accountTitle: {
+    color: '#ffe656',
+    textShadow: '2px 1px black',
+  },
+  taco: {
+    position: 'absolute',
+    top: '400px',
+    left: '-20px',
+  },
+  karage: {
+    position: 'absolute',
+    top: '270px',
+    left: '340px',
+  },
+  fries: {
+    position: 'absolute',
+    top: '600px',
+    left: '300px',
+    rotate: '10deg',
+  },
 }
