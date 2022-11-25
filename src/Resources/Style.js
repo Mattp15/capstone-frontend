@@ -11,8 +11,13 @@ export const style = {
     alignItems: 'center',
     flexDirection: 'column',
   },
+  imageContainer: {
+    width: '325px',
+    height: '200px',
+    overflow: 'hidden',
+  },
   img: {
-    width: '100%',
+    width: '325px',
     height: 'auto',
   },
   instructions: {

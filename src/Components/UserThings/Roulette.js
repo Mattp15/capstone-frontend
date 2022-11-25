@@ -149,14 +149,14 @@ const Roulette = () => {
       <h1 className='title'>
         <span className='title-left'>Recipe</span> <span className='title-right'>Roulette</span>
       </h1>
-      <div style={style.rouletteButtonContainer}>
+      <div>
         {!displayRecipe ? (
           <Button
             value='Continue List'
             onClick={() => {
               nextRecipe('Start')
             }}
-            classProp='button'
+            className='button roulette-start'
             style={style.rouletteButton}
           />
         ) : (
@@ -168,7 +168,7 @@ const Roulette = () => {
             onClick={() => {
               nextRecipe('new')
             }}
-            classProp='button'
+            className='button roulette-start'
             style={style.rouletteButton}
           />
         ) : (
@@ -181,7 +181,9 @@ const Roulette = () => {
             <List key='0' value={recipeList[0].title} className='card-title' />
 
             <li key='img' style={style.li}>
-              <img src={recipeList[0].image} alt={recipeList[0].title} width='200' height='auto' />
+              <div style={style.imageContainer}>
+                <img src={recipeList[0].image} alt={recipeList[0].title} style={style.img} />
+              </div>
             </li>
             <li key='7' style={style.li}>
               <a href={recipeList[0].author_credit} target='_blank' rel='noreferrer noopener'>
@@ -222,22 +224,11 @@ const Roulette = () => {
       <div className='roulette-button-container'>
         {displayRecipe && recipeList[0] ? (
           <Button
-            value='Favorite'
-            onClick={() => {
-              nextRecipe('Favorite')
-            }}
-            className='roulette-button'
-          />
-        ) : (
-          ''
-        )}
-        {displayRecipe && recipeList[0] ? (
-          <Button
             value='Dislike'
             onClick={() => {
               nextRecipe('Dislike')
             }}
-            className='roulette-button'
+            className='roulette-button dislike'
           />
         ) : (
           ''
@@ -248,7 +239,18 @@ const Roulette = () => {
             onClick={() => {
               nextRecipe('Pass')
             }}
-            className='roulette-button'
+            className='roulette-button pass'
+          />
+        ) : (
+          ''
+        )}
+        {displayRecipe && recipeList[0] ? (
+          <Button
+            value='Favorite'
+            onClick={() => {
+              nextRecipe('Favorite')
+            }}
+            className='roulette-button favorite'
           />
         ) : (
           ''
@@ -259,7 +261,7 @@ const Roulette = () => {
             onClick={() => {
               nextRecipe('Select')
             }}
-            className='roulette-button'
+            className='roulette-button select'
           />
         ) : (
           ''
