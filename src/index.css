@@ -384,6 +384,7 @@ a::after {
   .roulette-img {
     width: 325px;
     height: auto;
+    position: center;
   }
   .title-container {
     height: 4%;
@@ -395,5 +396,12 @@ a::after {
     font-size: 1.3em;
     font-weight: bolder;
     color: rgba(0, 0, 0, 0.6);
+  }
+  .recipe-list {
+    /* font-size: 1.2em; */
+    /* font-weight: bold; */
+    margin-top: 10px;
+    width: 90%;
+    text-align: right;
   }
 }

@@ -12,9 +12,12 @@ export const style = {
     flexDirection: 'column',
   },
   imageContainer: {
+    display: 'flex',
+    justifyContent: 'center',
     width: '325px',
-    height: '200px',
+    height: '225px',
     overflow: 'hidden',
+    marginTop: '-20%',
   },
 
   instructions: {
@@ -132,5 +135,9 @@ export const style = {
   green: {
     color: 'green',
     fontSize: '0.5em',
+  },
+  recipeListDiv: {
+    display: 'flex',
+    flexFlow: 'row nowrap',
   },
 }

@@ -104,7 +104,7 @@ const ShoppingList = () => {
             {dryGood.map((x, i) => {
               return (
                 <div style={style.liContainer}>
-                  <List key={'dryGoods' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
+                  <List key={'dryGoods' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
                 </div>
               )
             })}
@@ -118,7 +118,7 @@ const ShoppingList = () => {
           <h3>Frozen</h3>
           <ul style={style.ul}>
             {frozen.map((x, i) => {
-              return <List key={'frozen' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
+              return <List key={'frozen' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>
@@ -130,7 +130,7 @@ const ShoppingList = () => {
           <h3>Meat</h3>
           <ul style={style.ul}>
             {meat.map((x, i) => {
-              return <List key={'meat' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
+              return <List key={'meat' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>
@@ -142,7 +142,7 @@ const ShoppingList = () => {
           <h3>Produce</h3>
           <ul style={style.ul}>
             {produce.map((x, i) => {
-              return <List key={+i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
+              return <List key={+i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>
@@ -154,7 +154,7 @@ const ShoppingList = () => {
           <h3>Spices</h3>
           <ul style={style.ul}>
             {spice.map((x, i) => {
-              return <List key={'spices' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
+              return <List key={'spices' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>

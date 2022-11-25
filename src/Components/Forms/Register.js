@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import Input from './Input'
 import Fetch from '../../Resources/Fetch'
 import { UserContext } from '../../App'
-import { NavLink } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import { style } from '../../Resources/Style'
 const Register = (props) => {
   const [email, setEmail] = useState('')
@@ -18,6 +18,8 @@ const Register = (props) => {
   const [specialChar, setSpecialChar] = useState('red')
 
   const { setLoggedUser } = useContext(UserContext)
+
+  const navigate = useNavigate()
 
   //Password Requirements Check
   useEffect(() => {
@@ -78,7 +80,7 @@ const Register = (props) => {
       console.log(response)
       if (response.status === 200) {
         setLoggedUser(email)
-        //add redirect
+        navigate('/roulette')
       } else if (response.status === 401) {
         console.log(response.message)
       }

@@ -6,6 +6,7 @@ import { style } from '../../Resources/Style'
 import { NavContainer } from '../Navigation'
 import { NavLink } from 'react-router-dom'
 import '../../index.css'
+import { List } from '../List'
 const UsersRecipeList = () => {
   //Getting User index next to do figure out to organize it for the view
   const { usersList, setUsersList } = useContext(UserContext)
@@ -32,24 +33,18 @@ const UsersRecipeList = () => {
   return (
     <div style={style.container}>
       <NavContainer />
-      <Button
-        value={
-          <NavLink to='/user/list/shopping' style={style.navButton}>
-            Shopping List
-          </NavLink>
-        }
-      />
 
-      <h1>Users recipes List</h1>
+      <h1 className='form-header'>Users recipes List</h1>
       {usersList ? (
-        <ul style={style.ul}>
+        <ul>
           {usersList.map((recipe, index) => {
             return (
-              <li key={index} style={style.li}>
-                <NavLink to={'/recipes/' + recipe.id}> {recipe.recipe_id.title}</NavLink>
-
+              <div style={style.recipeListDiv}>
+                <List key={index} value={recipe.recipe_id.title} type='reg' className='recipe-list'>
+                  <NavLink to={'/recipes/' + recipe.id}> </NavLink>
+                </List>
                 <button onClick={() => handleDelete(recipe)}>Delete</button>
-              </li>
+              </div>
             )
           })}
         </ul>
