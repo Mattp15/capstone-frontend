@@ -49,7 +49,9 @@ export const style = {
     flexDirection: 'column',
     alignItems: 'flex-start',
   },
-
+  recipeIndex: {
+    marginTop: '20%',
+  },
   userThingsUl: {
     listStyleType: 'none',
     display: 'flex',
@@ -108,17 +110,20 @@ export const style = {
     position: 'absolute',
     top: '400px',
     left: '-20px',
+    zIndex: '-2',
   },
   sando: {
     position: 'absolute',
     top: '270px',
     left: '340px',
+    zIndex: '-2',
   },
   fries: {
     position: 'absolute',
     top: '600px',
     left: '300px',
     rotate: '10deg',
+    zIndex: '-2',
   },
   red: {
     color: 'red',

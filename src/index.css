@@ -82,8 +82,8 @@ a::after {
     font-family: 'Work Sans';
     font-size: 1.65em;
     line-height: -2em;
-    width: 60%;
     font-weight: bold;
+    width: 60%;
   }
   .fresh {
     top: 58%;
@@ -389,5 +389,11 @@ a::after {
     height: 4%;
     margin-bottom: 10%;
     margin-top: 4%;
+  }
+  .recipe-index-recipes {
+    font-family: 'Work Sans';
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.6);
   }
 }

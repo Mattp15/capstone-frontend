@@ -49,6 +49,7 @@
   }
   body {
     overflow: hidden;
+    display: none;
   }
   .letuce,
   .turnip,

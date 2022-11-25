@@ -29,10 +29,14 @@ const RecipeIndex = () => {
     <div style={style.container}>
       {usersThings ? (
         <ul style={style.userThingsUl}>
-          <h2 style={{ margin: '0 auto', marginTop: '15%' }}>Favorites</h2>
-          {usersThings.map((x, i) => (x.favorite ? <UserRecipeListComponent type='button' key={i} zkey={x.id} style={style.li} value={x.recipe_id.title} status='Favorites' ids={x} /> : ''))}
-          <h2 style={{ margin: '0 auto', marginTop: '15%' }}>Dislikes</h2>
-          {usersThings.map((x, i) => (x.dislike ? <UserRecipeListComponent type='button' key={i} zkey={x.id} style={style.li} value={x.recipe_id.title} status='Dislikes' ids={x} /> : ''))}
+          <h2 className='form-header' style={style.recipeIndex}>
+            Favorites
+          </h2>
+          {usersThings.map((x, i) => (x.favorite ? <UserRecipeListComponent type='button' key={i} zkey={x.id} style={style.li} value={x.recipe_id.title} status='Favorites' ids={x} className='recipe-index-recipes' /> : ''))}
+          <h2 className='form-header' style={style.recipeIndex}>
+            Dislikes
+          </h2>
+          {usersThings.map((x, i) => (x.dislike ? <UserRecipeListComponent type='button' key={i} zkey={x.id} style={style.li} value={x.recipe_id.title} status='Dislikes' ids={x} className='recipe-index-recipes' /> : ''))}
         </ul>
       ) : (
         ''
