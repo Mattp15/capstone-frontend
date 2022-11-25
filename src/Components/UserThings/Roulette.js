@@ -225,7 +225,7 @@ const Roulette = () => {
           ''
         )}
       </div>
-      {displayRecipe && recipeList[0] ? <img src={require('../../images/burger.png')} alt='cute sushi' width='100px' style={{ position: 'absolute', top: '680px', left: '-10px', zIndex: '-2', rotate: '45deg' }} /> : ''}
+
       <div className='roulette-button-container'>
         {displayRecipe && recipeList[0] ? (
           <Button
