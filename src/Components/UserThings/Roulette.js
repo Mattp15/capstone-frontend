@@ -71,16 +71,6 @@ const Roulette = () => {
 
         break
       case 'Start':
-        for (const x of usersThings) {
-          if (!x.favorite && !x.dislike) {
-            console.log(x)
-            const deletePassed = await Fetch('things/' + x.id, 'DELETE')
-          }
-        }
-        const newListResponse2 = await Fetch('user/list', 'DELETE', { id: 0 })
-        if (newListResponse2) {
-          setUsersList('')
-        }
         if (usersThings) {
           console.log('start')
           const favs = []
