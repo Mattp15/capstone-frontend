@@ -178,7 +178,7 @@ const Roulette = () => {
         {displayRecipe && recipeList[0] ? (
           <ul style={style.recipeCardContent} className='recipe-card-content'>
             <div className='title-container'>
-              <List key='0' value={recipeList[0].title} className='card-title' />
+              <List pkey='0' value={recipeList[0].title} className='card-title' />
             </div>
 
             <li key='img' style={style.li}>

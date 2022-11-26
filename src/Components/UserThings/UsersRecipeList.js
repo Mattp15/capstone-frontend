@@ -33,17 +33,17 @@ const UsersRecipeList = () => {
   return (
     <div style={style.container}>
       <NavContainer />
-
+      <img src={require('../../images/boba.png')} alt='cute boba' className='boba' />
       <h1 className='form-header'>Users recipes List</h1>
       {usersList ? (
         <ul>
           {usersList.map((recipe, index) => {
             return (
-              <div style={style.recipeListDiv}>
-                <List key={index} value={recipe.recipe_id.title} type='reg' className='recipe-list'>
-                  <NavLink to={'/recipes/' + recipe.id}> </NavLink>
-                </List>
-                <button onClick={() => handleDelete(recipe)}>Delete</button>
+              <div style={style.recipeListDiv} className='recipe-list'>
+                <NavLink to={'/recipes/' + recipe.id}>
+                  <List pkey={index} value={recipe.recipe_id.title} type='reg' className='recipe-list' />
+                </NavLink>
+                <img src={require('../../images/nosymbol.png')} alt='no symbol with fried chicken inside' key={`${index}button`} onClick={() => handleDelete(recipe)} style={{ width: '80px', height: '80px', marginTop: '10px' }} />
               </div>
             )
           })}
@@ -51,26 +51,9 @@ const UsersRecipeList = () => {
       ) : (
         ''
       )}
-      {/* <Button value='Get users recipes' onClick={handleClick} /> */}
+      <img src={require('../../images/milkshake.png')} alt='cute milkshake' className='milkshake' />
     </div>
   )
 }
 
 export default UsersRecipeList
-
-// const handleClick = async ({ id, title }) => {
-//   const favoriteResponse = await Fetch('things/' + id, 'POST', { favorite: true, dislike: false })
-//   if (favoriteResponse.status === 200) {
-//     console.log(favoriteResponse.message, 'favorite')
-//   } else if (favoriteResponse.status === 409) {
-//     console.log(favoriteResponse.message)
-//   }
-// }
-// const handleDislike = async (recipe) => {
-//   console.log(recipe)
-//   const id = recipe.id
-// const disliked = await Fetch('things/' + recipe.id, 'POST', { favorite: false, dislike: true })
-// console.log(disliked)
-// const deleted = await Fetch('user/list', 'DELETE', { id: id })
-// setUsersList((prev) => [...prev.filter((fil) => fil.id !== id)])
-// }

@@ -139,5 +139,7 @@ export const style = {
   recipeListDiv: {
     display: 'flex',
     flexFlow: 'row nowrap',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
 }

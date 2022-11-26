@@ -397,10 +397,31 @@ a::after {
     color: rgba(0, 0, 0, 0.6);
   }
   .recipe-list {
-    /* font-size: 1.2em; */
+    font-size: 1.2em;
     /* font-weight: bold; */
-    margin-top: 10px;
-    width: 90%;
+    margin-top: 20px;
+    width: 380px;
     text-align: right;
+    color: rgba(255, 230, 86, 1);
+    font-family: 'Work Sans';
+    text-shadow: 2px 2px black;
+  }
+  .boba {
+    position: absolute;
+    z-index: -1;
+    top: 30px;
+    left: 0px;
+    height: 250px;
+    width: auto;
+    rotate: 40deg;
+  }
+  .milkshake {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 500px;
+    left: 0px;
+    rotate: 160deg;
+    z-index: -1;
   }
 }
