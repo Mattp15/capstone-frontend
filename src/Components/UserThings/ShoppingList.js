@@ -75,7 +75,7 @@ const ShoppingList = () => {
   }, [shoppingList])
 
   return (
-    <div style={style.container} className='page-fade-in'>
+    <div style={style.container} className='page-fade-in center'>
       <NavContainer />
       <div className='shopping-image-container'>
         <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles' />
@@ -89,7 +89,7 @@ const ShoppingList = () => {
           <h2 className='form-header'>Dairy</h2>
           <ul style={style.ul}>
             {dairy.map((x, i) => {
-              return <List pkey={'dairy' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+              return <List pkey={'dairy' + i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>
@@ -103,7 +103,7 @@ const ShoppingList = () => {
             {dryGood.map((x, i) => {
               return (
                 <div>
-                  <List pkey={'dryGoods' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+                  <List pkey={'dryGoods' + i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} type='strikeThrough' />
                 </div>
               )
             })}
@@ -117,7 +117,7 @@ const ShoppingList = () => {
           <h2 className='form-header'>Frozen</h2>
           <ul style={style.ul}>
             {frozen.map((x, i) => {
-              return <List pkey={'frozen' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
+              return <List pkey={'frozen' + i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} />
             })}
           </ul>
         </div>
@@ -129,7 +129,7 @@ const ShoppingList = () => {
           <h2 className='form-header'>Meat</h2>
           <ul style={style.ul}>
             {meat.map((x, i) => {
-              return <List pkey={'meat' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+              return <List pkey={'meat' + i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>
@@ -141,7 +141,7 @@ const ShoppingList = () => {
           <h2 className='form-header'>Produce</h2>
           <ul style={style.ul}>
             {produce.map((x, i) => {
-              return <List pkey={+i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+              return <List pkey={+i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>
@@ -153,7 +153,7 @@ const ShoppingList = () => {
           <h2 className='form-header'>Spices</h2>
           <ul style={style.ul}>
             {spice.map((x, i) => {
-              return <List pkey={'spices' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
+              return <List pkey={'spices' + i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
         </div>

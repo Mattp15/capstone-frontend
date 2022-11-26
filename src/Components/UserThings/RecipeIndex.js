@@ -26,7 +26,7 @@ const RecipeIndex = () => {
     initiate()
   }, [usersThings, thingsDisplay])
   return (
-    <div style={style.container}>
+    <div>
       {usersThings ? (
         <ul style={style.userThingsUl}>
           <h2 className='user-things-heading' style={style.recipeIndex}>

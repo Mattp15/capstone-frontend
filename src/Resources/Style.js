@@ -9,6 +9,8 @@ export const style = {
     flexFlow: 'column no-wrap',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: '80px',
+
     flexDirection: 'column',
     Width: '700px',
   },
@@ -66,6 +68,7 @@ export const style = {
   navLink1: {
     textDecoration: 'none',
     color: 'white',
+
     textShadow: '1px 1px black',
   },
   navLink2: {

@@ -136,14 +136,14 @@ const Roulette = () => {
     <div
       style={style.container}
       className='
-    container page-fade-in'
+    roulette-container page-fade-in'
     >
       <NavContainer />
-      <h1 className='title'>
+      <h1 className='title' style={{ zIndex: '1' }}>
         <span className='title-left'>Recipe</span> <span className='title-right'>Roulette</span>
       </h1>
       {!displayRecipe ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='200px' style={{ marginLeft: '90px' }} /> : ''}
-      {displayRecipe && recipeList[0] ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='100px' style={{ position: 'absolute', top: '65px', left: '280px', zIndex: '-1' }} /> : ''}
+      {displayRecipe && recipeList[0] ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='100px' style={{ position: 'absolute', top: '80px', left: '280px', zIndex: '0' }} /> : ''}
       <div className='roulette-start-container'>
         {!displayRecipe ? (
           <Button
@@ -170,7 +170,7 @@ const Roulette = () => {
           ''
         )}
       </div>
-      {!displayRecipe ? <img src={require('../../images/karage.png')} alt='cute karage' width='200px' style={{ marginRight: '100px', marginTop: '-80px' }} /> : ''}
+      {!displayRecipe ? <img src={require('../../images/karage.png')} alt='cute karage' width='200px' style={{ marginRight: '100px', marginTop: '-80px', zIndex: '1' }} /> : ''}
       {/* {!displayRecipe ? <img src={require('../../images/pizza.png')} alt='cute pizza' width='200px' style={{ marginRight: '170px', marginTop: '-90px' }} /> : ''} */}
 
       {/* add keyframes to this */}
