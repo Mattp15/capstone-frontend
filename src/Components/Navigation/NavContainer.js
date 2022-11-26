@@ -93,7 +93,7 @@ const NavContainer = () => {
           ''
         )}
       </div>
-      <img src={require('../../images/boba.png')} alt='cute boba' className='nav-boba' />
+      {clicked ? <img src={require('../../images/boba.png')} alt='cute boba' className='nav-boba' /> : ''}
     </div>
   )
 }
