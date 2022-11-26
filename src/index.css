@@ -457,6 +457,7 @@ a::after {
     align-items: flex-start;
     flex-flow: column nowrap;
     height: 350px;
+    overflow: hidden;
     transition: all 1s forwards;
   }
   .show {
@@ -465,26 +466,29 @@ a::after {
   }
   .hide {
     animation: hide-nav 0.4s ease-out forwards;
-    display: none;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 100px;
+    left: 255px;
   }
   @keyframes show-nav {
     0% {
       transform: translateX(100%);
+      opacity: 0;
     }
     100% {
       transform: translateX(0);
+      opacity: 1;
     }
   }
   @keyframes hide-nav {
     0% {
       transform: translateX(0);
+      opacity: 1;
     }
 
     100% {
       transform: translateX(100%);
+      opacity: 0;
     }
   }
 
@@ -501,6 +505,7 @@ a::after {
     text-decoration: none;
     margin: 1px;
     border-radius: 20px;
+    z-index: 2;
   }
 
   a {
@@ -525,7 +530,6 @@ a::after {
   .page-fade-in {
     animation: show-page 1.2s ease-out forwards;
   }
-
   @keyframes show-page {
     0% {
       opacity: 0;
@@ -552,6 +556,7 @@ a::after {
     top: 0;
     left: 0;
     overflow: hidden;
+    z-index: -1;
   }
   .bubbles {
     position: absolute;
