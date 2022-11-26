@@ -79,7 +79,7 @@ const ShoppingList = () => {
       <NavContainer />
       {dairy ? (
         <div style={style.container}>
-          <h3>Dairy</h3>
+          <h2 className='form-header'>Dairy</h2>
           <ul style={style.ul}>
             {dairy.map((x, i) => {
               return <List pkey={'dairy' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
@@ -91,7 +91,7 @@ const ShoppingList = () => {
       )}
       {dryGood ? (
         <div style={style.container}>
-          <h3>Dry Goods</h3>
+          <h2 className='form-header'>Dry Goods</h2>
           <ul style={style.ul}>
             {dryGood.map((x, i) => {
               return (
@@ -107,7 +107,7 @@ const ShoppingList = () => {
       )}
       {frozen ? (
         <div style={style.container}>
-          <h3>Frozen</h3>
+          <h2 className='form-header'>Frozen</h2>
           <ul style={style.ul}>
             {frozen.map((x, i) => {
               return <List pkey={'frozen' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} />
@@ -119,7 +119,7 @@ const ShoppingList = () => {
       )}
       {meat ? (
         <div style={style.container}>
-          <h3>Meat</h3>
+          <h2 className='form-header'>Meat</h2>
           <ul style={style.ul}>
             {meat.map((x, i) => {
               return <List pkey={'meat' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
@@ -131,7 +131,7 @@ const ShoppingList = () => {
       )}
       {produce ? (
         <div style={style.container}>
-          <h3>Produce</h3>
+          <h2 className='form-header'>Produce</h2>
           <ul style={style.ul}>
             {produce.map((x, i) => {
               return <List pkey={+i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
@@ -143,7 +143,7 @@ const ShoppingList = () => {
       )}
       {spice ? (
         <div style={style.container}>
-          <h3>Spices</h3>
+          <h2 className='form-header'>Spices</h2>
           <ul style={style.ul}>
             {spice.map((x, i) => {
               return <List pkey={'spices' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />

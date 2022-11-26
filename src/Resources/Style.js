@@ -34,10 +34,6 @@ export const style = {
     margin: '1vw',
     width: '80vw',
   },
-  navButton: {
-    color: 'black',
-    textDecoration: 'none',
-  },
 
   ol: {
     display: 'flex',

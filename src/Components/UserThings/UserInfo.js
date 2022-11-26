@@ -35,13 +35,7 @@ const UserInfo = () => {
       <img src={require('../../images/sando.png')} alt='cute sandowich' width='100px' style={style.sando} />
       <img src={require('../../images/taco.png')} alt='cute taco' width='100px' style={style.taco} />
       <img src={require('../../images/fries.png')} alt='cute fries' width='100px' style={style.fries} />
-      {loggedUser ? (
-        <h1 className='title' style={style.accountTitle}>
-          {loggedUser.split('@').shift().toUpperCase()}
-        </h1>
-      ) : (
-        ''
-      )}
+      {loggedUser ? <h1 className='form-header'>{loggedUser.split('@').shift().toUpperCase()}</h1> : ''}
 
       {loggedUser ? <RecipeIndex /> : ''}
     </div>

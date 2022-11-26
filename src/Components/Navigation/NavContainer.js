@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button } from '../Button/index'
 import { LogoutButton } from './index'
 import { UserContext } from '../../App'
@@ -10,6 +10,7 @@ const URL = 'http://localhost:3000'
 
 const NavContainer = () => {
   const { loggedUser, setLoggedUser, shoppingList } = useContext(UserContext)
+  const [clicked, setClicked] = useState(false)
 
   const handleLogout = async () => {
     const response = await Fetch('user/logout', 'GET')
@@ -19,57 +20,80 @@ const NavContainer = () => {
     }
   }
   return (
-    <div style={style.buttonContainer}>
-      {loggedUser ? (
-        <Button
-          value={
-            <NavLink to='/login' style={style.navButton}>
-              Logout
-            </NavLink>
-          }
-          onClick={handleLogout}
-        />
-      ) : (
-        <Button
-          value={
-            <NavLink to='/login' style={style.navButton}>
-              Login
-            </NavLink>
-          }
-        />
-      )}
-      <Button
-        value={
-          <NavLink to='/user' style={style.navButton}>
-            Account
-          </NavLink>
-        }
+    <div>
+      <img
+        src={require('../../images/menu.png')}
+        alt='sushi holding a sign that says menu'
+        className='menu-icon'
+        onClick={() => {
+          setClicked(clicked ? false : true)
+        }}
       />
-      <Button
-        value={
-          <NavLink to='/user/list' style={style.navButton}>
-            Recipes
-          </NavLink>
-        }
-      />
-      {shoppingList ? (
-        <Button
-          value={
-            <NavLink to='/user/list/shopping' style={style.navButton}>
-              Shopping List
-            </NavLink>
-          }
-        />
-      ) : (
-        ''
-      )}
-      <Button
-        value={
-          <NavLink to='/roulette' style={style.navButton}>
-            Roulette
-          </NavLink>
-        }
-      />
+      <div className='nav-container'>
+        {clicked ? (
+          <>
+            <Button
+              value={
+                <NavLink to='/user' className='nav-link'>
+                  Account
+                </NavLink>
+              }
+            />
+            <Button
+              value={
+                <NavLink to='/user/list' className='nav-link'>
+                  Recipes
+                </NavLink>
+              }
+            />
+            {shoppingList ? (
+              <Button
+                value={
+                  <NavLink to='/user/list/shopping' className='nav-link'>
+                    Shopping List
+                  </NavLink>
+                }
+              />
+            ) : (
+              ''
+            )}
+            <Button
+              value={
+                <NavLink to='/roulette' className='nav-link'>
+                  Roulette
+                </NavLink>
+              }
+            />
+          </>
+        ) : (
+          ''
+        )}
+        {clicked ? (
+          <>
+            {loggedUser ? (
+              <Button
+                value={
+                  <NavLink to='/login' className='nav-link'>
+                    Logout
+                  </NavLink>
+                }
+                onClick={handleLogout}
+              />
+            ) : (
+              <Button
+                value={
+                  <NavLink to='/login' className='nav-link'>
+                    Login
+                  </NavLink>
+                }
+              />
+            )}
+          </>
+        ) : (
+          ''
+        )}
+      </div>
+      <img src={require('../../images/boba.png')} alt='cute boba' className='nav-boba' />
     </div>
   )
 }

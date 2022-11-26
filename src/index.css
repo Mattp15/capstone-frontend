@@ -15,7 +15,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-a {
+.source {
   text-decoration: none;
   color: #0e79b2;
   font-weight: bold;
@@ -423,5 +423,68 @@ a::after {
     left: 0px;
     rotate: 160deg;
     z-index: -1;
+  }
+  .user-things-heading {
+    color: rgba(233, 0, 84, 1);
+    font-weight: bolder;
+  }
+  .user-things-recipes {
+    font-size: 1.2em;
+    /* font-weight: bold; */
+    margin-top: 20px;
+    width: 300px;
+
+    color: rgba(255, 230, 86, 1);
+    font-family: 'Work Sans';
+    text-shadow: 1px 1px black;
+  }
+  .menu-icon {
+    width: 200px;
+    height: auto;
+    position: static;
+    margin-top: -50px;
+    margin-left: 200px;
+    margin-bottom: -80px;
+  }
+  .nav-container {
+    z-index: 2;
+    position: absolute;
+    top: 100px;
+    left: 250px;
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+    width: 50%;
+  }
+  .nav-container > button {
+    background-color: rgba(255, 230, 86, 1);
+    height: 60px;
+    width: 130px;
+    justify-content: center;
+    display: flex;
+    font-size: 1.3em;
+    align-items: center;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 1px;
+  }
+
+  a {
+    /* font-size: 1.2em; */
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+    color: white;
+    text-decoration: none;
+  }
+  .nav-boba {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    left: -200px;
+    z-index: 1;
+    left: 180px;
+    top: 270px;
+    rotate: -30deg;
   }
 }

@@ -187,7 +187,7 @@ const Roulette = () => {
               </div>
             </li>
             <li key='7' style={style.li}>
-              <a href={recipeList[0].author_credit} target='_blank' rel='noreferrer noopener'>
+              <a className='source' href={recipeList[0].author_credit} target='_blank' rel='noreferrer noopener'>
                 Source
               </a>
             </li>
