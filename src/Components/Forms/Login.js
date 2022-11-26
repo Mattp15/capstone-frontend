@@ -47,7 +47,7 @@ const Login = (props) => {
   }
 
   return (
-    <div style={style.container} className='page-fade-in-short'>
+    <div style={style.containerLogin} className='page-fade-in-short'>
       <form onSubmit={handleSubmit} style={style.formStyle} className='form-container'>
         <h1 className='form-header'>Login</h1>
 
