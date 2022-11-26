@@ -457,7 +457,7 @@ a::after {
     width: 50%;
   }
   .nav-container > button {
-    background-color: rgba(255, 230, 86, 1);
+    background-color: rgba(255, 230, 86, 0.5);
     height: 60px;
     width: 130px;
     justify-content: center;
@@ -468,6 +468,7 @@ a::after {
     color: white;
     text-decoration: none;
     margin: 1px;
+    border-radius: 20px;
   }
 
   a {
@@ -483,8 +484,9 @@ a::after {
     height: auto;
     left: -200px;
     z-index: 1;
-    left: 180px;
-    top: 270px;
+    left: 320px;
+    top: 290px;
     rotate: -30deg;
+    z-index: 1;
   }
 }
