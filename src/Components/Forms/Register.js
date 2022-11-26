@@ -88,7 +88,7 @@ const Register = (props) => {
   }
 
   return (
-    <div style={style.formContainer}>
+    <div style={style.formContainer} className='page-fade-in-short'>
       <form onSubmit={handleSubmit} style={style.formStyle} className='register-form-container'>
         <h1 className='form-header'>Sign Up</h1>
         <div className='inputWrapper'>

@@ -75,8 +75,15 @@ const ShoppingList = () => {
   }, [shoppingList])
 
   return (
-    <div style={style.container}>
+    <div style={style.container} className='page-fade-in'>
       <NavContainer />
+      <div className='shopping-image-container'>
+        <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles' />
+        <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles2' />
+        <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles3' />
+      </div>
+
+      <h1 className='form-header'>Users recipes List</h1>
       {dairy ? (
         <div style={style.container}>
           <h2 className='form-header'>Dairy</h2>
@@ -91,11 +98,11 @@ const ShoppingList = () => {
       )}
       {dryGood ? (
         <div style={style.container}>
-          <h2 className='form-header'>Dry Goods</h2>
+          <h2 className='form-header list-header'>Dry Goods</h2>
           <ul style={style.ul}>
             {dryGood.map((x, i) => {
               return (
-                <div style={style.liContainer}>
+                <div>
                   <List pkey={'dryGoods' + i} value={Math.ceil(x[0][1].amount) + ' --- ' + x[0][0]} type='strikeThrough' />
                 </div>
               )

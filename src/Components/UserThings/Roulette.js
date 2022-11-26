@@ -136,7 +136,7 @@ const Roulette = () => {
     <div
       style={style.container}
       className='
-    container'
+    container page-fade-in'
     >
       <NavContainer />
       <h1 className='title'>

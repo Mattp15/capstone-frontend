@@ -29,7 +29,7 @@ const UserInfo = () => {
   }
 
   return (
-    <div style={style.container}>
+    <div style={style.container} className='page-fade-in'>
       <NavContainer />
       <img src={require('../../images/pizza.png')} alt='cute pizza' width='100px' style={style.pizza} />
       <img src={require('../../images/sando.png')} alt='cute sandowich' width='100px' style={style.sando} />

@@ -31,7 +31,7 @@ const UsersRecipeList = () => {
   }
 
   return (
-    <div style={style.container}>
+    <div style={style.container} className='page-fade-in'>
       <NavContainer />
       <img src={require('../../images/boba.png')} alt='cute boba' className='boba' />
       <h1 className='form-header'>Users recipes List</h1>

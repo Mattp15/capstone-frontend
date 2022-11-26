@@ -29,71 +29,69 @@ const NavContainer = () => {
           setClicked(clicked ? false : true)
         }}
       />
-      <div className='nav-container'>
-        {clicked ? (
-          <>
+      <div className={clicked ? 'nav-container show' : 'nav-container hide'}>
+        {/* {clicked ? ( */}
+        <>
+          <Button
+            value={
+              <NavLink to='/user' className='nav-link'>
+                Account
+              </NavLink>
+            }
+          />
+          <Button
+            value={
+              <NavLink to='/user/list' className='nav-link'>
+                Recipes
+              </NavLink>
+            }
+          />
+          {/* {shoppingList ? ( */}
+          <Button
+            value={
+              <NavLink to='/user/list/shopping' className='nav-link'>
+                Shopping List
+              </NavLink>
+            }
+          />
+          {/* // ) : ( // '' // )} */}
+          <Button
+            value={
+              <NavLink to='/roulette' className='nav-link'>
+                Roulette
+              </NavLink>
+            }
+          />
+        </>
+        {/* ) : (
+          '' */}
+        {/* )} */}
+        {/* {clicked ? ( */}
+        <>
+          {loggedUser ? (
             <Button
               value={
-                <NavLink to='/user' className='nav-link'>
-                  Account
+                <NavLink to='/login' className='nav-link'>
+                  Logout
+                </NavLink>
+              }
+              onClick={handleLogout}
+            />
+          ) : (
+            <Button
+              value={
+                <NavLink to='/login' className='nav-link'>
+                  Login
                 </NavLink>
               }
             />
-            <Button
-              value={
-                <NavLink to='/user/list' className='nav-link'>
-                  Recipes
-                </NavLink>
-              }
-            />
-            {shoppingList ? (
-              <Button
-                value={
-                  <NavLink to='/user/list/shopping' className='nav-link'>
-                    Shopping List
-                  </NavLink>
-                }
-              />
-            ) : (
-              ''
-            )}
-            <Button
-              value={
-                <NavLink to='/roulette' className='nav-link'>
-                  Roulette
-                </NavLink>
-              }
-            />
-          </>
-        ) : (
+          )}
+        </>
+        {/* ) : (
           ''
-        )}
-        {clicked ? (
-          <>
-            {loggedUser ? (
-              <Button
-                value={
-                  <NavLink to='/login' className='nav-link'>
-                    Logout
-                  </NavLink>
-                }
-                onClick={handleLogout}
-              />
-            ) : (
-              <Button
-                value={
-                  <NavLink to='/login' className='nav-link'>
-                    Login
-                  </NavLink>
-                }
-              />
-            )}
-          </>
-        ) : (
-          ''
-        )}
+        )} */}
+        <img src={require('../../images/boba.png')} alt='cute boba' className={clicked ? 'nav-boba show' : 'nav-boba hide'} />
       </div>
-      {clicked ? <img src={require('../../images/boba.png')} alt='cute boba' className='nav-boba' /> : ''}
     </div>
   )
 }

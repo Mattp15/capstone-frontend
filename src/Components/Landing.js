@@ -6,7 +6,7 @@ import { style } from '../Resources/Style'
 
 const Landing = ({ item }) => {
   return (
-    <div>
+    <div className='page-fade-in-long'>
       <h1 className='letuce' style={style.letuce}>
         Letuce
       </h1>

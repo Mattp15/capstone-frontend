@@ -8,7 +8,7 @@ const List = ({ value, sty, pkey, onClick, className, type }) => {
 
   if (type === 'strikeThrough') {
     return (
-      <li key={pkey} style={style[lineStyle]} onClick={() => setLineStyle(lineStyle === 'li' ? 'liStrike' : 'li')} className={className}>
+      <li key={pkey} style={style[lineStyle]} onClick={() => setLineStyle(lineStyle === 'li' ? 'liStrike' : 'li')} className='shopping-list-single'>
         {value}
       </li>
     )

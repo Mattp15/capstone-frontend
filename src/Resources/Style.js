@@ -10,6 +10,7 @@ export const style = {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+    Width: '700px',
   },
   imageContainer: {
     display: 'flex',
@@ -33,6 +34,10 @@ export const style = {
     borderRadius: '20px',
     margin: '1vw',
     width: '80vw',
+  },
+  navButton: {
+    color: 'black',
+    textDecoration: 'none',
   },
 
   ol: {
