@@ -460,7 +460,7 @@ a::after {
     text-shadow: 2px 2px black;
     /* font-weight: bold; */
     margin-top: 20px;
-    width: 380px;
+    width: 300px;
     text-align: right;
     color: rgba(255, 230, 86, 1);
     font-family: 'Work Sans';
@@ -670,14 +670,12 @@ a::after {
   }
   .shopping-list-single {
     width: 360px;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     font-weight: bold;
-    font-size: 1.5em;
-    background: rgba(0, 0, 0, 0.3);
-    /* background: rgba(255, 230, 86, 1); */
-    border-radius: 50px;
+    font-size: 1.8em;
+
     color: rgba(255, 230, 86, 1);
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.5), 4px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px rgba(0, 0, 0, 1), 2px 2px rgba(0, 0, 0, 0.7), 3px 3px rgba(0, 0, 0, 0.3);
     margin-left: 2%;
   }
   .shadow {
@@ -687,10 +685,10 @@ a::after {
     position: absolute;
     width: 400px;
 
-    height: 5000px;
+    height: 2000px;
     top: 0;
     left: -10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: -1;
   }
   .bubbles {
@@ -717,13 +715,13 @@ a::after {
   }
   .bubbles3 {
     position: absolute;
-    top: 1900px;
+    top: 1500px;
     left: -100px;
     width: 500px;
 
     height: auto;
     z-index: -2;
-    opacity: 0.7;
+    opacity: 0.3;
     overflow: hidden;
   }
 }

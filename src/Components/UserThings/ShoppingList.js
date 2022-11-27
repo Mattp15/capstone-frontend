@@ -78,8 +78,8 @@ const ShoppingList = () => {
     <div style={style.container} className='page-fade-in center'>
       <NavContainer />
       <div className='shopping-image-container'>
-        <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles' />
-        <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles2' />
+        {/* <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles' /> */}
+        {/* <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles2' /> */}
         <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles3' />
       </div>
 
