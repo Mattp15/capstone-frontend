@@ -28,10 +28,10 @@ const RecipeShow = () => {
       <div style={style.container}>
         {recipe ? (
           <div className='show-recipe'>
-            <h1 className='form-header shadow' style={style.bigFont}>
-              {recipe.title}
-            </h1>
             <div className='show-image-wrapper'>
+              <h1 className='form-header shadow show-background' style={style.bigFont}>
+                {recipe.title}
+              </h1>
               <img src={recipe.image} alt={'Image of ' + recipe.title} className='show-image' />
             </div>
           </div>
@@ -68,6 +68,10 @@ const RecipeShow = () => {
             ''
           )}
         </div>
+      </div>
+      <div className='show-bubbles-container'>
+        <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='show-bubbles1' />
+        <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='show-bubbles2' />
       </div>
     </div>
   )

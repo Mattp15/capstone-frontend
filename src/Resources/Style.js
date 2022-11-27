@@ -18,10 +18,11 @@ export const style = {
     width: '325px',
     height: '225px',
     overflow: 'hidden',
-    marginTop: '-18%',
+    marginTop: '-20%',
     borderRadius: '10px',
+    marginLeft: '1.5%',
+
     border: '10px solid rgba(255, 230, 86, 0.5)',
-    zIndex: '2',
   },
 
   instructions: {
@@ -34,6 +35,7 @@ export const style = {
   li: {
     lineHeight: '2rem',
     marginRight: 'auto',
+    marginBottom: '1%',
   },
   liContainer: {
     border: '1px solid red',
