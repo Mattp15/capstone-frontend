@@ -373,7 +373,7 @@ a::after {
     display: flex;
     overflow: hidden;
     justify-content: center;
-
+    border: 1px solid rgba(255, 230, 86, 1);
     background: rgba(255, 230, 86, 0.35);
     width: 390px;
 
@@ -617,7 +617,7 @@ a::after {
   .show-bubbles-container {
     width: 390px;
     top: 600px;
-
+    max-height: auto;
     position: absolute;
     z-index: -1;
     overflow: hidden;

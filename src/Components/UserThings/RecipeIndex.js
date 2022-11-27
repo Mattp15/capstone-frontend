@@ -41,14 +41,6 @@ const RecipeIndex = () => {
       ) : (
         ''
       )}
-      {/* {thingsDisplay ? (
-        <div>
-          <p onClick={() => handleDelete(thingsDisplay[0])}>{thingsDisplay[0].id}</p>
-          <p> {thingsDisplay[0].recipe_id.title}</p>{' '}
-        </div>
-      ) : (
-        ''
-      )} */}
     </div>
   )
 }

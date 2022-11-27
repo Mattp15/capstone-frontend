@@ -42,7 +42,9 @@ const UsersRecipeList = () => {
           {usersList.map((recipe, index) => {
             return (
               <div style={style.recipeListDiv} className='recipe-list'>
-                <NavLink to={'/recipes/' + recipe.id}>
+                <NavLink to={'/recipes/' + recipe.recipe_id.id}>
+                  {console.log(recipe.recipe_id.id)}
+                  {recipe.recipe_id.id}
                   <List pkey={index} value={recipe.recipe_id.title} type='reg' className='recipe-list' />
                 </NavLink>
                 <img src={require('../../images/nosymbol.png')} alt='no symbol with fried chicken inside' key={`${index}button`} onClick={() => handleDelete(recipe)} style={{ width: '80px', height: '80px', marginTop: '10px' }} />
