@@ -139,8 +139,8 @@ const Roulette = () => {
       <h1 className='title' style={{ zIndex: '1' }}>
         <span className='title-left'>Recipe</span> <span className='title-right'>Roulette</span>
       </h1>
-      {!displayRecipe ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='200px' style={{ marginLeft: '90px' }} /> : ''}
-      {displayRecipe && recipeList[0] ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='100px' style={{ position: 'absolute', top: '80px', left: '280px', zIndex: '0' }} /> : ''}
+      {/* {!displayRecipe ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='200px' style={{ marginLeft: '90px' }} /> : ''} */}
+      {displayRecipe && recipeList[0] ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='100px' style={{ position: 'absolute', top: '620px', left: '-10px', transform: 'scaleX(-1)', zIndex: '-1' }} /> : ''}
       <div className='roulette-start-container'>
         {!displayRecipe ? (
           <Button

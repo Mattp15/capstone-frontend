@@ -21,6 +21,7 @@ export const style = {
     height: '225px',
     overflow: 'hidden',
     marginTop: '-20%',
+    borderRadius: '10px',
   },
 
   instructions: {
