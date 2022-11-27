@@ -137,10 +137,10 @@ const Roulette = () => {
     >
       <NavContainer />
       <h1 className='title' style={{ zIndex: '1' }}>
-        <span className='title-left'>Recipe</span> <span className='title-right'>Roulette</span>
+        <span className='title-left shadow'>Recipe</span> <span className='title-right shadow'>Roulette</span>
       </h1>
       {/* {!displayRecipe ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='200px' style={{ marginLeft: '90px' }} /> : ''} */}
-      {displayRecipe && recipeList[0] ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='100px' style={{ position: 'absolute', top: '620px', left: '-10px', transform: 'scaleX(-1)', zIndex: '-1' }} /> : ''}
+      {displayRecipe && recipeList[0] ? <img src={require('../../images/sushi1.png')} alt='cute sushi' width='100px' style={{ position: 'absolute', top: '650px', left: '-45px', transform: 'scaleX(-1)', zIndex: '-1' }} /> : ''}
       <div className='roulette-start-container'>
         {!displayRecipe ? (
           <Button
@@ -197,11 +197,11 @@ const Roulette = () => {
             </li>
             <div className='time'>
               <li key='1' style={style.li}>
-                <span style={{ fontWeight: 'normal' }}>Total Time</span> <br />
+                <span style={style.rouletteSpan}>Total Time</span> <br />
                 {recipeList[0].time}
               </li>
               <li key='2' style={style.li}>
-                <span style={{ fontWeight: 'normal' }}>Servings </span> <br />
+                <span style={style.rouletteSpan}>Servings </span> <br />
                 {recipeList[0].servings}
               </li>
             </div>

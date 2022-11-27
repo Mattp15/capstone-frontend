@@ -5,6 +5,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
   background-color: rgba(255, 230, 86, 0.1);
 }
 
@@ -39,6 +42,7 @@ a::after {
     margin-top: -0.5%;
     max-width: 440px;
   }
+
   .lettuce,
   .turnip,
   .beet,
@@ -238,7 +242,7 @@ a::after {
     border-radius: 150px;
     overflow: hidden;
     position: absolute;
-    top: 500px;
+    top: 450px;
     left: 10px;
   }
   .requirements {
@@ -321,7 +325,7 @@ a::after {
   }
   .many-for-nav {
     position: absolute;
-    width: 400px;
+    width: 100%;
     left: 0;
     top: -40px;
     height: auto;
@@ -336,19 +340,19 @@ a::after {
     overflow: hidden;
     top: 0px;
     left: 0px;
-    width: 390px;
+    width: 100%;
     z-index: -2;
   }
   .description {
     font-family: 'Work Sans', sans-serif;
     /* color: rgba(0, 0, 0, 0.8); */
-    line-height: 120%;
+    line-height: 130%;
     font-size: 1.05em;
     height: 150px;
+    margin-top: -2%;
     overflow: scroll;
-    color: rgba(0, 0, 0, 0.9);
-    text-shadow: 2px 1px white;
-    font-weight: bold;
+    color: rgba(0, 0, 0, black);
+    font-weight: bolder;
   }
   .time {
     font-size: 1.1em;
@@ -395,6 +399,7 @@ a::after {
     overflow: hidden;
     height: 70px;
   }
+
   .roulette-start {
     display: flex;
     flex-direction: column;
@@ -410,7 +415,7 @@ a::after {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    /* margin-top: -40px; */
+    margin-top: 60px;
     /* justify-content: center; */
   }
   .roulette-button {
@@ -516,16 +521,12 @@ a::after {
     position: absolute;
     z-index: -1;
     width: 390px;
-    /* min-height: 400px !important; */
-    /* max-height: 844px !important; */
     height: 634px;
     max-height: 1000px;
-
     left: -20px;
     top: 210px;
     transform: scaleX(-1);
     overflow: hidden;
-    /* display: none; */
   }
   .nav-bubbles {
     height: auto;
@@ -574,7 +575,7 @@ a::after {
     text-shadow: 1px 2px black;
   }
   .nav-container {
-    z-index: 0;
+    z-index: 2;
     position: absolute;
     top: 130px;
     left: 260px;
@@ -695,26 +696,15 @@ a::after {
     /* overflow: hidden; */
     z-index: -1;
   }
-  .bubbles {
-    position: absolute;
-    top: 0;
-    left: -100px;
-    width: 750px;
 
-    height: auto;
-    z-index: -2;
-    opacity: 0.7;
-    overflow: hidden;
-  }
   .bubbles2 {
     position: absolute;
     top: 900px;
     left: -250px;
     width: 500px;
-
     height: auto;
     z-index: -2;
-    opacity: 0.7;
+    opacity: 0.3;
     overflow: hidden;
   }
   .bubbles3 {

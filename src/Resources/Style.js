@@ -152,4 +152,8 @@ export const style = {
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
+  rouletteSpan: {
+    fontWeight: 'normal',
+    fontSize: '1.3em',
+  },
 }

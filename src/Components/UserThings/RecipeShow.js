@@ -28,7 +28,7 @@ const RecipeShow = () => {
       <div style={style.container}>
         {recipe ? (
           <>
-            <h1>{recipe.title}</h1>
+            <h1 className='form-header shadow'>{recipe.title}</h1>
             <div className='here' style={{ width: '325px', height: '243px', overflow: 'hidden' }}>
               <img src={recipe.image} alt={'Image of ' + recipe.title} className='roulette-img' />
             </div>

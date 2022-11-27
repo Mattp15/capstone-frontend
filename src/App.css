@@ -47,10 +47,33 @@
     width: 400px;
     height: 844px;
   }
-  body {
-    overflow: hidden;
+  .construction {
+    display: flex !important;
+    color: #e0ff87;
+    margin-top: 400%;
+    text-shadow: 1px 1px black;
+    font-size: 20em;
+  }
+  .title-right {
+    color: #df0054;
+    margin: 5%;
+    margin-top: 20%;
+  }
+  .title-left {
+    color: #e0ff87;
+    margin-top: 20%;
+  }
+  .shadow {
+    text-shadow: 20px 20px 12px rgba(0, 0, 0, 0.32), 15px 22px 12px rgba(0, 0, 0, 0.32), 1px 1px black !important;
+  }
+  .construction-fries {
+    z-index: -2;
+    width: 10px;
+  }
+  .test {
     display: none;
   }
+
   .letuce,
   .turnip,
   .beet,
