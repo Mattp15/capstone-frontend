@@ -27,8 +27,8 @@ const UserRecipeListComponent = ({ zkey, value, style, status, onClick, ids, typ
       </li>
       {clicked && type === 'button' ? (
         <Button
-          value={'Delete from ' + status}
-          xtyle='button'
+          className='remove-button'
+          value={<img src={require('../../images/remove.png')} alt='angry icecream' style={{ height: '90px', width: 'auto' }} />}
           onClick={() => {
             handleDelete(ids)
           }}

@@ -23,6 +23,7 @@ export const style = {
     marginLeft: '1.5%',
 
     border: '10px solid rgba(255, 230, 86, 0.5)',
+    zIndex: '2',
   },
 
   instructions: {

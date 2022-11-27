@@ -175,6 +175,13 @@ a::after {
   .register-form-container {
     height: 650px;
   }
+  .remove-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    /* height: 20px; */
+    overflow: hidden;
+    width: auto;
+  }
   .form-header {
     color: #e0ff87;
     margin-top: 5%;
@@ -392,7 +399,6 @@ a::after {
     color: rgba(0, 0, 0, 0.8);
     display: flex;
     flex-flow: column nowrap;
-
     text-align: left;
     font-weight: bold;
     width: 390px;
