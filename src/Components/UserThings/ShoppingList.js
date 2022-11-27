@@ -83,9 +83,9 @@ const ShoppingList = () => {
         <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles3' />
       </div>
 
-      <h1 className='form-header'>Users recipes List</h1>
+      <h1 className='form-header shadow'>Users recipes List</h1>
       {dairy ? (
-        <div>
+        <div style={{ display: 'flex', alignItems: 'center', flexFlow: 'column nowrap' }}>
           <h2 className='form-header list-header'>Dairy</h2>
           <ul style={style.ul}>
             {dairy.map((x, i) => {
