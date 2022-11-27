@@ -456,14 +456,16 @@ a::after {
     color: rgba(0, 0, 0, 0.6);
   }
   .recipe-list {
-    font-size: 1.2em;
-    text-shadow: 2px 2px black;
     /* font-weight: bold; */
     margin-top: 20px;
+    margin-left: 110px;
     width: 300px;
     text-align: right;
+    font-weight: bold;
+    font-size: 1.8rem;
     color: rgba(255, 230, 86, 1);
-    font-family: 'Work Sans';
+    text-shadow: 1px 1px#df0054, 2px 2px #0e79b2;
+    /* font-family: 'Work Sans'; */
     z-index: 1;
   }
   .boba {
