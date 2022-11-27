@@ -400,7 +400,7 @@ a::after {
     width: 390px;
     margin-top: 0%;
     text-shadow: 1px 1px white;
-    background-color: rgba(255, 230, 86, 0.5);
+    background-color: rgba(255, 230, 86, 0.35);
     border-top: none;
     border-left: 20px;
     border-right: 20px;
@@ -619,18 +619,21 @@ a::after {
   .show-image {
     width: 325px;
     height: auto;
+    border-radius: 5px;
+    z-index: 1;
+    border: 15px solid rgba(255, 230, 86, 0.5);
   }
   .show-image-wrapper {
-    width: 325px;
-    height: 225px;
+    width: 350px;
+    height: 235x;
 
     display: flex;
     /* align-items: center; */
     border-radius: 10px;
-    border-top: 30px solid rgba(255, 230, 86, 0.5);
+    border-top: 30px solid rgba(255, 230, 86, 0.35);
     z-index: 2;
-    border-right: 35px solid rgba(255, 230, 86, 0.5);
-    border-left: 35px solid rgba(255, 230, 86, 0.5);
+    border-right: 35px solid rgba(255, 230, 86, 0.35);
+    border-left: 35px solid rgba(255, 230, 86, 0.35);
     overflow: hidden;
   }
   .showh2 {
