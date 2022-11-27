@@ -29,7 +29,7 @@ const RecipeIndex = () => {
     <div>
       {usersThings ? (
         <ul style={style.userThingsUl}>
-          <h2 className='user-things-heading' style={style.recipeIndex}>
+          <h2 className='user-things-heading ' style={style.recipeIndexF}>
             Favorites
           </h2>
           {usersThings.map((x, i) => (x.favorite ? <UserRecipeListComponent type='button' key={i} zkey={x.id} style={style.li} value={x.recipe_id.title} status='Favorites' ids={x} className='user-things-recipes' /> : ''))}

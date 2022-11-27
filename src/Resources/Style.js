@@ -55,9 +55,14 @@ export const style = {
     flexDirection: 'column',
     alignItems: 'flex-start',
   },
+  recipeIndexF: {
+    marginTop: '20%',
+    color: '#0e79b2',
+  },
   recipeIndex: {
     marginTop: '20%',
   },
+
   userThingsUl: {
     listStyleType: 'none',
     display: 'flex',
