@@ -21,6 +21,17 @@ const NavContainer = () => {
   }
   return (
     <div>
+      <h5 className='nav-lettuce'>Lettuce</h5>
+      <h5 className='nav-turnip'>Turnip</h5>
+      <h5 className='nav-the'>The</h5>
+      <h5 className='nav-beet'>Beet</h5>
+      <div className='nav-bubbles-container'>
+        <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='nav-bubbles' />
+        <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='nav-bubbles' />
+      </div>
+      <div className='many-wrapper'>
+        <img src={require('../../images/manycute.png')} alt='lots of cute foods' className='many-for-nav' />
+      </div>
       <img
         src={require('../../images/menu.png')}
         alt='sushi holding a sign that says menu'

@@ -23,79 +23,50 @@ const RecipeShow = () => {
     getRecipe()
   }, [])
   return (
-    <div style={style.container}>
+    <div>
       <NavContainer />
-      {recipe ? (
-        <>
-          <h1>{recipe.title}</h1>
-          <img src={recipe.image} alt={'Image of ' + recipe.title} style={style.img} />
-        </>
-      ) : (
-        ''
-      )}
-      {ingredients ? (
-        <ul style={style.ul}>
-          {ingredients.map((line, index) => {
-            return (
-              <li key={index} style={style.li}>
-                {line}
-              </li>
-            )
-          })}
-        </ul>
-      ) : (
-        ''
-      )}
-      {instructions ? (
-        <ol style={style.ol}>
-          {instructions.map((instruction, index) => {
-            return (
-              <li key={index + 'instruction'} style={style.instructions}>
-                {instruction}
-              </li>
-            )
-          })}
-        </ol>
-      ) : (
-        ''
-      )}
+      <div style={style.container}>
+        {recipe ? (
+          <>
+            <h1>{recipe.title}</h1>
+            <div className='here' style={{ width: '325px', height: '243px', overflow: 'hidden' }}>
+              <img src={recipe.image} alt={'Image of ' + recipe.title} className='roulette-img' />
+            </div>
+          </>
+        ) : (
+          ''
+        )}
+        <div style={{ width: '390px', display: 'flex', alignItems: 'center', flexFlow: 'column nowrap' }}>
+          {ingredients ? (
+            <ul clasName='show-ing'>
+              {ingredients.map((line, index) => {
+                return (
+                  <li key={index} style={style.li} classname='show-li'>
+                    {line}
+                  </li>
+                )
+              })}
+            </ul>
+          ) : (
+            ''
+          )}
+          {instructions ? (
+            <ol style={style.ol}>
+              {instructions.map((instruction, index) => {
+                return (
+                  <li key={index + 'instruction'} style={style.instructions}>
+                    {instruction}
+                  </li>
+                )
+              })}
+            </ol>
+          ) : (
+            ''
+          )}
+        </div>
+      </div>
     </div>
   )
 }
 
 export default RecipeShow
-
-//TODO Probably make this in context
-
-// const style = {
-//   buttonContainer: {},
-//   container: {
-//     display: 'flex',
-//     alignItems: 'center',
-//     flexDirection: 'column',
-//   },
-//   img: {
-//     width: '100%',
-//     height: 'auto',
-//   },
-//   instructions: {
-//     margin: '15px',
-//     lineHeight: '1.45rem',
-//   },
-//   li: {
-//     lineHeight: '2rem',
-//   },
-//   ol: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'flex-start',
-//     marginRight: '10%',
-//     width: '98%',
-//   },
-//   ul: {
-//     listStyleType: 'none',
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'flex-start',
-//   },
-// }

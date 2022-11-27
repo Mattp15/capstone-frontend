@@ -37,24 +37,26 @@ a::after {
 @media (max-width: 844px) {
   body {
     margin-top: -0.5%;
-    max-width: 700px;
-    overflow-x: hidden;
+    max-width: 440px;
   }
-  .letuce,
+  .lettuce,
   .turnip,
   .beet,
-  .the {
+  .the,
+  .nav-beet,
+  .nav-lettuce,
+  .nav-the,
+  .nav-turnip {
     font-family: 'Sofadi One', cursive;
-    text-shadow: 1px 1px black;
-
     position: absolute;
+    text-shadow: 1px 1px black;
   }
-  .letuce,
+  .lettuce,
   .turnip,
   .beet {
     font-size: 4.5em;
   }
-  .letuce {
+  .lettuce {
     /* top: -2vw; */
     color: #e0ff87;
     /* left: 9vw; */
@@ -85,6 +87,10 @@ a::after {
     width: 75%;
     height: auto;
   }
+  .donut {
+    top: 48%;
+    left: 35%;
+  }
   .donut,
   .fresh {
     position: absolute;
@@ -97,10 +103,6 @@ a::after {
   .fresh {
     top: 58%;
     left: 4%;
-  }
-  .donut {
-    top: 48%;
-    left: 35%;
   }
   .footer-login,
   .footer-register {
@@ -155,21 +157,20 @@ a::after {
   }
   .form-container,
   .register-form-container {
-    display: flex;
-
+    background-color: white;
     border-radius: 100px;
     box-shadow: inset 0px 0px 1px 1px rgba(255, 230, 86, 0.1);
+    display: flex;
     margin-top: 15%;
     width: 95vw;
-    background-color: white;
   }
   .register-form-container {
     height: 650px;
   }
   .form-header {
+    color: #e0ff87;
     margin-top: 5vw;
     text-shadow: 1px 1px black;
-    color: #e0ff87;
     z-index: 1;
   }
   input[type='text'],
@@ -230,6 +231,15 @@ a::after {
     border-radius: 30px;
     border: 1px solid black;
     margin: 5%;
+  }
+  .karage-wrapper {
+    z-index: 1;
+    height: 170px;
+    border-radius: 150px;
+    overflow: hidden;
+    position: absolute;
+    top: 500px;
+    left: 10px;
   }
   .requirements {
     position: absolute;
@@ -308,6 +318,26 @@ a::after {
     font-weight: bold;
     font-size: 1.1em;
   }
+  .many-for-nav {
+    position: absolute;
+    width: 400px;
+    left: 0;
+    top: -40px;
+    height: auto;
+  }
+  .many-wrapper {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+
+    opacity: 0.7;
+    position: absolute;
+    height: 200px;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    width: 400px;
+    z-index: -2;
+  }
   .description {
     font-family: 'Work Sans', sans-serif;
     /* color: rgba(0, 0, 0, 0.8); */
@@ -329,18 +359,16 @@ a::after {
     text-align: center;
   }
   .recipe-card {
-    /* position: absolute; */
     display: flex;
-    /* align-items: center; */
     overflow: hidden;
-    /* flex-flow: column nowrap; */
+
     justify-content: center;
     height: 69%;
-    top: 13%;
+
     width: 370px;
-    /* padding: 5%; */
+
     margin-left: 15px;
-    margin-top: 30px;
+    margin-top: 50px;
     z-index: -1;
   }
 
@@ -350,6 +378,10 @@ a::after {
 
     align-self: center;
   }
+  .recipe-card-content .source {
+    margin-left: 126px;
+  }
+
   .roulette-button-container {
     display: flex;
     flex-flow: row nowrap;
@@ -379,21 +411,19 @@ a::after {
     /* justify-content: center; */
   }
   .roulette-button {
+    align-items: center;
+    background-color: rgba(255, 230, 86, 0.8);
+    border: none;
+    color: rgba(0, 0, 0, 0.9);
     display: flex;
     flex: 1;
-    height: 70px;
-    /* margin-right: -15px; */
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
-    border: none;
-    margin-right: -3px;
-    background-color: rgba(255, 230, 86, 0.8);
-    /* box-shadow: inset 0px 0px -40px -40px rgba(255, 230, 86, 0.1); */
-    color: rgba(0, 0, 0, 0.9);
-    text-shadow: 2px 1px white;
     font-weight: bold;
+    font-size: 1.5em;
+    height: 70px;
+    justify-content: center;
+    margin-right: -3px;
+    text-align: center;
+    text-shadow: 2px 1px white;
   }
   ul {
     list-style: none;
@@ -434,6 +464,7 @@ a::after {
     text-align: right;
     color: rgba(255, 230, 86, 1);
     font-family: 'Work Sans';
+    z-index: 1;
   }
   .boba {
     position: absolute;
@@ -457,6 +488,7 @@ a::after {
     color: rgba(233, 0, 84, 1);
     font-weight: bolder;
   }
+
   .user-things-recipes {
     font-size: 1.5em;
     text-shadow: 2px 2px black;
@@ -478,6 +510,57 @@ a::after {
     position: absolute;
     top: 0;
     left: 180px;
+    z-index: 0;
+  }
+  .nav-bubbles-container {
+    position: absolute;
+    z-index: -1;
+    width: 300px;
+    height: auto;
+    left: 100px;
+    top: 100px;
+    transform: scaleX(-1);
+    /* display: none; */
+  }
+  .nav-bubbles {
+    height: auto;
+    width: 400px;
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+  .nav-beet,
+  .nav-lettuce,
+  .nav-the,
+  .nav-turnip {
+    position: absolute;
+    font-size: 2em;
+  }
+  .nav-beet {
+    color: #df0054;
+    left: 30px;
+    top: -15px;
+    font-size: 2.3em;
+    z-index: 0;
+  }
+
+  .nav-lettuce {
+    color: #e0ff87;
+    left: 7px;
+    top: -50px;
+    z-index: -1;
+  }
+  .nav-the {
+    color: #0e79b2;
+    font-size: 1.4em !important;
+    left: 70px;
+    top: 8px;
+    z-index: 1;
+  }
+  .nav-turnip {
+    color: #ffe656;
+    top: -30px;
+    left: 33px;
     z-index: 0;
   }
 

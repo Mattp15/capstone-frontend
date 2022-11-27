@@ -7,8 +7,8 @@ import { style } from '../Resources/Style'
 const Landing = ({ item }) => {
   return (
     <div className='page-fade-in-long'>
-      <h1 className='letuce' style={style.letuce}>
-        Letuce
+      <h1 className='lettuce' style={style.lettucece}>
+        Lettuce
       </h1>
       <h1 className='turnip' style={style.turnip}>
         Turnip
@@ -20,7 +20,7 @@ const Landing = ({ item }) => {
         Beet
       </h1>
 
-      <img src={require('../images/Characters.png')} className='characters' alt='a letuce, turnip and beet characters' />
+      <img src={require('../images/Characters.png')} className='characters' alt='a lettuce, turnip and beet characters' />
       <p className='donut'>Donut you know you're special?</p>
       <p className='fresh'>It's corny but this is a-maize-ing!</p>
       <button className='landing-button button'>
@@ -36,7 +36,7 @@ const Landing = ({ item }) => {
           </NavLink>
         </span>
       </p>
-      <p className='footer-register'>The information on this website is for general informatiional purposes only. Letuce Turnip the Beet makes no representation or warranty, express or implied. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for.</p>
+      <p className='footer-register'>The information on this website is for general informatiional purposes only. lettucece Turnip the Beet makes no representation or warranty, express or implied. Your use of the site is solely at your own risk. This site may contain links to third party content, which we do not warrant, endorse, or assume liability for.</p>
     </div>
   )
 }

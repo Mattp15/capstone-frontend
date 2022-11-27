@@ -21,9 +21,6 @@ const Roulette = () => {
     initiate()
   }, [])
 
-  useEffect(() => {
-    console.log('userEffect')
-  }, [usersList])
   const initiate = async () => {}
 
   const getRecipes = async () => {
@@ -170,7 +167,14 @@ const Roulette = () => {
           ''
         )}
       </div>
-      {!displayRecipe ? <img src={require('../../images/karage.png')} alt='cute karage' width='200px' style={{ marginRight: '100px', marginTop: '-80px', zIndex: '1' }} /> : ''}
+
+      {!displayRecipe ? (
+        <div className='karage-wrapper'>
+          <img src={require('../../images/karage.png')} alt='cute karage' width='200px' />{' '}
+        </div>
+      ) : (
+        ''
+      )}
       {/* {!displayRecipe ? <img src={require('../../images/pizza.png')} alt='cute pizza' width='200px' style={{ marginRight: '170px', marginTop: '-90px' }} /> : ''} */}
 
       {/* add keyframes to this */}
