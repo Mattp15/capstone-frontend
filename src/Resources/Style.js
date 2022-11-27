@@ -28,6 +28,9 @@ export const style = {
     margin: '15px',
     lineHeight: '1.45rem',
   },
+  ingredientsList: {
+    fontSize: '1.4em',
+  },
   li: {
     lineHeight: '2rem',
     marginRight: 'auto',
@@ -50,6 +53,9 @@ export const style = {
     marginRight: '10%',
     width: '98%',
   },
+  bigFont: {
+    fontSize: '3.5em',
+  },
   ul: {
     listStyleType: 'none',
     display: 'flex',
@@ -63,7 +69,12 @@ export const style = {
   recipeIndex: {
     marginTop: '20%',
   },
-
+  recipeInstructions: {
+    width: '390px',
+    display: 'flex',
+    alignItems: 'center',
+    flexFlow: 'column nowrap',
+  },
   userThingsUl: {
     listStyleType: 'none',
     display: 'flex',

@@ -24,6 +24,9 @@ code {
   font-weight: bold;
   font-size: 1.2em;
 }
+.show-recipe {
+  margin-top: 10%;
+}
 a {
   /* font-size: 1.2em; */
   font-weight: bold;
@@ -173,10 +176,11 @@ a::after {
   }
   .form-header {
     color: #e0ff87;
-    margin-top: 5vw;
+    margin-top: 5%;
     text-shadow: 1px 1px black;
     z-index: 1;
   }
+
   input[type='text'],
   input[type='password'] {
     /* margin: 3%; */
@@ -372,7 +376,7 @@ a::after {
     width: 390px;
 
     margin-left: 15px;
-    margin-top: 50px;
+    margin-top: -20px;
     z-index: -1;
   }
 
@@ -386,7 +390,21 @@ a::after {
   .recipe-card-content .source {
     margin-left: 126px;
   }
+  .recipe-ingredients {
+    color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-flow: column nowrap;
 
+    text-align: left;
+    font-weight: bold;
+    width: 390px;
+    margin-top: 0%;
+    text-shadow: 1px 1px white;
+    background-color: rgba(255, 230, 86, 0.5);
+    border-top: none;
+    border-left: 20px;
+    border-right: 20px;
+  }
   .roulette-button-container {
     display: flex;
     flex-flow: row nowrap;
@@ -463,9 +481,17 @@ a::after {
     font-weight: bolder;
     color: rgba(0, 0, 0, 0.6);
   }
+  .recipe-instructions li {
+    color: rgba(0, 0, 0, 1);
+    font-size: 1.25em;
+    line-height: 1.3em;
+    margin-bottom: 10%;
+    font-weight: normal;
+    width: 90%;
+    text-align: left;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+  }
   .recipe-list {
-    /* font-weight: bold; */
-    margin-top: 20px;
     margin-left: 110px;
     width: 300px;
     text-align: right;
@@ -473,7 +499,6 @@ a::after {
     font-size: 1.8rem;
     color: rgba(255, 230, 86, 1);
     text-shadow: 1px 1px#df0054, 2px 2px #0e79b2;
-    /* font-family: 'Work Sans'; */
     z-index: 1;
   }
   .boba {
@@ -490,9 +515,10 @@ a::after {
     height: auto;
     position: absolute;
     top: 500px;
-    left: 0px;
-    rotate: 160deg;
+    left: -40px;
+    rotate: -40deg;
     z-index: -1;
+    opacity: 00.8;
   }
   .user-things-heading {
     color: rgba(233, 0, 84, 1);
@@ -589,6 +615,31 @@ a::after {
   .show {
     animation: show-nav 0.8s ease-out forwards;
     overflow: hidden;
+  }
+  .show-image {
+    width: 325px;
+    height: auto;
+  }
+  .show-image-wrapper {
+    width: 325px;
+    height: 225px;
+
+    display: flex;
+    /* align-items: center; */
+    border-radius: 10px;
+    border-top: 30px solid rgba(255, 230, 86, 0.5);
+    z-index: 2;
+    border-right: 35px solid rgba(255, 230, 86, 0.5);
+    border-left: 35px solid rgba(255, 230, 86, 0.5);
+    overflow: hidden;
+  }
+  .showh2 {
+    font-size: 2em;
+    text-align: center;
+    margin-right: 5%;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px black;
+    font-family: 'Montserrat', sans-serif;
   }
   .hide {
     animation: hide-nav 0.4s ease-out forwards;

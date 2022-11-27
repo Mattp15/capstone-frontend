@@ -82,7 +82,9 @@ const ShoppingList = () => {
         <img src={require('../../images/bubblesbackground.png')} alt='bubbles' className='bubbles3' />
       </div>
 
-      <h1 className='form-header shadow'>Shopping List</h1>
+      <h1 className='form-header shadow' style={style.bigFont}>
+        Shopping List
+      </h1>
       {dairy ? (
         <div style={{ display: 'flex', alignItems: 'center', flexFlow: 'column nowrap' }}>
           <h2 className='form-header list-header'>Dairy</h2>

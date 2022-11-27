@@ -34,7 +34,9 @@ const UsersRecipeList = () => {
     <div style={style.container} className='page-fade-in'>
       <NavContainer />
       <img src={require('../../images/boba.png')} alt='cute boba' className='boba' />
-      <h1 className='form-header shadow'>Recipes</h1>
+      <h1 className='form-header shadow' style={style.bigFont}>
+        Recipes
+      </h1>
       {usersList ? (
         <ul>
           {usersList.map((recipe, index) => {

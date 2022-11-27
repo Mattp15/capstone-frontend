@@ -27,39 +27,43 @@ const RecipeShow = () => {
       <NavContainer />
       <div style={style.container}>
         {recipe ? (
-          <>
-            <h1 className='form-header shadow'>{recipe.title}</h1>
-            <div className='here' style={{ width: '325px', height: '243px', overflow: 'hidden' }}>
-              <img src={recipe.image} alt={'Image of ' + recipe.title} className='roulette-img' />
+          <div className='show-recipe'>
+            <h1 className='form-header shadow' style={style.bigFont}>
+              {recipe.title}
+            </h1>
+            <div className='show-image-wrapper'>
+              <img src={recipe.image} alt={'Image of ' + recipe.title} className='show-image' />
             </div>
-          </>
+          </div>
         ) : (
           ''
         )}
-        <div style={{ width: '390px', display: 'flex', alignItems: 'center', flexFlow: 'column nowrap' }}>
+        <div className='recipe-ingredients'>
           {ingredients ? (
-            <ul clasName='show-ing'>
-              {ingredients.map((line, index) => {
-                return (
-                  <li key={index} style={style.li} classname='show-li'>
-                    {line}
-                  </li>
-                )
-              })}
-            </ul>
+            <>
+              <h2 className='form-header shadow showh2'>Ingredients</h2>
+              <ul style={style.ingredientsList}>
+                {ingredients.map((line, index) => {
+                  return (
+                    <li key={index} style={style.li} classname='show-li'>
+                      {line}
+                    </li>
+                  )
+                })}
+              </ul>
+            </>
           ) : (
             ''
           )}
           {instructions ? (
-            <ol style={style.ol}>
-              {instructions.map((instruction, index) => {
-                return (
-                  <li key={index + 'instruction'} style={style.instructions}>
-                    {instruction}
-                  </li>
-                )
-              })}
-            </ol>
+            <>
+              <h2 className='form-header shadow showh2'>Instructions</h2>
+              <ol className='recipe-instructions'>
+                {instructions.map((instruction, index) => {
+                  return <li key={index + 'instruction'}>{instruction}</li>
+                })}
+              </ol>
+            </>
           ) : (
             ''
           )}
