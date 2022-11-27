@@ -23,7 +23,7 @@ const RecipeShow = () => {
     getRecipe()
   }, [])
   return (
-    <div>
+    <div className='page-fade-in'>
       <NavContainer />
       <div style={style.container}>
         {recipe ? (

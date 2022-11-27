@@ -616,22 +616,24 @@ a::after {
   }
   .show-bubbles-container {
     width: 390px;
-    z-index: -2;
+    top: 600px;
+
+    position: absolute;
+    z-index: -1;
     overflow: hidden;
   }
   .show-bubbles1 {
-    position: absolute;
-    top: 800px;
-    left: -100px;
+    /* position: absolute; */
+    /* top: 1200px; */
+    /* left: -100px; */
     opacity: 0.3;
-    z-index: -2;
+    z-index: -1;
+    /* z-index: -2; */
   }
   .show-bubbles2 {
-    position: absolute;
-    top: 1900px;
-    left: -200px;
     opacity: 0.3;
-    z-index: -2;
+    z-index: -1;
+    rotate: 180deg;
   }
   .show-image {
     width: 325px;
