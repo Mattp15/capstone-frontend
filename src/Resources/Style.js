@@ -10,13 +10,11 @@ export const style = {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: '80px',
-
+    overflow: 'hidden',
+    maxWidth: '390px',
     flexDirection: 'column',
-    Width: '700px',
   },
   imageContainer: {
-    display: 'flex',
-    justifyContent: 'center',
     width: '325px',
     height: '225px',
     overflow: 'hidden',

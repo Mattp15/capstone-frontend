@@ -328,14 +328,13 @@ a::after {
   .many-wrapper {
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
-
     opacity: 0.7;
     position: absolute;
     height: 200px;
     overflow: hidden;
     top: 0px;
     left: 0px;
-    width: 400px;
+    width: 390px;
     z-index: -2;
   }
   .description {
@@ -373,10 +372,9 @@ a::after {
   }
 
   .recipe-card-content {
+    align-self: center;
     display: flex;
     flex-flow: column nowrap;
-
-    align-self: center;
   }
   .recipe-card-content .source {
     margin-left: 126px;
@@ -387,10 +385,12 @@ a::after {
     flex-flow: row nowrap;
     /* flex: 1 1 auto; */
     position: absolute;
-    top: 92%;
-    width: 400px;
+    top: 91.57%;
+    width: 390px;
     left: 0;
     box-shadow: inset 0px 0px 1px 1px rgba(255, 230, 86, 0.1);
+    overflow: hidden;
+    height: 70px;
   }
   .roulette-start {
     display: flex;
@@ -512,11 +512,16 @@ a::after {
   .nav-bubbles-container {
     position: absolute;
     z-index: -1;
-    width: 300px;
-    height: auto;
-    left: 100px;
-    top: 100px;
+    width: 390px;
+    /* min-height: 400px !important; */
+    /* max-height: 844px !important; */
+    height: 634px;
+    max-height: 1000px;
+
+    left: -20px;
+    top: 210px;
     transform: scaleX(-1);
+    overflow: hidden;
     /* display: none; */
   }
   .nav-bubbles {
