@@ -110,9 +110,9 @@ export const style = {
   },
   pizza: {
     position: 'absolute',
-    top: '90px',
+    top: '260px',
     left: '20px',
-    zIndex: '-2',
+    zIndex: '-1',
   },
   accountTitle: {
     color: '#ffe656',
@@ -120,22 +120,22 @@ export const style = {
   },
   taco: {
     position: 'absolute',
-    top: '400px',
+    top: '700px',
     left: '-20px',
-    zIndex: '-2',
+    zIndex: '-1',
   },
   sando: {
     position: 'absolute',
     top: '270px',
     left: '340px',
-    zIndex: '-2',
+    zIndex: '-1',
   },
   fries: {
     position: 'absolute',
     top: '600px',
     left: '300px',
     rotate: '10deg',
-    zIndex: '-2',
+    zIndex: '-1',
   },
   red: {
     color: 'red',
