@@ -18,8 +18,10 @@ export const style = {
     width: '325px',
     height: '225px',
     overflow: 'hidden',
-    marginTop: '-20%',
+    marginTop: '-18%',
     borderRadius: '10px',
+    border: '10px solid rgba(255, 230, 86, 0.5)',
+    zIndex: '2',
   },
 
   instructions: {

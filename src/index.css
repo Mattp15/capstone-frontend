@@ -317,6 +317,7 @@ a::after {
     margin: 2%;
     font-weight: bold;
     font-size: 1.1em;
+    margin-top: -5px;
   }
   .many-for-nav {
     position: absolute;
@@ -324,13 +325,14 @@ a::after {
     left: 0;
     top: -40px;
     height: auto;
+    z-index: -1;
   }
   .many-wrapper {
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
     opacity: 0.7;
     position: absolute;
-    height: 200px;
+    height: 180px;
     overflow: hidden;
     top: 0px;
     left: 0px;
@@ -360,11 +362,10 @@ a::after {
   .recipe-card {
     display: flex;
     overflow: hidden;
-
     justify-content: center;
     height: 69%;
-
-    width: 370px;
+    background: rgba(255, 230, 86, 0.1);
+    width: 390px;
 
     margin-left: 15px;
     margin-top: 50px;
@@ -375,6 +376,8 @@ a::after {
     align-self: center;
     display: flex;
     flex-flow: column nowrap;
+
+    width: 390px;
   }
   .recipe-card-content .source {
     margin-left: 126px;
@@ -438,7 +441,7 @@ a::after {
     text-shadow: 1px 1px white;
   }
   .roulette-img {
-    width: 325px;
+    width: 350px;
     height: auto;
   }
   .title-container {
@@ -571,7 +574,7 @@ a::after {
     text-shadow: 1px 2px black;
   }
   .nav-container {
-    z-index: 2;
+    z-index: 0;
     position: absolute;
     top: 130px;
     left: 260px;
