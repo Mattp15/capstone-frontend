@@ -85,19 +85,14 @@ const ShoppingList = () => {
 
       <h1 className='form-header'>Users recipes List</h1>
       {dairy ? (
-        <div style={style.container}>
-          <h2 className='form-header'>Dairy</h2>
+        <div>
+          <h2 className='form-header list-header'>Dairy</h2>
           <ul style={style.ul}>
             {dairy.map((x, i) => {
               return <List pkey={'dairy' + i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
-        </div>
-      ) : (
-        ''
-      )}
-      {dryGood ? (
-        <div style={style.container}>
+
           <h2 className='form-header list-header'>Dry Goods</h2>
           <ul style={style.ul}>
             {dryGood.map((x, i) => {
@@ -108,49 +103,29 @@ const ShoppingList = () => {
               )
             })}
           </ul>
-        </div>
-      ) : (
-        ''
-      )}
-      {frozen ? (
-        <div style={style.container}>
-          <h2 className='form-header'>Frozen</h2>
+
+          <h2 className='form-header list-header'>Frozen</h2>
           <ul style={style.ul}>
             {frozen.map((x, i) => {
               return <List pkey={'frozen' + i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} />
             })}
           </ul>
-        </div>
-      ) : (
-        ''
-      )}
-      {meat ? (
-        <div style={style.container}>
-          <h2 className='form-header'>Meat</h2>
+
+          <h2 className='form-header list-header'>Meat</h2>
           <ul style={style.ul}>
             {meat.map((x, i) => {
               return <List pkey={'meat' + i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
-        </div>
-      ) : (
-        ''
-      )}
-      {produce ? (
-        <div style={style.container}>
-          <h2 className='form-header'>Produce</h2>
+
+          <h2 className='form-header list-header'>Produce</h2>
           <ul style={style.ul}>
             {produce.map((x, i) => {
               return <List pkey={+i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} type='strikeThrough' />
             })}
           </ul>
-        </div>
-      ) : (
-        ''
-      )}
-      {spice ? (
-        <div style={style.container}>
-          <h2 className='form-header'>Spices</h2>
+
+          <h2 className='form-header list-header'>Spices</h2>
           <ul style={style.ul}>
             {spice.map((x, i) => {
               return <List pkey={'spices' + i} value={Math.ceil(x[0][1].amount) + '- ' + x[0][0]} type='strikeThrough' />
