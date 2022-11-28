@@ -41,6 +41,14 @@ const Roulette = () => {
       case 'Dislike':
         const dislikeResponse = await Fetch('things/' + recipeList[0].id, 'POST', { dislike: true, favorite: false })
         if (dislikeResponse.status === 200) {
+          console.log('dislike added')
+        } else if (dislikeResponse.status === 409) {
+          const thisThing = usersThings.filter((fil) => fil.recipe_id.id === recipeList[0].id)
+          thisThing[0].dislike = true
+          thisThing[0].favorite = false
+          thisThing[0].recipe_id = recipeList[0].id
+          console.log(thisThing[0].dislike, thisThing[0].favorite)
+          const passDislike = await Fetch('things/' + thisThing[0].id, 'PUT', thisThing[0])
         }
         const dislikeThingRecall = await Fetch('things/', 'GET')
         setUsersThings(dislikeThingRecall.data)
@@ -52,7 +60,12 @@ const Roulette = () => {
         if (favoriteResponse.status === 200) {
           console.log(favoriteResponse.message, 'favorite')
         } else if (favoriteResponse.status === 409) {
-          console.log(favoriteResponse.message)
+          const thisThing = usersThings.filter((fil) => fil.recipe_id.id === recipeList[0].id)
+          thisThing[0].dislike = false
+          thisThing[0].favorite = true
+          thisThing[0].recipe_id = recipeList[0].id
+          const passFavorite = await Fetch('things/' + recipeList[0].id, 'PUT', thisThing[0])
+          console.log(passFavorite)
         }
         const favoriteThingRecall = await Fetch('things/', 'GET')
         setUsersThings(favoriteThingRecall.data)
@@ -101,6 +114,12 @@ const Roulette = () => {
           console.log('item skipped')
           setRecipeList((prev) => [prev.shift(), ...prev])
         } else if (passResponse.status === 409) {
+          const thisThing = usersThings.filter((fil) => fil.recipe_id.id === recipeList[0].id)
+          thisThing[0].dislike = false
+          thisThing[0].favorite = false
+          thisThing[0].recipe_id = recipeList[0].id
+          const passPut = await Fetch('things/' + recipeList[0].id, 'PUT', { favorite: false, dislike: false })
+          console.log(passPut)
           setRecipeList((prev) => [prev.shift(), ...prev])
         }
         const passThingRecall = await Fetch('things/', 'GET')
