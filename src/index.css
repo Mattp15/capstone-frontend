@@ -120,8 +120,10 @@ a::after {
     display: flex;
     margin-top: auto;
     /* margin-top: 40px; */
-    width: 70%;
+    align-items: center;
     justify-content: center;
+    margin-left: 12%;
+    width: 70%;
   }
   .footer-register {
     position: absolute;
