@@ -25,4 +25,8 @@ export default List
 style.liStrike = {
   lineHeight: '2rem',
   textDecoration: 'line-through',
+  textAlign: 'right',
+}
+style.li = {
+  textAlign: 'left',
 }
