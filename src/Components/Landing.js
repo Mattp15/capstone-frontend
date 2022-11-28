@@ -7,18 +7,10 @@ import { style } from '../Resources/Style'
 const Landing = ({ item }) => {
   return (
     <div className='page-fade-in-long test'>
-      <h1 className='lettuce' style={style.lettucece}>
-        Lettuce
-      </h1>
-      <h1 className='turnip' style={style.turnip}>
-        Turnip
-      </h1>
-      <h2 className='the' style={style.the}>
-        The
-      </h2>
-      <h1 className='beet' style={style.beet}>
-        Beet
-      </h1>
+      <h1 className='lettuce'>Lettuce</h1>
+      <h1 className='turnip'>Turnip</h1>
+      <h2 className='the'>The</h2>
+      <h1 className='beet'>Beet</h1>
 
       <img src={require('../images/Characters.png')} className='characters' alt='a lettuce, turnip and beet characters' />
       <p className='donut'>Donut you know you're special?</p>

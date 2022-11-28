@@ -18,71 +18,43 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-.source {
-  text-decoration: none;
-  color: #0e79b2;
-  font-weight: bold;
-  font-size: 1.2em;
-  margin-right: 38%;
-}
-.show-recipe {
-  margin-top: 10%;
-}
-a {
-  /* font-size: 1.2em; */
-  font-weight: bold;
-  /* text-shadow: 1px 1.5px black; */
-  color: white;
-  text-decoration: none;
-}
-a::after {
-  text-decoration: none;
-  color: #0e79b2;
-  font-weight: bold;
-  font-size: 1.2em;
-}
+
 @media (max-width: 844px) {
   body {
     margin-top: -0.5%;
     max-width: 440px;
   }
-
-  .lettuce,
-  .turnip,
-  .beet,
-  .the,
-  .nav-beet,
-  .nav-lettuce,
-  .nav-the,
-  .nav-turnip {
-    font-family: 'Sofadi One', cursive;
-    position: absolute;
-    text-shadow: 1px 1px black;
-  }
-  .lettuce,
-  .turnip,
-  .beet {
-    font-size: 4.5em;
-  }
-  .lettuce {
-    /* top: -2vw; */
-    color: #e0ff87;
-    /* left: 9vw; */
-    left: 3%;
-  }
-  .turnip {
-    color: #ffe656;
-    /* left: 30vw;
-  top: 31vw; */
-    top: 11%;
-    left: 23%;
-  }
-  .the {
+  /***********
+   * GENERAL *
+   ***********/
+  .source {
+    text-decoration: none;
     color: #0e79b2;
-    font-size: 3em;
-    top: 38%;
-    left: 30%;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-right: 38%;
   }
+  .show-recipe {
+    margin-top: 10%;
+  }
+  a {
+    /* font-size: 1.2em; */
+    font-weight: bold;
+    /* text-shadow: 1px 1.5px black; */
+    color: white;
+    text-decoration: none;
+  }
+  a::after {
+    text-decoration: none;
+    color: #0e79b2;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  /***********
+   * LANDING *
+   ***********/
+
   .beet {
     color: #df0054;
     top: 36%;
@@ -99,6 +71,25 @@ a::after {
     top: 48%;
     left: 35%;
   }
+  .fresh {
+    top: 58%;
+    left: 4%;
+  }
+  .lettuce {
+    color: #e0ff87;
+    left: 3%;
+  }
+  .turnip {
+    color: #ffe656;
+    top: 11%;
+    left: 23%;
+  }
+  .the {
+    color: #0e79b2;
+    font-size: 3em;
+    top: 38%;
+    left: 30%;
+  }
   .donut,
   .fresh {
     position: absolute;
@@ -108,10 +99,27 @@ a::after {
     font-weight: bold;
     width: 60%;
   }
-  .fresh {
-    top: 58%;
-    left: 4%;
+  .lettuce,
+  .turnip,
+  .beet {
+    font-size: 4.5em;
   }
+  .lettuce,
+  .turnip,
+  .beet,
+  .the,
+  .nav-beet,
+  .nav-lettuce,
+  .nav-the,
+  .nav-turnip {
+    font-family: 'Sofadi One', cursive;
+    position: absolute;
+    text-shadow: 1px 1px black, 2px 2px black;
+  }
+
+  /*********
+   * LOGIN/REGISTER *
+   *********/
   .footer-login,
   .footer-register {
     font-size: 0.8em;
@@ -211,7 +219,6 @@ a::after {
   }
   input[type='submit'] {
     margin: 7%;
-
     height: 15vw;
     width: 200px;
     border-radius: 20px;
@@ -220,7 +227,6 @@ a::after {
     font-size: 1.2em;
     font-weight: bold;
     text-shadow: 1px 1px black;
-    /* width: 30vw; */
   }
   input[type='submit'].register-submit {
     margin-top: 100px;
@@ -240,7 +246,6 @@ a::after {
   .error-login {
     font-size: 1.2em;
   }
-
   .inputWrapper {
     height: 15vw;
     width: 80vw;
@@ -250,15 +255,7 @@ a::after {
     border: 1px solid black;
     margin: 5%;
   }
-  .karage-wrapper {
-    z-index: 1;
-    height: 170px;
-    border-radius: 150px;
-    overflow: hidden;
-    position: absolute;
-    top: 450px;
-    left: 10px;
-  }
+
   .requirements {
     position: absolute;
     top: 63%;
@@ -312,6 +309,17 @@ a::after {
     /* position: relative; */
     width: 75%;
     height: auto;
+  }
+  /*****************************************/
+
+  .karage-wrapper {
+    z-index: 1;
+    height: 170px;
+    border-radius: 150px;
+    overflow: hidden;
+    position: absolute;
+    top: 450px;
+    left: 10px;
   }
   .card-title {
     font-family: 'Montserrat', sans-serif;
