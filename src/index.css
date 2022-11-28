@@ -615,6 +615,7 @@ a::after {
     align-items: flex-start;
     flex-flow: column nowrap;
     height: 350px;
+    /* width: 400px; */
     overflow: hidden;
     transition: all 1s forwards;
   }
@@ -740,8 +741,9 @@ a::after {
   }
 
   .page-fade-in {
-    animation: show-page 1.2s ease-out forwards;
+    animation: show-page 0.4s ease-out forwards;
   }
+
   @keyframes show-page {
     0% {
       opacity: 0;
@@ -756,6 +758,7 @@ a::after {
   .page-fade-in-long {
     animation: show-page 2.2s ease-out forwards;
   }
+
   .shopping-list-single {
     width: 360px;
     /* margin-top: 5px; */

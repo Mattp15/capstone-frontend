@@ -21,13 +21,13 @@ const UserRecipeListComponent = ({ zkey, value, style, status, onClick, ids, typ
     console.log('inefffect')
   }, [usersThings])
   return (
-    <div>
+    <div classname='page-fade-in-long'>
       <li key={zkey} style={style} onClick={handleClick} className={className}>
         {value}
       </li>
       {clicked && type === 'button' ? (
         <Button
-          className='remove-button'
+          className='remove-button page-fade-in '
           value={<img src={require('../../images/remove.png')} alt='angry icecream' style={{ height: '90px', width: 'auto' }} />}
           onClick={() => {
             handleDelete(ids)

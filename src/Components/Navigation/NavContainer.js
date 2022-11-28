@@ -81,7 +81,7 @@ const NavContainer = () => {
           {loggedUser ? (
             <Button
               value={
-                <NavLink to='/login' className='nav-link'>
+                <NavLink to='/' className='nav-link'>
                   Logout
                 </NavLink>
               }

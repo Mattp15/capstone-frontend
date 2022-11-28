@@ -1,5 +1,5 @@
 const Fetch = async (url, method, data = '') => {
-  const rootUrl = 'https://lettuce-turnip-back.herokuapp.com/'
+  const rootUrl = 'http://localhost:8000/'
   let res = ''
   try {
     if (method === 'POST' || method === 'PUT') {
